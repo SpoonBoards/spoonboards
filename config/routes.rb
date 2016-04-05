@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'dashboard#index'
 
   get 'login' => 'sessions#new'
@@ -7,8 +8,14 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
+  resources :searches
+  get 'designs/index'
+
+
   get 'designs/index'
   get 'designs/show'
+
+  get 'searches/search'
 
   resources :users
   resources :boards

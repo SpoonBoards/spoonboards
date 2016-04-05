@@ -24,5 +24,12 @@
 </table>
 
 <br>
+<%= form_tag searches_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :term, params[:term] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Back to Marketplace Search', new_board_path %>
