@@ -6,6 +6,10 @@ class SearchResult
   end
 
   def display_items(individual_items)
-    individual_items.first
+    item = []
+    item << individual_items.first.second
+    item << individual_items.as_json["name"]
+    item << individual_items.as_json["thumbnail_url"]
+    return item
   end
 end
