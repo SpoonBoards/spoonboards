@@ -17,8 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.where(id: session[:user_id]), :id, :email %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
   <div>
 
   <div class="actions">
