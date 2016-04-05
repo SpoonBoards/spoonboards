@@ -2,7 +2,7 @@ class Search
   attr_accessor :results
 
   def initialize(search_term)
-    @response = HTTParty.get("https://api.spoonflower.com/design/search?#{search_term}", :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"})
+    @response = HTTParty.get("https://api.spoonflower.com/design/search?q=#{search_term}", :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"})
     @results = calculate_results
   end
 
