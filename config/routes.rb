@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :searches
   get 'designs/index'
 
   get 'designs/show'
+
+  get 'searches/search'
 
   resources :users
   resources :boards
