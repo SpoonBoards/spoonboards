@@ -1,5 +1,5 @@
 class Search
-  attr_reader :results
+  attr_accessor :results
 
   def initialize(search_term)
     @response = HTTParty.get("https://api.spoonflower.com/design/search?#{search_term}", :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"})

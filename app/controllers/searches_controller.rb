@@ -6,8 +6,7 @@ class SearchesController < ApplicationController
 
   def index
       search_term = params["term"]
-      feature_display = Search.new(search_term)
-
+      @feature_display = Search.new(search_term)
   end
 
   def results
