@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  root 'boards#index'
-  
-  get 'designs/index'
+  root 'dashboard#index'
 
+  get 'login' => 'sessions#new'
+  get 'show' => 'sessions#show'
+  post 'create' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
+
+  get 'designs/index'
   get 'designs/show'
 
   resources :users
