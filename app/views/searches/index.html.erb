@@ -1,13 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="content-container">
 
+  <h1>Market Place Search Results</h1>
 
-<% @feature_display.calculate_results.each do |x| %>
-<%= x.as_json.first.second[0] %>
-<br>
-<%= x.as_json.first.second[1] %>
-<br>
-<%= x.as_json.first.second[2] %>
-<br>
-<% end %>
+  <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Search', new_search_path %>
+  <div class="resutls-container">
+
+      <% @feature_display.calculate_results.each do |x| %>
+        <div class='result-card'>
+          <img src="<%= x.as_json.first.second[2] %>">
+          <div>ID: <%= x.as_json.first.second[0] %></div>
+          <div>Name: <%= x.as_json.first.second[1] %></div>
+          <label for="design-checkbox">Select: </label>
+          <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>">
+        </div>
+      <% end %>
+      
+    <br>
+    <br>
+    <%= link_to 'New Search', new_search_path %>
+
+  </div>
+</div>
