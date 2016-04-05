@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @feature_display.calculate_results.each do |x| %>
+<%= x.as_json.first.second[0] %>
+<br>
+<%= x.as_json.first.second[1] %>
+<br>
+<%= x.as_json.first.second[2] %>
+<br>
+<% end %>
+
+<%= link_to 'New Search', new_search_path %>
