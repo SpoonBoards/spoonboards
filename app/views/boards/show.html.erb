@@ -4,11 +4,6 @@
 
   <h1>SpoonBoard: &nbsp; <%= @board.name %></h1>
 
-  <!-- debugging  -->
-  <!-- <p><strong>Board ID: </strong> <%= @board.id %></p>
-  <p><strong>Designs: </strong> <%= @board.designs.as_json %></p>
-  <br> -->
-
   <% @feature_display.each do |design|%>
     <div class='design-card'>
       <img class="design-thumbnail" src="<%= design.third %>">

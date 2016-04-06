@@ -15,7 +15,7 @@
     <% @boards.each do |board| %>
       <tr> <td> &nbsp; </td> </tr>
       <tr>
-        <td> &nbsp; <img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id).third %>" width="100px" height="100px"></td>
+        <!-- <td> &nbsp; <img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id).third %>" width="100px" height="100px"></td> -->
         <td> &nbsp; <%= board.name %></td>
         <td> &nbsp; <%= link_to 'Show', board %></td>
         <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
