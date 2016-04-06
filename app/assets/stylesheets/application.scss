@@ -33,7 +33,9 @@ h1 {
   margin-left: 5% !important;
 }
 
-.market-search-result-card {
+// design card styles
+
+.design-card {
   // border: 1px dashed red;
   display: inline-block;
   width: 200px;
@@ -55,7 +57,7 @@ h1 {
 
 .design-board-dropdown-label-wrapper,
 .design-board-dropdown-wrapper,
-.design-board-add-btn-wrapper {
+.design-board-btn-wrapper {
   display: inline-block;
 }
 
@@ -65,7 +67,7 @@ h1 {
   height: 20px;
 }
 
-.design-board-add-btn {
+.design-board-btn {
   border: 1px solid #888;
   border-radius: 3px;
   background: #ddd;
@@ -191,4 +193,10 @@ h1 {
     text-decoration: underline;
     background: none;
   }
+}
+
+// spoonboard-continer styles
+
+.spoonboard-continer {
+  margin-left: 5% !important;
 }

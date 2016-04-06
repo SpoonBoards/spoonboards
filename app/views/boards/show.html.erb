@@ -1,40 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @board.name %>
-</p>
+<div class="spoonboard-continer">
 
+  <h1>SpoonBoard: &nbsp; <%= @board.name %></h1>
 
-<p>
-  <strong>Board ID:</strong>
-  <%= @board.id %>
-</p>
+  <!-- debugging  -->
+  <p><strong>Board ID: </strong> <%= @board.id %></p>
+  <p><strong>Designs: </strong> <%= @board.designs.as_json %></p>
+  <br>
 
-<p>
-  <strong>Designs:</strong>
-  <%= @board.designs.as_json %>
-</p>
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back to My Boards', boards_path %>
-
-
-
-
-
-<br>
   <% @feature_display.each do |design|%>
-
-  <%= design.first %>
-  <br>
-    <%= design.second %>
-    <br>
-      <%= design.third %>
-  <br>
+    <div class='design-card'>
+      <img class="design-thumbnail" src="<%= design.third %>">
+      <div class="design-id">ID: <%= design.first %></div>
+      <div class="design-name">Name: <%= design.second %></div>
+      <div class="design-board-btn-wrapper"> <%= submit_tag("Remove", class: "design-board-btn") %> </div>
+    </div>
   <% end %>
 
+  <br>
+  <br>
 
+  <%= link_to 'Edit', edit_board_path(@board) %> | <%= link_to 'Back to My Boards', boards_path %>
 
+  <br>
+  <br>
 
-
-</p>
+</div>
