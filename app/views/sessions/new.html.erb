@@ -1,20 +1,44 @@
 <p id="alert"><%= alert %></p>
 <p id="notice"><%= notice %></p>
-<div class="jumbotron">
+
+<div class="login-background-container" style="background-image:url(<%= asset_path('spoonboards-login-background-black-overlay.jpg') %>);" >
+
   <div class="login-container">
-    <div class="title-container">
-      <h1 class="login-title"> Login</h1>
+
+    <div class="login-title-container">
+      <!-- <h1 class="login-title"> Login</h1> -->
+      <img class="login-title-image" src="<%= asset_path('spoonboards-logo.png') %>" alt="SpoonBoards Logo">
     </div>
+
     <div class="login-form">
       <%= form_tag create_path do %>
-        <p><%= label_tag :email %>
-        <%= email_field_tag :email %></p>
-        <br>
-        <p><%= label_tag :password %>
-        <%= password_field_tag :password %></p>
-        <div class="login-submit"> <%= submit_tag "Log in" %> </div>
-        <div class="logout-submit"> <%= submit_tag "Log out" %> </div>
+        <!-- <p><%= label_tag :email %> -->
+        <div class="login-email-wrapper">
+          <%= email_field_tag :email, "", class: "login-email-input", placeholder: "                     email" %>
+        </div>
+        <!-- <br> -->
+        <!-- <p><%= label_tag :password %> -->
+        <div class="login-password-wrapper">
+          <%= password_field_tag :password, "", class: "login-password-input", placeholder: "                 password" %>
+        </div>
+        <div class="login-or-wrapper">
+          or
+        </div>
+        <div class="login-btn-wrapper">
+          <button class="login-pinterest-btn"><i class="fa fa-pinterest-square"></i> &nbsp; <span>Sign in with Pinterest</span></button>
+        </div>
+        <div class="login-btn-wrapper">
+          <button class="login-facebook-btn"><i class="fa fa-facebook-square"></i> &nbsp; <span>Sign with Facebook</span></button>
+        </div>
+        <div class="login-btn-wrapper">
+          <%= submit_tag "login", class: "login-submit-btn" %>
+        </div>
+        <div class="login-register-account-wrapper">
+          Don't have an account? &nbsp; <a class="login-register-account-link" href="users/new"> Register</a>
+        </div>
+        <!-- <div class="logout-submit"> <%= submit_tag "Log out" %> </div> -->
       <% end %>
+
     </div>
   </div>
 </div>
