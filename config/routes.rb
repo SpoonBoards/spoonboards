@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'dashboard#index'
+  root 'sessions#new'
 
   get 'login' => 'sessions#new'
   get 'show' => 'sessions#show'
