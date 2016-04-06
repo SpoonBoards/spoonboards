@@ -1,31 +1,24 @@
-<div class="content-container">
+<div class="market-search-container">
 
   <h1>Market Place Search Results</h1>
 
   <p id="notice"><%= notice %></p>
 
-  <div class="resutls-container">
+  <div class="market-search-resutls-container">
 
-      <% @new_search.calculate_results.each do |x| %>
-        <div class='result-card'>
-          <img src="<%= x.as_json.first.second[2] %>">
-          <div>ID: <%= x.as_json.first.second[0] %></div>
-          <div>Name: <%= x.as_json.first.second[1] %></div>
-          <!-- <label for="design-checkbox">Select: </label> -->
-          <!-- <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>"> -->
+      <% @feature_display.calculate_results.each do |x| %>
+        <div class='market-search-result-card'>
+          <img class="design-thumbnail" src="<%= x.as_json.first.second[2] %>" >
+          <div class="design-id">ID: <%= x.as_json.first.second[0] %></div>
+          <div class="design-name">Name: <%= x.as_json.first.second[1] %></div>
+          <!-- <label class="design-checkbox-label" for="design-checkbox">Select: </label>
+          <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>"> -->
           <%= form_tag(controller: "designs", action: "create", method: "get") do %>
             <%= label_tag(:board_id, "Board:") %>
           <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }) %>
             <%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0]  %>
           <br>
             <%= submit_tag("Add") %>
-          <% end %>
-
-
-
-
-
-
         </div>
       <% end %>
 
