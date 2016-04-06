@@ -6,13 +6,26 @@
 
   <div class="resutls-container">
 
-      <% @feature_display.calculate_results.each do |x| %>
+      <% @new_search.calculate_results.each do |x| %>
         <div class='result-card'>
           <img src="<%= x.as_json.first.second[2] %>">
           <div>ID: <%= x.as_json.first.second[0] %></div>
           <div>Name: <%= x.as_json.first.second[1] %></div>
-          <label for="design-checkbox">Select: </label>
-          <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>">
+          <!-- <label for="design-checkbox">Select: </label> -->
+          <!-- <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>"> -->
+          <%= form_tag(controller: "designs", action: "create", method: "get") do %>
+            <%= label_tag(:board_id, "Board:") %>
+          <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }) %>
+            <%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0]  %>
+          <br>
+            <%= submit_tag("Add") %>
+          <% end %>
+
+
+
+
+
+
         </div>
       <% end %>
 
