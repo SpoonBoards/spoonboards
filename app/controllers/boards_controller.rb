@@ -10,6 +10,13 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
+    @designs = @board.designs
+    @feature_display = []
+
+    @designs.each do |design|
+      @feature_display <<  design.get_json_for_design(design.spoonflower_id)
+    end
+
   end
 
   # GET /boards/new
