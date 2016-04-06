@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
- 
+
 body {
-  // margin: 5%;
+  background: #fdfdfd;  // pure white is too intense
   font: {
     family: "Lato", sans-serif;
-    size: 1em;
+    size: 100%; // relative ems
   }
 }
 
@@ -26,31 +26,19 @@ h1 {
   font-size: 1.5em;
 }
 
-.content-container {
+// market search results styles
+
+.market-search-container {
   margin-left: 5% !important;
 }
 
-.search-btn {
-  font-size: 1em;
-  background: lightgreen;
-  border: 1px solid green;
-  border-radius: 3px;
-  padding: 2px 10px;
-
-}
-
-.search-add-btn {
-  margin-top: 25px;
-}
-
-.result-card {
+.market-search-result-card {
   // border: 1px dashed red;
   display: inline-block;
   width: 200px;
   height: 260px;
   padding: 20px;
   font-size: 0.8em;
-  overflow: hidden;
   white-space: nowrap;
   img {
     width: 200px;
@@ -58,17 +46,130 @@ h1 {
   }
 }
 
-.results-total {
-  // border: 1px dashed red;
-  margin: 1.5em 0;
-  width: 100%;
+.design-name {
+  overflow-y: hidden;
+  // overflow-x: scroll;
+  overflow-x: hidden;
 }
 
-.fa-search {
-  font-size: 1.4em !important;
+// login styles
+
+.login-background-container {
+  // background image is loaded as inline style with ruby on rails templating
+  background: #666;  // default background color
+  width: 750px;   // this value plus padding is width of container
+  height: 375px;  // this value plaus padding is height of container
+  margin: 5% auto;
+  padding: 125px 0 100px 0;
 }
 
-#search-box {
+.login-container{
+  width: 407px;
+  height: 407px;
+  margin: auto;
+}
+
+.login-title-image {
+  width: 407px;
+  height: 71px;
+  margin: 0 auto;
+}
+
+.login-form {
+  color: #fff;
+}
+
+.login-email-wrapper,
+.login-password-wrapper,
+.login-or-wrapper,
+.login-btn-wrapper,
+.login-register-account-wrapper {
+  // border: 1px dashed white;
+  text-align: center;
+}
+
+.login-email-input,
+.login-password-input {
+  width: 240px;
+  height: 30px;
+  border-radius: 8px;
   font-size: 1em;
-  height: 20px;
+  border: 1px solid #fff;
+  margin: 0 auto;
+}
+
+.login-email-input {
+  margin: 30px 0 10px 0;
+
+}
+
+.login-password-input {
+  margin: 0 0 10px 0;
+}
+
+.login-facebook-btn,
+.login-pinterest-btn {
+  width: 215px;
+  height: 30px;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #fff;
+  padding: 5px 0 5px 0;
+  // margin-bottom: 10px;
+  background: #666; // default - overidden below
+  border: 1px solid grey; // default - overidden below
+  // a {
+  //   text-decoration: none;
+  //   color: #fff;
+  // }
+  .fa-facebook-square {
+    font-size: 16px !important;
+  }
+  .fa-pinterest-square {
+    font-size: 16px !important;
+  }
+}
+
+.login-pinterest-btn {
+  background: rgb(149, 25, 23);
+  border: 1px solid rgb(182, 0, 79);
+  margin: 10px 0;
+}
+
+.login-facebook-btn {
+  background: rgb(14, 59, 119);
+  border: 1px solid rgb(37, 46, 263);
+  margin-bottom: 30px;
+}
+
+// .login-facebook-btn span {
+// }
+
+
+.login-submit-btn {
+  width: 80px;
+  height: 26px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  background: #fdfdfd;
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.login-or-wrapper,
+.login-register-account-wrapper {
+  font-size: 1.15em;
+  font-weight: bold;
+  // prevents strange inheritance from unknown source
+  .login-register-account-link,
+  .login-register-account-link:visited {
+    text-decoration: none;
+    color: #fff;
+    background: none;
+  }
+  .login-register-account-link:hover {
+    text-decoration: underline;
+    background: none;
+  }
 }
