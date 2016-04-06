@@ -1,7 +1,5 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate
-
 
   # GET /boards
   # GET /boards.json
