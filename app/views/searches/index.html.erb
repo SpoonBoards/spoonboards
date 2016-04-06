@@ -1,6 +1,6 @@
 <div class="market-search-container">
 
-  <h1>Market Place Search Results</h1>
+  <h1>Marketplace Search Results</h1>
 
   <p id="notice"><%= notice %></p>
 
@@ -17,13 +17,15 @@
             <%= label_tag(:board_id, "Board:") %>
           <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }) %>
             <%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0]  %>
-          <br>
+          &nbsp;
             <%= submit_tag("Add") %>
         </div>
+        <% end %>
       <% end %>
 
     <br>
     <br>
+
     <%= link_to 'New Search', boards_path %>
 
   </div>
