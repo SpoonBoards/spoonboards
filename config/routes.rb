@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   resources :searches
+  post 'searches/index'
   get 'designs/index'
 
 
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   get 'designs/show'
 
   get 'searches/search'
-
+  resources :designs
   resources :users
   resources :boards
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,5 +10,11 @@
   <%= @board.user_id %>
 </p>
 
+<p>
+  <strong>Designs:</strong>
+  <%= @board.designs.as_json %>
+</p>
+
+
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back to My Boards', boards_path %>
