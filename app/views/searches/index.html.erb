@@ -7,18 +7,15 @@
   <div class="market-search-resutls-container">
 
       <% @feature_display.calculate_results.each do |x| %>
-        <div class='market-search-result-card'>
+        <div class='design-card'>
           <img class="design-thumbnail" src="<%= x.as_json.first.second[2] %>" >
           <div class="design-id">ID: <%= x.as_json.first.second[0] %></div>
           <div class="design-name">Name: <%= x.as_json.first.second[1] %></div>
-          <!-- <label class="design-checkbox-label" for="design-checkbox">Select: </label>
-          <input class="design-checkbox" type="checkbox" name="design-checkbox" value="<%= x.as_json.first.second[0] %>"> -->
-          <%= form_tag(controller: "designs", action: "create", method: "get") do %>
-            <%= label_tag(:board_id, "Board:") %>
-          <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }) %>
-            <%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0]  %>
-          &nbsp;
-            <%= submit_tag("Add") %>
+          <div class="design-form-wrapper"><%= form_tag(controller: "designs", action: "create", method: "get", class: "design-form") do %></div>
+          <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "Board:", class: "design-board-dropdown-label") %> &nbsp; </div>
+          <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
+          <div class="design-board-btn-wrapper"> &nbsp; <%= submit_tag("Add", class: "design-board-btn") %> </div>
+          <div class="design-borad-hidden-spoonflower-id-wrapper"><%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0] %> </div>
         </div>
         <% end %>
       <% end %>

@@ -15,7 +15,8 @@
  */
 
 body {
-  background: #fdfdfd;  // pure white is too intense
+  background: #fdfaf1;  // pure white is too intense for background
+  // background: #fdfdfd;
   font: {
     family: "Lato", sans-serif;
     size: 100%; // relative ems
@@ -32,7 +33,9 @@ h1 {
   margin-left: 5% !important;
 }
 
-.market-search-result-card {
+// design card styles
+
+.design-card {
   // border: 1px dashed red;
   display: inline-block;
   width: 200px;
@@ -52,6 +55,24 @@ h1 {
   overflow-x: hidden;
 }
 
+.design-board-dropdown-label-wrapper,
+.design-board-dropdown-wrapper,
+.design-board-btn-wrapper {
+  display: inline-block;
+}
+
+.design-board-dropdown {
+  // border: 1px solid #666;
+  width: 110px;
+  height: 20px;
+}
+
+.design-board-btn {
+  border: 1px solid #888;
+  border-radius: 3px;
+  background: #ddd;
+}
+
 // login styles
 
 .login-background-container {
@@ -61,6 +82,7 @@ h1 {
   height: 375px;  // this value plaus padding is height of container
   margin: 5% auto;
   padding: 125px 0 100px 0;
+  border: 15px solid #fff;
 }
 
 .login-container{
@@ -145,7 +167,6 @@ h1 {
 // .login-facebook-btn span {
 // }
 
-
 .login-submit-btn {
   width: 80px;
   height: 26px;
@@ -172,4 +193,10 @@ h1 {
     text-decoration: underline;
     background: none;
   }
+}
+
+// spoonboard-continer styles
+
+.spoonboard-continer {
+  margin-left: 5% !important;
 }
