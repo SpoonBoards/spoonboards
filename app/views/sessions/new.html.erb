@@ -3,18 +3,19 @@
 <div class="jumbotron">
   <div class="login-container">
     <div class="title-container">
-      <h1 class="login-title"> Login</h1>
+      <h1 class="login-title"> SpoonBoards </h1>
     </div>
+    <p>Please sign in</p>
     <div class="login-form">
       <%= form_tag create_path do %>
         <p><%= label_tag :email %>
         <%= email_field_tag :email %></p>
-        <br>
         <p><%= label_tag :password %>
         <%= password_field_tag :password %></p>
         <div class="login-submit"> <%= submit_tag "Log in" %> </div>
         <div class="logout-submit"> <%= submit_tag "Log out" %> </div>
       <% end %>
-    </div>
+    </div><br>
+    <p>Don't have an account? <%= link_to 'Register here.', new_user_path(@user) %></p>
   </div>
 </div>
