@@ -2,8 +2,8 @@ class Design < ActiveRecord::Base
   belongs_to :board
 
 
-  def get_json_for_design(design_id)
-    @response = HTTParty.get("https://api.spoonflower.com:443/design/#{design_id}", :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"})
+  def get_json_for_design(spoonflower_id)
+    @response = HTTParty.get("https://api.spoonflower.com:443/design/#{spoonflower_id}", :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"})
     @results = display_items(@response)
   end
 

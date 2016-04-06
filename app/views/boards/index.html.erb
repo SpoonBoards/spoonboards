@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Board ID</th>
+      <th></th>
+      <th>Collection Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +14,7 @@
   <tbody>
     <% @boards.each do |board| %>
       <tr>
+        <td><%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id).third %></td>
         <td><%= board.name %></td>
         <td><%= link_to 'Show', board %></td>
         <td><%= link_to 'Edit', edit_board_path(board) %></td>
