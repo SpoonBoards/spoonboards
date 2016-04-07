@@ -7,12 +7,6 @@ class Design < ActiveRecord::Base
     @results = display_items(@response, design_id)
   end
 
-  def board_display
-    results = []
-    @response["results"].each do |json|
-    byebug
-    end
-  end
 
   def display_items(individual_items, design_id)
     item = []
