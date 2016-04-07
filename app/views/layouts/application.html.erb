@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Spoonboards</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <!-- test fonts styles -->
-  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic' rel='stylesheet' type='text/css'> -->
-  <!-- <link rel="stylesheet" href="https://www.google.com/fonts#UsePlace:use/Collection:Montserrat:400,700" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <header>
+  <head>
+    <title>Spoonboards</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!-- test fonts -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic' rel='stylesheet' type='text/css'> -->
+    <!-- <link rel="stylesheet" href="https://www.google.com/fonts#UsePlace:use/Collection:Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
 
-  </header>
+    </header>
 
 
-<%= yield %>
+    <%= yield %>
 
-<%= link_to 'Logout', logout_path %>
+    <%= link_to 'Logout', logout_path %>
 
-</body>
 
+  </body>
 </html>
