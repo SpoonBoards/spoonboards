@@ -12,15 +12,16 @@
   </thead>
   <tbody>
     <% @boards.each do |board| %>
-      <tr> <td> &nbsp; </td> </tr>
       <tr>
-        <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id).third %>" width="100" height="100"></td>
+        <% if board.designs.as_json.length > 0 %>
+        <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>" width="100" height="100"></td>
+        <% else %>
+        <% end %>
         <td> &nbsp; <%= board.name %></td>
         <td> &nbsp; <%= link_to 'Show', board %></td>
         <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
         <td> &nbsp; <%= link_to 'Remove', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <tr> <td> &nbsp; </td> </tr>
     <% end %>
   </tbody>
 </table>
@@ -35,7 +36,11 @@
 <% end %>
 
 
+<<<<<<< HEAD
 <%= link_to 'Create a New Board', new_board_path %>
 
 <br>
 <br>
+=======
+<%= link_to 'Back to Create a New Board', new_board_path %>
+>>>>>>> 57925c39f7b2024f327a0ec99fe6c379295edf3b

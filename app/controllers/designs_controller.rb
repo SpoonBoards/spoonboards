@@ -17,13 +17,21 @@ class DesignsController < ApplicationController
       else
         render boards_path
       end
+    end
+
+  def destroy
+    @design = Design.find(params[:design_id])
+    @design.destroy
+    respond_to do |format|
+      format.html { redirect_to boards_path, notice: 'Design was successfully removed.' }
+    end
   end
 
 private
 
-def design_params
-  params.require(:design).permit(:board_id, :spoonflower_id)
-end
+  def design_params
+    params.require(:design).permit(:board_id, :spoonflower_id)
+  end
 
 
 end
