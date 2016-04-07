@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'searches/index'
   get 'designs/index'
 
+  get 'auth/pinterest/callback', to: 'sessions#create'
 
   get 'designs/index'
   get 'designs/show'
