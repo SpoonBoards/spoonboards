@@ -8,7 +8,7 @@ def get_first_image
   if target_design == nil
     return "http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"
   else
-    target_image = target_design.get_json_for_design(target_design.spoonflower_id, target_design.id).third
+    target_image = target_design.get_json_for_design(target_design.spoonflower_id, target_design.id)[2]
   end
 
 end
