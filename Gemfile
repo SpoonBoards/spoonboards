@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-pinterest'
+
 ruby '2.3.0'
 gem 'rails-footnotes', '~> 4.0'
 gem 'puma'
