@@ -22,15 +22,19 @@
       <img class="design-thumbnail" src="<%= design.third %>">
       <div class="design-id">ID: <%= design.first %></div>
       <div class="design-name">Name: <%= design.second %></div>
+      <div>  <%= design[3] %></div>
+
+<%= button_to "delete", design_path(:design_id => design[3]), :method => :delete %>
+
+
       <div class="design-board-btn-wrapper"> <%= submit_tag("Remove", class: "design-board-btn") %> </div>
     </div>
   <% end %>
 
   <br>
   <br>
-  <td><%= link_to 'Destroy', @design, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-  <% end %>
+
 
 
   <%= link_to 'Edit', edit_board_path(@board) %> | <%= link_to 'Back to My Boards', boards_path %>
