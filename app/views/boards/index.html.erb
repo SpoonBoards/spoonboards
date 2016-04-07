@@ -16,7 +16,8 @@
       <tr>
         <% if board.designs.as_json.length == 0 %>
         <% elsif board.designs.as_json.length > 0 %>
-        <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>" width="100" height="100"></td>
+        <% boardimage = board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>
+        <td><img src="<%= boardimage %>" width="100" height="100"></td>
         <% end %>
         <td> &nbsp; <%= board.name %></td>
         <td> &nbsp; <%= link_to 'Show', board %></td>
