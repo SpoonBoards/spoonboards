@@ -14,7 +14,7 @@
   <tbody>
     <% @boards.each do |board| %>
       <tr>
-        <td><img src="<%= board.get_first_image %>" width="100" height="100"></td>
+        <td><img src="<%= @board.get_first_image if board.user_id %>" width="100" height="100"></td>
         <td> &nbsp; <%= board.name %></td>
         <td> &nbsp; <%= link_to 'Show', board %></td>
         <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
