@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  get '/auth/:pinterest/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'sessions#create'
   get 'login' => 'sessions#new'
   get 'show' => 'sessions#show'
   post 'create' => 'sessions#create'
