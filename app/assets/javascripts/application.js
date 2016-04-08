@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// function restart() {
+//   var row = $(event.target).closest("#card-display-loopz");
+//   row.css("display", "none");
+// };
+//   // var checkbox = $(event.target).siblings().last();
+//   // checkbox.prop("checked", true);
+// }
+//
+// function bindDeleteClick() {
+//   $(".design-board-btn").on("click", deleteRow);
+// }
+
+// $(bindDeleteClick)
+
+function restart() {
+  $("#card-display-loop").load(location.href + " #card-display-loop");
+};
+
+function bindDeleteClick() {
+  $(".design-board-btn").on("click", restart);
+};
