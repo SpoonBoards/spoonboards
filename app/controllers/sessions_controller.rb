@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       end
 
     elsif user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
+byebug
       session[:user_id] = user.id
       redirect_to boards_path, notice: "Yay omniauth worked!"
     else
