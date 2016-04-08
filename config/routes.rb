@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
 
+
   post 'searches/index'
   get 'designs/index'
   get 'designs/show'
