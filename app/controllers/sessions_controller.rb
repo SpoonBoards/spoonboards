@@ -9,18 +9,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if request.post?
-    user = User.find_by_email(params[:email])
+    if user = User.find_by_email(params[:email])
 
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to boards_path(user), notice: "You have successfully logged in!"
       end
 
-    elsif
-      user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
+    elsif user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
-      redirect_to boards_path, notice: "SIGNED IN"
+      redirect_to boards_path, notice: "Yay omniauth worked!"
     else
       flash.now[:alert] = "Login failed: invalid email or password."
       render root_path
@@ -29,7 +27,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    session[:omniauth] = nil
     redirect_to root_path, notice: "You have logged out."
   end
 
