@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'omniauth', '~> 1.3', '>= 1.3.1'
+ruby '2.3.0'
+
+gem 'omniauth'
 gem 'omniauth-pinterest'
 
-ruby '2.3.0'
+gem 'localtunnel'
 gem 'rails-footnotes', '~> 4.0'
 gem 'puma'
 gem 'httparty'
