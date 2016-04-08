@@ -30,10 +30,20 @@
 
 // $(bindDeleteClick)
 
-function restart() {
-  $("#card-display-loop").load(location.href + " #card-display-loop");
-};
+// function restart(element) {
+//   $("#card-display-loop").load(location.href + " #card-display-loop");
+// };
+//
+// function bindDeleteClick() {
+//   $(".design-board-btn").on("click", restart);
+// };
 
-function bindDeleteClick() {
-  $(".design-board-btn").on("click", restart);
-};
+  // $(".design-board-btn").on("click", function() {
+  //   console.log("** button click **");
+  //   // $("#card-display-loop").load(location.href + " #card-display-loop");
+  // });
+
+  // $(".design-board-btn").on("click", function() {
+  //   console.log("** button click **");
+  //   // $("#card-display-loop").load(location.href + " #card-display-loop");
+  // });
