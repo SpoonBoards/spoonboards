@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   get '/auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => 'sessions#new'
   get 'login' => 'sessions#new'
   get 'show' => 'sessions#show'
   post 'create' => 'sessions#create'
