@@ -6,15 +6,17 @@ class User < ActiveRecord::Base
   validates :password, presence: true
 
   def self.sign_in_from_omniauth(auth)
-    find_by(provider: auth['provider'], uid['uid']) || create_user_from_omniauth(auth)
+    find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
   end
 
   def self.create_user_from_omniauth(auth)
-    create(
-    provider: auth['provider'],
-    uid: auth['uid'],
-    name: auth['info']['name']
-    )
+    create! do |user|
+    user.provider = auth['provider']
+    user.uid = auth['uid']
+    user.name = auth['info']['name']
+    user.password = SecureRandom.hex(9)
+    user.save
   end
+end
 
 end

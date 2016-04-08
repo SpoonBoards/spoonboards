@@ -9,19 +9,16 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
-  resources :searches
+
   post 'searches/index'
   get 'designs/index'
-
-  get 'auth/pinterest/callback', to: 'boards#index'
-
-  get 'designs/index'
   get 'designs/show'
-
   get 'searches/search'
   resources :designs
   resources :users
   resources :boards
+  resources :sessions
+  resources :searches
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
