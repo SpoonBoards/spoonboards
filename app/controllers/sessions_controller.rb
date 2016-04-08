@@ -9,12 +9,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.find_by_email(params[:email])
-
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect_to boards_path(user), notice: "Signed in!"
-      end
+    if user = User.find_by_email(params[:email]) && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to boards_path(user), notice: "Signed in!"
 
     elsif user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
