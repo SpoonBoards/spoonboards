@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   end
 
   def self.create_user_from_omniauth(auth)
+    puts auth
     create! do |user|
-    user.provider = auth['provider']
-    user.uid = auth['uid']
-    user.name = auth['info']['name']
-    user.password = SecureRandom.hex(9)
-    user.save
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.name = auth['info']['name']
+      user.save
+    end
   end
-end
 
 end
