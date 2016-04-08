@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
-      user.name = auth[:first_name]+ " "+auth[:last_name]
+      user.name = auth[:first_name]+ " " +auth[:last_name]
       user.save
     end
   end
