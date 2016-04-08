@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.provider = auth['provider']
       user.uid = auth['uid']
       user.name = "#{auth[:first_name]}" + " #{auth[:last_name]}"
+      user.password = SecureRandom.hex
       user.save
     end
   end
