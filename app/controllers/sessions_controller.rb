@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       end
 
     elsif
-      user = User.sign_in_from_omniauth(request.ENV["omniauth.auth"])
+      user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
       redirect_to boards_path, notice: "SIGNED IN"
     else
