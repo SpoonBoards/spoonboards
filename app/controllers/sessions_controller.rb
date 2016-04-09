@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to boards_path(user), notice: "Signed in!"
 
-    elsif user.blank? == true && params[:email].length >= 3 || user.authenticate(params[:password]) == false
+    elsif user.blank? == true && params[:email].length >= 3 || user.authenticate(params[:password]) == false && params[:email].length >= 3
       redirect_to login_path, notice: "Login failed: invalid email or password."
 
     else
