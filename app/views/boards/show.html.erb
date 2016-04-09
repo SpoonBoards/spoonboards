@@ -1,36 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<div class="spoonboard-continer">
+<!-- <div class="spoonboard-continer"> -->
 
-  <h1>SpoonBoard: &nbsp; <%= @board.name %></h1>
+  <!-- Debugging code DO NOT ERASE Please ;-) -->
+  <!-- <p>
+    <strong>Board ID:</strong>
+    <%= @board.id %>
+  </p>
 
-<!-- <p>
-  <strong>Board ID:</strong>
-  <%= @board.id %>
-</p>
+  <p>
+    <strong>Designs:</strong>
+    <%= @board.designs.as_json %>
+  </p> -->
 
-<p>
-  <strong>Designs:</strong>
-  <%= @board.designs.as_json %>
-</p> -->
+  <p id="notice"><%= notice %> &nbsp; </p>
 
-
-<br>
-
-  <% @feature_display.each do |design|%>
-    <div class='design-card'>
-      <img class="design-thumbnail" src="<%= design.third %>">
-      <div class="design-id">Design ID: <%= design.first %></div>
-      <div class="design-id">Booard ID: <%= design[3] %></div>
-      <div class="design-name">Name: <%= design.second %></div>
-      <!-- <div>  <%= design[3] %></div> -->
-
-      <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
-
-
-      <!-- <div class="design-board-btn-wrapper"> <%= submit_tag("RemoveOLD", class: "design-board-btn") %> </div> -->
+  <div class="board-container">
+    <div class="board-name-wrapper">
+      <div class="board-name"><%= @board.name %></div>
     </div>
-  <% end %>
+    <% @feature_display.each do |design|%>
+      <div class="board-card">
+        <img class="design-thumbnail" src="<%= design.third %>">
+        <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
+        <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
+        <div class="design-name">Name: <%= design.second %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+
+
+<!-- <div class="board-design-hover-content"> XXXXX </div> -->
+
+      </div>
+      <!-- </div> -->
+    <% end %>
+  </div>
 
   <br>
   <br>
@@ -40,4 +42,4 @@
   <br>
   <br>
 
-</div>
+<!-- </div> -->
