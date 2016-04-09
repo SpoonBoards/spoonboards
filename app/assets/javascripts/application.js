@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+/*
+* hide DOM elements
+*/
+function hideElement(element) {
+  console.log("** function call : hideElement() ** ", element);
+  $(element).hide();
+}
