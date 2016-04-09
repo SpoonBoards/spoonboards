@@ -178,15 +178,15 @@ a {
   display: none;
 }
 
-.board-card design-thumbnail:hover {
-  color: yellow;
-  .board-design-hover-content {
-    display: block;
-    position: absolute;
-    top: 500px;
-    left: 20px;
-  }
-}
+// .board-card design-thumbnail:hover {
+//   color: yellow;
+//   .board-design-hover-content {
+//     display: block;
+//     position: absolute;
+//     top: 500px;
+//     left: 20px;
+//   }
+// }
 
 // login styles
 
@@ -253,10 +253,10 @@ a {
   font-size: 0.8em;
   color: #fff;
   padding: 5px 0 5px 0;
-  // margin-bottom: 10px;
+  margin-bottom: 10px;
   background: #666; // default - overidden below
   border: 1px solid grey; // default - overidden below
-  // a {
+  // a, a:hover {
   //   text-decoration: none;
   //   color: #fff;
   // }
