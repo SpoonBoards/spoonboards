@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_user, only: [:edit, :update, :delete]
-  before_action :authenticate, except: [:new, :create]
+  # before_action :authenticate, except: [:new, :create]
 
   def new
   end
@@ -9,13 +9,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.find_by_email(params[:email]) && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to boards_path(user), notice: "Signed in!"
+    if request.post?
+      user = User.find_by_email(params[:email])
+        if user && user.authenticate(params[:password])
+          session[:user_id] = user.id
+          redirect_to boards_path(user), notice: "Signed in!"
+        end
 
-    #  user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
-    #   session[:user_id] = user.id
-    #   redirect_to boards_path, notice: "Signed in!"
+    elsif user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
+      session[:user_id] = user.id
+      redirect_to boards_path, notice: "Signed in!"
 
     else
       flash.now[:alert] = "Login failed: invalid email or password."
@@ -23,19 +26,21 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth
-     user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
-      session[:user_id] = user.id
-      redirect_to boards_path, notice: "Signed in!"
-
-      # auth = request.env["omniauth.auth"]
-      # user = User.find_by_provider_and_uid(auth["pinterest"], auth["uid"]) || User.create_with_omniauth(auth)
-      # session[:user_id] = user.id
-      # redirect_to boards_path, :notice => "Signed in!"
-    end
+  # def omniauth
+  #    user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
+  #     session[:user_id] = user.id
+  #     redirect_to boards_path, notice: "Signed in!"
+  #
+  #     # auth = request.env["omniauth.auth"]
+  #     # user = User.find_by_provider_and_uid(auth["pinterest"], auth["uid"]) || User.create_with_omniauth(auth)
+  #     # session[:user_id] = user.id
+  #     # redirect_to boards_path, :notice => "Signed in!"
+  #   end
 
   def destroy
+    @current_user = nil
     session[:user_id] = nil
+    session[:omniauth] = nil
     redirect_to root_path, notice: "You have logged out."
   end
 
