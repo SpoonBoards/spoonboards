@@ -1,26 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Spoonboards</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <!-- test fonts styles -->
-  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic' rel='stylesheet' type='text/css'> -->
-  <!-- <link rel="stylesheet" href="https://www.google.com/fonts#UsePlace:use/Collection:Montserrat:400,700" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <header>
+  <head>
+    <title>Spoonboards</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!-- test fonts -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic' rel='stylesheet' type='text/css'> -->
+    <!-- <link rel="stylesheet" href="https://www.google.com/fonts#UsePlace:use/Collection:Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
 
-  </header>
+      <nav>
+        <ul>
+          <li><a href="/searches">Search</a></li>
+          <li><a href="/boards">SpoonBoards</a></li>
+          <li><a href="#">Shopping Cart</a></li>
+          <li><a href="/users">Profile</a></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        </ul>
+      </nav>
 
+      <div class="header-images-wrapper">
+        <img class="header-images" src="<%= asset_path('rdino_jade_full_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rkatta2_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rr4850076_rSPOONS1repeated_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrfitness_300_WATER_BOTTLES_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrjellyfishes_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrrcolorful_ellie_copy_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrrNOV-KID-tiger-camping-203-01_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrrrrrcosy_snuggles_revamp_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrrrVenus_Shirt_pattern_cool_tone_shades_150_18H_shop_crop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrvalentine_red_pink_brown_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rmodbabysm-dropsmint_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrturtle_single_repeat_v_final_blues-01_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('Space_Invaders_1_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrmonkey-forest2_shop_thumb.png') %>" alt="Design">
+        <img class="header-images" src="<%= asset_path('rrtumblr_lx3o12NY0N1r94cc5o1_500_shop_thumb.png') %>" alt="Design">
+      </div>
 
-<%= yield %>
+      <div class="header-images-overlay">
+        <!-- <img class="header-title-image" src="<%= asset_path('spoonboards-logo.png') %>" alt="Logo"> -->
+        <span class="header-images-overlay-title">SpoonBoards</span>
+        <span class="header-images-overlay-text">Curate your favorite designs...</span>
+      </div>
 
-<%= link_to 'Logout', logout_path %>
+      <div class="header-search-container">
+        <%= form_tag searches_path, :method => 'get' do %>
+          <div class="header-search-title">Spoonflower</div>
+          <div class="header-search-input-wrapper"><%= text_field_tag :term, params[:term], class: "header-search-input" %></div>
+          <div class="header-search-btn-wrapper"><%= submit_tag "Search", :name => nil, class: "header-search-btn" %></div>
+        <% end %>
+      </div>
 
-</body>
+    </header>
 
+    <div class="yield-container"> <%= yield %> </div>
+
+    <footer>
+      <!-- footer content -->
+    </footer>
+
+  </body>
 </html>

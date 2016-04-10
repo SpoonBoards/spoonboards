@@ -9,7 +9,8 @@ body {
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 15px;
+   margin: 10px;
 }
 
 pre {
@@ -18,18 +19,19 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+// Check with Dennis before un-commenting
+// a {
+//   color: #000;
+//
+//   &:visited {
+//     color: #666;
+//   }
+//
+//   &:hover {
+//     color: #fff;
+//     background-color: #000;
+//   }
+// }
 
 div {
   &.field, &.actions {

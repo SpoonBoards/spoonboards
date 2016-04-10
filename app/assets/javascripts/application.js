@@ -16,34 +16,11 @@
 //= require_tree .
 
 
-// function restart() {
-//   var row = $(event.target).closest("#card-display-loopz");
-//   row.css("display", "none");
-// };
-//   // var checkbox = $(event.target).siblings().last();
-//   // checkbox.prop("checked", true);
-// }
-//
-// function bindDeleteClick() {
-//   $(".design-board-btn").on("click", deleteRow);
-// }
 
-// $(bindDeleteClick)
-
-// function restart(element) {
-//   $("#card-display-loop").load(location.href + " #card-display-loop");
-// };
-//
-// function bindDeleteClick() {
-//   $(".design-board-btn").on("click", restart);
-// };
-
-  // $(".design-board-btn").on("click", function() {
-  //   console.log("** button click **");
-  //   // $("#card-display-loop").load(location.href + " #card-display-loop");
-  // });
-
-  // $(".design-board-btn").on("click", function() {
-  //   console.log("** button click **");
-  //   // $("#card-display-loop").load(location.href + " #card-display-loop");
-  // });
+/*
+* hide DOM elements
+*/
+function hideElement(element) {
+  console.log("** function call : hideElement() ** ", element);
+  $(element).hide();
+}

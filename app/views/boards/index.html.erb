@@ -1,40 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<h1>My SpoonBoards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Collection Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @boards.each do |board| %>
+  <h1>My SpoonBoards</h1>
+  <p id="notice"><%= notice %></p>
+  <table>
+    <thead>
       <tr>
-        <% if board.designs.as_json.length > 0 %>
-        <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>" width="100" height="100"></td>
-        <% else %>
-        <% end %>
-        <td> &nbsp; <%= board.name %></td>
-        <td> &nbsp; <%= link_to 'Show', board %></td>
-        <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
-        <td> &nbsp; <%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <th></th>
+        <th>Name</th> -->
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @boards.each do |board| %>
+        <tr>
+          <% if board.designs.as_json.length > 0 %>
+          <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>" width="100" height="100"></td>
+          <% else %>
+          <% end %>
+          <td> &nbsp; <%= board.name %></td>
+          <td> &nbsp; <%= link_to 'Show', board %></td>
+          <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
+          <td> &nbsp; <%= link_to 'Remove', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-<p>Search the Marketplace</p>
-<%= form_tag searches_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+    <!-- <br>
+    <h1>Search the Marketplace</h1>
+    <%= form_tag searches_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :term, params[:term] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %> -->
 
+  <br>
 
-<%= link_to 'Back to Create a New Board', new_board_path %>
+  <%= link_to 'Create a New Board', new_board_path %>
+
+  <br>
