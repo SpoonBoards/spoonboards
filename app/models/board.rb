@@ -12,7 +12,14 @@ class Board < ActiveRecord::Base
     end
   end
 
-  def generate_board
-    HTTParty.post("https://api.pinterest.com/v1/boards/?access_token=#{PINTEREST_ACCESS_TOKEN}&fields=id%2C#{board.name}%2Curl")
+  def post_board_to_pinterest(spoonflower_id, design_id)
+
+
+    @response = HTTParty.get("https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=Dinosaursdxd"})
+    @results = display_items(@response, design_id)
   end
+
+  # def generate_board
+  #   HTTParty.post("https://api.pinterest.com/v1/boards/?access_token=#{PINTEREST_ACCESS_TOKEN}&fields=id%2C#{board.name}%2Curl")
+  # end
 end
