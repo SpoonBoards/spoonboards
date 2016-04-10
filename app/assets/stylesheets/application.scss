@@ -246,7 +246,8 @@ a {
 }
 
 .login-facebook-btn,
-.login-pinterest-btn {
+.login-pinterest-btn,
+.login-twitter-btn {
   width: 215px;
   height: 30px;
   font-weight: normal;
@@ -276,6 +277,12 @@ a {
 
 .login-facebook-btn {
   background: rgb(14, 59, 119);
+  border: 1px solid rgb(37, 46, 263);
+  margin-bottom: 10px;
+}
+
+.login-twitter-btn {
+  background: rgb(0, 172, 237);
   border: 1px solid rgb(37, 46, 263);
   margin-bottom: 30px;
 }
