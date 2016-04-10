@@ -12,7 +12,7 @@
     <%= @board.designs.as_json %>
   </p> -->
 
-  <a data-pin-do="buttonPin" data-pin-count="above" href="https://api.pinterest.com/v1/boards/?access_token=AXhj5KnRXawqJHfu2pcd6g_3CAk_FEPSnm1Sy7lDAHQqTKBGugAAAAA&fields=id%2Cname=monkey%2Curl"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+  <a data-pin-hover="true" data-pin-round="true" href="https://api.pinterest.com/v1/boards/?access_token=#{PINTEREST_ACCESS_TOKEN}&name=<%=board.name%>"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
 
 
   <p id="notice"><%= notice %> &nbsp; </p>
