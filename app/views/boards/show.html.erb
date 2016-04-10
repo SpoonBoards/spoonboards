@@ -12,7 +12,7 @@
     <%= @board.designs.as_json %>
   </p> -->
 
-  <a data-pin-hover="true" data-pin-round="true" href="https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=<%=@board.name%>"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+  <!-- <a data-pin-hover="true" data-pin-round="true" href="https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=<%=@board.name%>"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a> -->
 
 
   <p id="notice"><%= notice %> &nbsp; </p>
@@ -20,6 +20,7 @@
   <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name"><%= @board.name %></div>
+
     </div>
     <% @feature_display.each do |design|%>
       <div class="board-card">
@@ -41,6 +42,7 @@
   <br>
 
   <%= link_to 'Edit', edit_board_path(@board) %> | <%= link_to 'My Boards', boards_path %>
+  <%= link_to 'Pinterest', boards_pinterest_board_create_path(@board.name) %>
 
   <br>
   <br>

@@ -20,12 +20,21 @@ class BoardsController < ApplicationController
   def show
     @designs = @board.designs
     @feature_display = []
-
     @designs.each do |design|
       @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
     end
 
   end
+
+  def pinterest_board_create
+    @board_name = params[:format]
+    board = Board.new
+    @api_response = board.post_board_to_pinterest(@board_name)
+  end
+
+
+
+
 
   # GET /boards/new
   def new
