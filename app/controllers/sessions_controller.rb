@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to boards_path, notice: "Signed in!"
     end
-
   end
 
   def omniauth
@@ -29,7 +28,7 @@ class SessionsController < ApplicationController
       user = User.find_by_provider_and_uid(auth["pinterest"], auth["uid"]) || User.create_with_omniauth(auth)
       session[:user_id] = user.id
       redirect_to boards_path, :notice => "Signed in!"
-    end
+  end
 
   def destroy
     session[:user_id] = nil
