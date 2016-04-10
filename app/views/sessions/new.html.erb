@@ -28,7 +28,7 @@
           <a href="https://spoonboards.herokuapp.com/auth/facebook"><button class="login-facebook-btn"><span>Sign in with Facebook</span></button></a>
         </div>
         <div class="login-btn-wrapper">
-          <a href="https://spoonboards.herokuapp.com/auth/twitter"><button class="login-twitter-btn"><span>Sign in with Twitter</span></button></a>
+          <a href="http://spoonboards.herokuapp.com/auth/twitter?force_login=true"><button class="login-twitter-btn"><span>Sign in with Twitter</span></button></a>
         </div>
         <div class="login-btn-wrapper">
           <%= submit_tag "login", class: "login-submit-btn" %>
@@ -37,7 +37,6 @@
           Don't have an account? &nbsp; <a class="login-register-account-link" href="users/new"> Register</a>
         </div>
       <% end %>
-
     </div>
 
   </div>
