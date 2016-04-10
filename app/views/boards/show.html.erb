@@ -12,19 +12,23 @@
     <%= @board.designs.as_json %>
   </p> -->
 
+
   <p id="notice"><%= notice %> &nbsp; </p>
 
   <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name"><%= @board.name %></div>
+
     </div>
     <% @feature_display.each do |design|%>
       <div class="board-card">
+        <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
         <div class="design-name">Name: <%= design.second %></div>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+
 
 
 <!-- <div class="board-design-hover-content"> XXXXX </div> -->
