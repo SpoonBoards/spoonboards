@@ -34,10 +34,11 @@ function loadScrollData (e){
   if (trigger($(".SCROLL_TRIGGER"))) {
     console.log("** scroll trigger **");
     $(document).off('scroll');   // stop scroll event triggereing API calls
+
+// line #132 : re-bind scroll event which triggers API call
+
     getResults($("#term").val(), currentOffset, limit);
-    // $(document).on('scroll', loadScrollData);  // re-start scroll event triggering API call
   }
-  // $(document).on("scroll", loadScrollData);  // re-start scroll event triggering API call
 }
 // });
 
@@ -46,6 +47,8 @@ function loadScrollData (e){
 
 /*
 * get data from API call
+*
+*  !!! this method needs to be refactored !!!!
 */
 function getResults(searchStr, offset, limit) {
 
