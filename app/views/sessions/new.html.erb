@@ -25,7 +25,10 @@
           <a href="https://spoonboards.herokuapp.com/auth/pinterest"><button class="login-pinterest-btn"><span>Sign in with Pinterest</span></button></a>
         </div>
         <div class="login-btn-wrapper">
-          <button class="login-facebook-btn"><!-- i class="fa fa-facebook-square"></i --> &nbsp; <span>Sign in with Facebook</span></button>
+          <a href="https://spoonboards.herokuapp.com/auth/facebook"><button class="login-facebook-btn"><span>Sign in with Facebook</span></button></a>
+        </div>
+        <div class="login-btn-wrapper">
+          <a href="http://spoonboards.herokuapp.com/auth/twitter"><button class="login-twitter-btn"><span>Sign in with Twitter</span></button></a>
         </div>
         <div class="login-btn-wrapper">
           <%= submit_tag "login", class: "login-submit-btn" %>
@@ -34,11 +37,13 @@
           Don't have an account? &nbsp; <a class="login-register-account-link" href="users/new"> Register</a>
         </div>
       <% end %>
-
     </div>
 
   </div>
 </div>
 
-<!--  hide header from login page -->
-<script> hideElement($("header")); </script>
+<!--  hide header and footer from login page -->
+<script>
+  hideElement($("header"));
+  hideElement($("footer"));
+</script>

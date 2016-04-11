@@ -13,7 +13,6 @@ class DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
       if @design.save
-        redirect_to boards_path
       else
         render boards_path
       end

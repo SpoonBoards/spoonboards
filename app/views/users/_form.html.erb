@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <!-- <%= f.text_field :password %> -->
+    <%= f.password_field :password, class: "login-password-input", placeholder: "                 password" %>
+
   </div>
   <div class="actions button">
     <%= f.submit("Submit") %>

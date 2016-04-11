@@ -12,8 +12,6 @@
     <%= @board.designs.as_json %>
   </p> -->
 
-  <!-- <a data-pin-hover="true" data-pin-round="true" href="https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=<%=@board.name%>"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a> -->
-
 
   <p id="notice"><%= notice %> &nbsp; </p>
 
@@ -24,11 +22,14 @@
     </div>
     <% @feature_display.each do |design|%>
       <div class="board-card">
+        <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
-        <div class="design-name">Name: <%= design.second %></div>
+
+        <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+
 
 
 <!-- <div class="board-design-hover-content"> XXXXX </div> -->
@@ -38,14 +39,14 @@
     <% end %>
   </div>
 
-  <br>
+  <!-- <br>
   <br>
 
   <%= link_to 'Edit', edit_board_path(@board) %> | <%= link_to 'My Boards', boards_path %>
   <%= link_to 'Pinterest', boards_pinterest_board_create_path(@board.name) %>
 
   <br>
-  <br>
+  <br> -->
 
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <!-- </div> -->

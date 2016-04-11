@@ -4,6 +4,8 @@ ruby '2.3.0'
 
 gem 'omniauth'
 gem 'omniauth-pinterest'
+gem 'omniauth-facebook', '~> 3.0'
+gem 'omniauth-twitter'
 
 gem 'localtunnel'
 gem 'rails-footnotes', '~> 4.0'
