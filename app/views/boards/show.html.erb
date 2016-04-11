@@ -43,8 +43,10 @@
   <br>
 
   <%= link_to 'Edit', edit_board_path(@board) %> | <%= link_to 'My Boards', boards_path %>
+  <%= link_to 'Pinterest', boards_pinterest_board_create_path(@board.name) %>
 
   <br>
   <br> -->
 
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <!-- </div> -->

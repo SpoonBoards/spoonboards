@@ -12,7 +12,6 @@ class BoardsController < ApplicationController
   def show
     @designs = @board.designs
     @feature_display = []
-
     @designs.each do |design|
       @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
     end
