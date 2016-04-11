@@ -5,14 +5,6 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.where(user_id: session[:user_id])
-    # @boards.each do |board|
-    #   unless board.designs.first == nil
-    #     @thumbnails << board.designs.first.spoonflower_id
-    #   else
-    #     break
-    #   end
-    # end
-
   end
 
   # GET /boards/1
@@ -25,16 +17,6 @@ class BoardsController < ApplicationController
     end
 
   end
-
-  def pinterest_board_create
-    @board_name = params[:format]
-    board = Board.new
-    @api_response = board.post_board_to_pinterest(@board_name)
-  end
-
-
-
-
 
   # GET /boards/new
   def new
