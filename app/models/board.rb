@@ -12,8 +12,4 @@ class Board < ActiveRecord::Base
       target_image = target_design.get_json_for_design(target_design.spoonflower_id, target_design.id)[2]
     end
   end
-
-  def post_board_to_pinterest(board_name)
-    response = HTTParty.post("https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=Dinosaursdxd")
-  end
 end
