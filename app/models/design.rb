@@ -18,5 +18,4 @@ class Design < ActiveRecord::Base
   end
 
 
-
 end

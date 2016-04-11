@@ -21,6 +21,22 @@ class CartItemsController < ApplicationController
   def edit
   end
 
+  def add_to_cart
+    @params = params[:design_id]
+    @design = Design.find(params[:design_id])
+    @api_response = []
+    @api_response << @design.get_json_for_design(@design.spoonflower_id, @design.id)
+
+
+    # CartItem.create!()
+
+
+    # redirect_to boards_url
+  end
+
+
+
+
   # POST /cart_items
   # POST /cart_items.json
   def create

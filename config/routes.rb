@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
-
-
+  
+  post 'cart_items/add_to_cart'
   post 'searches/index'
   get 'designs/index'
   get 'designs/show'

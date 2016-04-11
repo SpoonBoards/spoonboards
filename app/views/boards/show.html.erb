@@ -29,6 +29,7 @@
 
         <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "ATC", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
 
 
 
