@@ -24,3 +24,13 @@ function hideElement(element) {
   console.log("** function call : hideElement() ** ", element);
   $(element).hide();
 }
+
+
+/*
+* used to hide design after design is deleted from board
+*/
+function hideCard() {
+  var row = $(event.target).closest(".board-card");
+  console.log(row);
+ row.css("display", "none");
+}

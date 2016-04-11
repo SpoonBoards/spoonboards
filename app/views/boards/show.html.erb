@@ -43,14 +43,8 @@
   <br>
 
   <script>
-   // this is what makes sure the click handler is included because it takes off.
-  $(".design-board-btn").on("click", function() {
-    var row = $(event.target).closest(".board-card");
-
-    console.log(row);
- //    var row = $(event.target).closest(".board-card");
- row.css("display", "none");
-  });
+   // this is what makes the row disapear after destroy happens
+  $(".design-board-btn").on("click", hideCard );
   </script>
 
 
