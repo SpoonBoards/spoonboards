@@ -132,7 +132,7 @@ a {
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
-  max-width: 1030px;
+  max-width: 1014px;
   // background: #fdfdfd;
   background: rgba(255, 255, 255, 0);
   // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -381,8 +381,6 @@ header {
       margin-right: 20px;
       height: 48px;
       text-decoration: none !important;
-      // vertical-align: bottom;
-      // color: #bbb;   ????
       font-size: 1.2em;
       line-height: 3.5em;
       color: #999;
@@ -418,7 +416,7 @@ header {
   width: 460px;
   margin: 10px auto;
   padding: 10px;
-  border: 1px solid $primary-accent-color;
+  border: 1px solid #999;
   border-radius: 5px;
   background: $primary-color;
 }

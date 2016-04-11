@@ -18,7 +18,9 @@
 // global variables :-(
 var currentOffset = 51,
     limit = "50",
-    pageNum = 1;
+    pageNum = 2,
+    maxScrollLoads = 10;
+
 
 /*
 * event handler for page scroll
@@ -74,7 +76,7 @@ function getResults(searchStr, offset, limit) {
   });
 
   // assemble URL for AJAX
-  jsonURL = baseURL + query + "&offset=" + currentOffset + "&limit=" + limit;
+  jsonURL = baseURL + query + "&offset=" + offset + "&limit=" + limit;
   console.log("AJAX URL => " + jsonURL);
 
   // AJAX call using jQuery
@@ -122,6 +124,12 @@ function getResults(searchStr, offset, limit) {
 
       console.log(htmlStr);
       updateScrollTrigger($(".design-card:last").prev().prev().prev().prev().prev());
+      currentOffset += 50;
+      console.log(" scroll offset => " + currentOffset);
+      pageNum ++;
+      console.log(" scroll page => " + pageNum);
+      $(document).on('scroll', loadScrollData);  // re-start scroll event triggering API call
+
       // clear DOM for new results
       // $(".resutls-container").empty();
       // add search results to DOM
@@ -177,7 +185,7 @@ function updateScrollTrigger(element) {
 *           false - if trigger element is not in the document view
 */
 function trigger(element) {
-  if (element != undefined && element.offset() != undefined) {
+  if (element != undefined && element.offset() != undefined && pageNum < maxScrollLoads) {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
@@ -198,4 +206,11 @@ function truncate(str) {
     return arrStr.slice(0, 25).join("") + "...";
   }
   return str;
+}
+
+function notify(str) {
+  if (str != undefined && str.length > 0) {
+    $("#notice").empty();
+    $("#notice").prepend(str);
+  }
 }
