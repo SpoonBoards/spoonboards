@@ -24,7 +24,7 @@
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
         <div class="design-name">Name: <%= design.second %></div>
-        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn", remote:true %></div>
 
 
 <!-- <div class="board-design-hover-content"> XXXXX </div> -->
@@ -41,5 +41,19 @@
 
   <br>
   <br>
+
+  <script>
+   // this is what makes sure the click handler is included because it takes off.
+  $(".design-board-btn").on("click", function() {
+    var row = $(event.target).closest(".board-card");
+
+    console.log(row);
+ //    var row = $(event.target).closest(".board-card");
+ row.css("display", "none");
+  });
+  </script>
+
+
+
 
 <!-- </div> -->
