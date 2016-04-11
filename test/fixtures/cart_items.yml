@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cart_id: 1
+  price: 9.99
+  quantity: 1
+  design_name: MyString
+  design_id: 1
+  spoonflower_id: 1
+  thumbnail_url: MyString
+  fabric_type: MyString
+  purchased: false
+
+two:
+  cart_id: 1
+  price: 9.99
+  quantity: 1
+  design_name: MyString
+  design_id: 1
+  spoonflower_id: 1
+  thumbnail_url: MyString
+  fabric_type: MyString
+  purchased: false

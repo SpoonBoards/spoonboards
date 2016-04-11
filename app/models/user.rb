@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :boards
+  has_many :carts
   validates :name, presence: true
 
   def self.sign_in_from_omniauth(auth)

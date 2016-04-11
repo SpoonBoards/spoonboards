@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :cart_items
+  resources :carts
   root 'sessions#new'
 
   get '/auth/:provider/callback' => 'sessions#create'
