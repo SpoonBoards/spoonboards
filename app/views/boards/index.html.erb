@@ -12,10 +12,7 @@
     <tbody>
       <% @boards.each do |board| %>
         <tr>
-          <% if board.designs.as_json.length > 0 %>
-          <td><img src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>" width="100" height="100"></td>
-          <% else %>
-          <% end %>
+          <td><img src="<%= board.get_first_image %>" width="100" height="100"></td>
           <td> &nbsp; <%= board.name %></td>
           <td> &nbsp; <%= link_to 'Show', board %></td>
           <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
@@ -24,15 +21,6 @@
       <% end %>
     </tbody>
   </table>
-
-    <!-- <br>
-    <h1>Search the Marketplace</h1>
-    <%= form_tag searches_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :term, params[:term] %>
-        <%= submit_tag "Search", :name => nil %>
-      </p>
-    <% end %> -->
 
   <br>
 
