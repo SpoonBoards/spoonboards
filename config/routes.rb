@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'boards/pinterest_board_create'
 
 
-  post '/vi/boards'
+  post '/v1/boards'
 
   post 'searches/index'
   get 'designs/index'

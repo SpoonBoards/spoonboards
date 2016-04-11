@@ -2,6 +2,7 @@ class Board < ActiveRecord::Base
   belongs_to :user
   has_many :designs
   validates :user_id, presence: true
+  scope :write_public, -> { where(session[:user_id] = user.id)}
 
   def get_first_image
     target_design = self.designs.first
@@ -14,11 +15,5 @@ class Board < ActiveRecord::Base
 
   def post_board_to_pinterest(board_name)
     response = HTTParty.post("https://api.pinterest.com/v1/boards/?access_token=AZ_oz4nDgBrMyexsrXLITBDgasJKFEQbib649EJDAHQqTKBGugAAAAA&name=Dinosaursdxd")
-    # @results = display_items(@response, design_id)
-
   end
-
-  # def generate_board
-  #   HTTParty.post("https://api.pinterest.com/v1/boards/?access_token=#{PINTEREST_ACCESS_TOKEN}&fields=id%2C#{board.name}%2Curl")
-  # end
 end
