@@ -13,7 +13,6 @@
   </head>
   <body>
     <header>
-
       <nav>
         <ul>
           <li><a href="/searches">Search</a></li>
@@ -23,7 +22,6 @@
           <li><%= link_to 'Logout', logout_path %></li>
         </ul>
       </nav>
-
       <div class="header-images-wrapper">
         <img class="header-images" src="<%= asset_path('rdino_jade_full_shop_crop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rkatta2_shop_crop_thumb.png') %>" alt="Design">
@@ -41,13 +39,10 @@
         <img class="header-images" src="<%= asset_path('rrmonkey-forest2_shop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rrtumblr_lx3o12NY0N1r94cc5o1_500_shop_thumb.png') %>" alt="Design">
       </div>
-
       <div class="header-images-overlay">
-        <!-- <img class="header-title-image" src="<%= asset_path('spoonboards-logo.png') %>" alt="Logo"> -->
         <span class="header-images-overlay-title">SpoonBoards</span>
         <span class="header-images-overlay-text">Curate your favorite designs...</span>
       </div>
-
       <div class="header-search-container">
         <%= form_tag searches_path, :method => 'get' do %>
           <div class="header-search-title">Spoonflower</div>
@@ -55,14 +50,12 @@
           <div class="header-search-btn-wrapper"><%= submit_tag "Search", :name => nil, class: "header-search-btn" %></div>
         <% end %>
       </div>
-
     </header>
-
     <div class="yield-container"> <%= yield %> </div>
-
     <footer>
-      <!-- footer content -->
+      <div class="footer-container">
+        <img class="footer-logo" src="<%= asset_path('spoonflower_powered_by_logo_vector.png') %>">
+      </div>
     </footer>
-
   </body>
 </html>
