@@ -15,8 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-
 /*
 * hide DOM elements
 */
@@ -25,7 +23,6 @@ function hideElement(element) {
   $(element).hide();
 }
 
-
 /*
 * used to hide design after design is deleted from board
 */
@@ -33,4 +30,10 @@ function hideCard() {
   var row = $(event.target).closest(".board-card");
   console.log(row);
  row.css("display", "none");
+}
+
+function designAddedCue() {
+  var row = $(event.target).closest(".design-card");
+  console.log(row);
+ row.css("background-color", "#64FFDA");
 }

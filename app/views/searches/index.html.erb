@@ -36,7 +36,7 @@
       <%= link_to 'New Search', boards_path %>
 
 </div>
-    <!-- <br>
+
     <br>
 
     <br>
@@ -46,10 +46,16 @@
   </div>
 <script>
  // this is what makes sure the click handler is included because it takes off.
-$(".design-board-btn").on("click", function() {
-  console.log("** button click **");
+// $(".design-board-btn").on("click", function() {
+//   console.log("** button click **");
+//   var row = $(event.target).closest(".design-card");
+//   console.log(row);
+
+
+  $(".design-board-btn").on("click", designAddedCue );
+
   // $("#card-display-loop").load(location.href + " #card-display-loop");
-});
+
 </script>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> !-->
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
