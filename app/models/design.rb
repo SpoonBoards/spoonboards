@@ -16,9 +16,4 @@ class Design < ActiveRecord::Base
     item << design_id
     return item
   end
-
-<<<<<<< HEAD
-=======
-
->>>>>>> cart
 end
