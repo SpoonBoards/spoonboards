@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'designs/index'
   get 'designs/show'
   get 'searches/search'
+  post 'charges/index'
 
   resources :designs
   resources :users

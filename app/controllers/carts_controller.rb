@@ -6,12 +6,13 @@ class CartsController < ApplicationController
   def index
     # @carts = Cart.all
     @carts = Cart.where(user_id: session[:user_id])
+    @cart_stuff = params[:format]
   end
 
   # GET /carts/1
   # GET /carts/1.json
 
-  
+
   def show
     # @boards = Board.where(user_id: session[:user_id])
     # @carts = Cart.where(user_id: session[:user_id])
