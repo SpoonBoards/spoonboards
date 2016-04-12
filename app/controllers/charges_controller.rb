@@ -5,10 +5,11 @@ class ChargesController < ApplicationController
   end
 
   def create
+
+    @cart = Cart.where(user_id: session[:user_id]).first
+    @cart_items = CartItem.where(cart_id: @cart.id)
+
     # Amount in cents
-
-
-
 
     @amount = 500
 
