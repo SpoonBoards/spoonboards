@@ -50,6 +50,7 @@
           <div class="header-search-btn-wrapper"><%= submit_tag "Search", :name => nil, class: "header-search-btn" %></div>
         <% end %>
       </div>
+      <p id="notice" style="text-align:center;"><%= notice %></p>
     </header>
     <input type="hidden" name="controller_name" id="controller-name" value="<%= params[:controller] %>">
     <input type="hidden" name="controller_action" id="controller-action" value="<%= params[:action] %>">
