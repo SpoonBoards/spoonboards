@@ -10,7 +10,7 @@
       <div class="design-form-wrapper"><%= form_tag({controller: "designs", action: "create"}, remote: true, class: "design-form") do %></div>
       <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "Board:", class: "design-board-dropdown-label") %> &nbsp; </div>
       <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
-      <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You have successfully added a board!'); alert('You have successfully added a board!')") %> </div>
+      <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You have successfully added a design board!'); alert('You have successfully added a design to a board!')") %> </div>
       <div class="design-borad-hidden-spoonflower-id-wrapper"><%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0] %> </div>
     </div>
     <% end %>
