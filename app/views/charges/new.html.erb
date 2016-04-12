@@ -9,7 +9,9 @@
       <span>Amount: $5.00</span>
     </label>
 
-  <%= @cart_stuff %>
+  <%= @total_price.as_json %>
+  <%= @cart_item_ids.as_json %>
+  <%= @purchased %>
 
 
 
