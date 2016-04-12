@@ -22,9 +22,10 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :currency    => 'usd',
+      :receipt_email => customer.email
     )
-    # 
+    #
     # @confirmation_details = []
     # @confirmation_details << @charge[:source][:address_line1]
     # @confirmation_details << @charge[:source][:address_line2]
