@@ -1,0 +1,53 @@
+<%= form_for(@cart_item) do |f| %>
+  <% if @cart_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
+
+      <ul>
+      <% @cart_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cart_id %><br>
+    <%= f.number_field :cart_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :design_name %><br>
+    <%= f.text_field :design_name %>
+  </div>
+  <div class="field">
+    <%= f.label :design_id %><br>
+    <%= f.number_field :design_id %>
+  </div>
+  <div class="field">
+    <%= f.label :spoonflower_id %><br>
+    <%= f.number_field :spoonflower_id %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail_url %><br>
+    <%= f.text_field :thumbnail_url %>
+  </div>
+  <div class="field">
+    <%= f.label :fabric_type %><br>
+    <%= f.text_field :fabric_type %>
+  </div>
+  <div class="field">
+    <%= f.label :purchased %><br>
+    <%= f.check_box :purchased %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

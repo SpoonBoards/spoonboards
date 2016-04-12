@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @cart_item.cart_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cart_item.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @cart_item.quantity %>
+</p>
+
+<p>
+  <strong>Design name:</strong>
+  <%= @cart_item.design_name %>
+</p>
+
+<p>
+  <strong>Design:</strong>
+  <%= @cart_item.design_id %>
+</p>
+
+<p>
+  <strong>Spoonflower:</strong>
+  <%= @cart_item.spoonflower_id %>
+</p>
+
+<p>
+  <strong>Thumbnail url:</strong>
+  <%= @cart_item.thumbnail_url %>
+</p>
+
+<p>
+  <strong>Fabric type:</strong>
+  <%= @cart_item.fabric_type %>
+</p>
+
+<p>
+  <strong>Purchased:</strong>
+  <%= @cart_item.purchased %>
+</p>
+
+<%= link_to 'Edit', edit_cart_item_path(@cart_item) %> |
+<%= link_to 'Back', cart_items_path %>
