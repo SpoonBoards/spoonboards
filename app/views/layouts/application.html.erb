@@ -51,10 +51,15 @@
         <% end %>
       </div>
     </header>
+    <input type="hidden" name="controller_name" id="controller-name" value="<%= params[:controller] %>">
+    <input type="hidden" name="controller_action" id="controller-action" value="<%= params[:action] %>">
+    <input type="hidden" name="user_id" id="user-id" value="<%= session[:user_id] %>">
+
     <div class="yield-container"> <%= yield %> </div>
+
     <footer>
       <div class="footer-container">
-        <img class="footer-logo" src="<%= asset_path('spoonflower_powered_by_logo_vector.png') %>">
+        <img class="footer-logo" src="<%= asset_path('spoonflower_powered_by_logo_vector_transparent.png') %>">
       </div>
     </footer>
   </body>
