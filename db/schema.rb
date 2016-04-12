@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411203155) do
+ActiveRecord::Schema.define(version: 20160412155410) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(version: 20160411203155) do
     t.integer  "spoonflower_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.integer  "cart_item_id"
+    t.string   "city"
+    t.string   "adr_1"
+    t.string   "adr_2"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "name"
+    t.integer  "price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "search_results", force: :cascade do |t|

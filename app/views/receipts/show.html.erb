@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cart item:</strong>
+  <%= @receipt.cart_item_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @receipt.city %>
+</p>
+
+<p>
+  <strong>Adr 1:</strong>
+  <%= @receipt.adr_1 %>
+</p>
+
+<p>
+  <strong>Adr 2:</strong>
+  <%= @receipt.adr_2 %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @receipt.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @receipt.zip %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @receipt.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @receipt.price %>
+</p>
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>
