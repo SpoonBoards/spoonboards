@@ -6,6 +6,7 @@ gem 'omniauth'
 gem 'omniauth-pinterest'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-twitter'
+gem 'stripe'
 
 gem 'localtunnel'
 gem 'rails-footnotes', '~> 4.0'
