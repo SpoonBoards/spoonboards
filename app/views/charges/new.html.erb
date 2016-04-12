@@ -14,5 +14,8 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount="500"
-          data-locale="auto"></script>
+          data-locale="auto"
+          data-billingAddress="true"
+          data-shippingAddress="true">
+  </script>
 <% end %>
