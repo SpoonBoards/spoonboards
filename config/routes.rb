@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :receipts
   resources :cart_items
   resources :carts
   root 'sessions#new'
