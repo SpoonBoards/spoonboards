@@ -36,8 +36,13 @@ class ChargesController < ApplicationController
     @confirmation_details << @charge[:source][:brand]
     @confirmation_details << @charge[:amount]
 
-    @purchased_items = []
-    @purchased_items << @cart_items[]
+    @just_cart_item_id = []
+    @cart_items.each do |item|
+      @just_cart_item_id << item[:id]
+      end
+
+    @order_information = (@just_cart_item_id << @confirmation_details).flatten!
+    
 
 
   rescue Stripe::CardError => e

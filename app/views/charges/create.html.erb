@@ -10,15 +10,11 @@
 <%= @charge[:source][:address_country] %>
 
 
-<%= @confirmation_details.as_json %>
-<%= @cart_items.all.as_json %>
-
-Receipt.create
+<%= @order_information.as_json %>
 
 
-<%= @designs.as_json %>
 
-<%= @cart.as_json %>
+
 
 
 <!-- order = []
