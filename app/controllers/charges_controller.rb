@@ -45,9 +45,4 @@ class ChargesController < ApplicationController
     redirect_to new_charge_path
   end
 
-  # def confirmation_details
-  #   confirmation_details = []
-  #   @charge.each do |r|
-  #     confirmation_details << r.
-  #   end
 end
