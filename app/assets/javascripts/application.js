@@ -15,27 +15,43 @@
 //= require turbolinks
 //= require_tree .
 
+// this block will run on every page refresh
+$(function () {  // short hand for $(document).ready(function() {})
+  'use strict';
+
+  var contName   = $("#controller-name").val(),    // session => controller-name
+      contAction = $("#controller-action").val(),  // session => controller-action
+      userLogin  = $("#user-id").val();            // params  => user id
+
+  // hide header and footer on 'sessions => new' page a.k.a. login page
+  if ( contName === "sessions" && contAction === "new" && userLogin.length <= 0 ) {
+    hideElement($("header"));
+    hideElement($("footer"));
+  }
+
+});  // end of $(document).ready() block
+
+
 // global variables :-(
 var currentOffset = 51,
     limit = "50",
     pageNum = 2,
     maxScrollLoads = 10;
 
-
 /*
 * event handler for page scroll
 */
 $(document).on("scroll", loadScrollData);
 
+// scroll event handler callback function
 function loadScrollData (e){
   console.log("** scrolling **");
 
-  // if (trigger($("footer"))) {
   if (trigger($(".SCROLL_TRIGGER"))) {
     console.log("** scroll trigger **");
     $(document).off('scroll');   // stop scroll event triggereing API calls
 
-// line #132 : re-bind scroll event which triggers API call
+    // @ line #165 : re-bind scroll event for triggers API call
 
     getResults($("#term").val(), currentOffset, limit);
   }
@@ -126,17 +142,16 @@ function getResults(searchStr, offset, limit) {
         $(".search-results-container").append(htmlStr);
         htmlStr = "";
 
-// need to add form elements in above template back into form object in DOM
-// sometimes vanilla tastes the best...  but the following is not needed
-// var parent = document.getElementsByClassName("design-board-btn-wrapper")[document.getElementsByClassName("design-board-btn-wrapper").length - 1];
-// var child = document.createElement("input");
-// child.setAttribute("type", "submit");
-// child.setAttribute("name", "commit");
-// child.setAttribute("value", "Add");
-// child.setAttribute("class", "design-board-btn");
-// child.setAttribute("onclick", "alert('test message')");
-// parent.appendChild(child);
-
+        // need to add form elements in above template back into form object in DOM
+        // sometimes vanilla tastes the best...  but the following is not needed
+        // var parent = document.getElementsByClassName("design-board-btn-wrapper")[document.getElementsByClassName("design-board-btn-wrapper").length - 1];
+        // var child = document.createElement("input");
+        // child.setAttribute("type", "submit");
+        // child.setAttribute("name", "commit");
+        // child.setAttribute("value", "Add");
+        // child.setAttribute("class", "design-board-btn");
+        // child.setAttribute("onclick", "alert('test message')");
+        // parent.appendChild(child);
 
       });
 
@@ -146,7 +161,8 @@ function getResults(searchStr, offset, limit) {
       console.log(" scroll offset => " + currentOffset);
       pageNum ++;
       console.log(" scroll page => " + pageNum);
-      $(document).on('scroll', loadScrollData);  // re-start scroll event triggering API call
+      // re-start scroll event triggering API call
+      $(document).on('scroll', loadScrollData);
 
       // clear DOM for new results
       // $(".resutls-container").empty();
@@ -188,7 +204,7 @@ function removeScrollTrigger() {
 }
 
 /*
-* remove then add trigger class to different element in DOM for checking scroll
+* remove, then add trigger class to different element in DOM for checking scroll
 *   postion
 */
 function updateScrollTrigger(element) {
