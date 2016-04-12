@@ -11,13 +11,15 @@
 
 
 <%= @confirmation_details.as_json %>
+<%= @cart_items.all.as_json %>
 
+Receipt.create
 
 
 <%= @designs.as_json %>
 
 <%= @cart.as_json %>
-<%= @cart_items.all.as_json %>
+
 
 <!-- order = []
 something.each do |thing|

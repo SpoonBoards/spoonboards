@@ -36,7 +36,8 @@ class ChargesController < ApplicationController
     @confirmation_details << @charge[:source][:brand]
     @confirmation_details << @charge[:amount]
 
-
+    @purchased_items = []
+    @purchased_items << @cart_items[]
 
 
   rescue Stripe::CardError => e
