@@ -14,8 +14,9 @@
     <%cart.cart_items.each do |cart_item| %>
     <%= cart_item.id %>
   <td>  <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" ></td>
-      <td><%= link_to 'Show', cart_item %></td>
-      <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %></td>
+      <td><%= link_to 'Show', cart_item %> |</td>
+      <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %> |</td>
+      <td><%= link_to 'Checkout', new_charge_path %></td>
       <% end %>
 
 
