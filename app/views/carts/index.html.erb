@@ -5,16 +5,27 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @carts.each do |cart| %>
+    <%cart.cart_items.each do |cart_item| %>
+    <%= cart_item.id %>
+  <td>  <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" ></td>
+      <td><%= link_to 'Show', cart_item %></td>
+      <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %></td>
+      <% end %>
+
+
+
+
+
       <tr>
-        <td><%= link_to 'Show', cart %></td>
+        <!-- <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Cart', new_cart_path %>
+<!-- <%= link_to 'New Cart', new_cart_path %> -->
