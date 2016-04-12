@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       flash.now[:notice] = 'Invalid email/password combination'
     end
   end
-  
+
   def destroy
     session[:user_id] = nil
     session[:omniauth] = nil

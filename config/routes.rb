@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
+  get 'boards/pinterest_board_create'
+
+
+  post '/v1/boards'
+
   post 'searches/index'
   get 'designs/index'
   get 'designs/show'
