@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
       user.name = auth
       user.password = SecureRandom.hex
       user.save
-      Cart.create!(user_id: @user.id)
+      Cart.create!(user_id: user.id)
     end
   end
 
