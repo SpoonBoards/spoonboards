@@ -41,6 +41,7 @@ class ChargesController < ApplicationController
     @confirmation_details << @charge[:source][:brand]
 
     @receipt = @cart.create_receipt(@confirmation_details)
+    @cart.mark_cart_items_purchased(@receipt.id)
 
 
 
