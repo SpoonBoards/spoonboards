@@ -1,5 +1,4 @@
 <h2>Thank you for placing an order!</h2>
-
 <h3>Amount Paid: </h3><%= @charge[:amount] %>, <%= @charge[:source][:brand] %>, **** **** **** <%= @charge[:source][:last4] %><br>
 <h3>Recipient: </h3><%= @charge[:source][:name] %>
 
@@ -10,15 +9,11 @@
 <%= @charge[:source][:address_country] %>
 
 
-<%= @confirmation_details.as_json %>
-<%= @cart_items.all.as_json %>
-
-Receipt.create
+<%= @order_information.as_json %>
 
 
-<%= @designs.as_json %>
 
-<%= @cart.as_json %>
+
 
 
 <!-- order = []
