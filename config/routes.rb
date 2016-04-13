@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :receipts
+  resources :cart_items
+  resources :carts
   root 'sessions#new'
 
   get '/auth/:provider/callback' => 'sessions#create'
@@ -10,17 +13,24 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
+  get 'boards/pinterest_board_create'
 
 
+  post '/v1/boards'
+
+  post 'cart_items/add_to_cart'
   post 'searches/index'
   get 'designs/index'
   get 'designs/show'
   get 'searches/search'
+  post 'charges/index'
+
   resources :designs
   resources :users
   resources :boards
   resources :sessions
   resources :searches
+  resources :charges
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

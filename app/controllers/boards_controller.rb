@@ -5,14 +5,6 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.where(user_id: session[:user_id])
-    # @boards.each do |board|
-    #   unless board.designs.first == nil
-    #     @thumbnails << board.designs.first.spoonflower_id
-    #   else
-    #     break
-    #   end
-    # end
-
   end
 
   # GET /boards/1
@@ -20,7 +12,6 @@ class BoardsController < ApplicationController
   def show
     @designs = @board.designs
     @feature_display = []
-
     @designs.each do |design|
       @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
     end

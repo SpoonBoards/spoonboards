@@ -8,3 +8,4 @@
 user1 = User.create!({name: "daniel", email: "daniel@gmail.com", password: "password"})
 board1 = Board.create!(name: "Dinosaurs", user_id: 1)
 design1= Design.create!(board_id: board1.id, spoonflower_id: 4695821)
+cart1 = Cart.create!(user_id: user1.id)

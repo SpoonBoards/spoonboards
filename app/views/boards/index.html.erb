@@ -1,38 +1,10 @@
 
-<<<<<<< HEAD
-  <h1>My SpoonBoards</h1>
+
+
   <p id="notice"><%= notice %></p>
-  <table>
-    <thead>
-      <tr>
-        <!-- <th></th>
-        <th>Name</th> -->
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @boards.each do |board| %>
-        <tr>
-          <td><img src="<%= board.get_first_image %>" width="100" height="100"></td>
-          <td> &nbsp; <%= board.name %></td>
-          <td> &nbsp; <%= link_to 'Show', board %></td>
-          <td> &nbsp; <%= link_to 'Edit', edit_board_path(board) %></td>
-          <td> &nbsp; <%= link_to 'Remove', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 
-
-  <br>
-
-  <%= link_to 'Create a New Board', new_board_path %>
-
-  <br>
-=======
 <div class="boards-index-container">
   <div><h1>SpoonBoards</h1></div>
-  <div id="notice"><%= notice %> &nbsp; </div>
   <div class="boards-index-btn-wrapper">
     <!-- <%= link_to 'New Board', new_board_path, class: "boards-index-create-btn" %> -->
     <a href="<%= new_board_path %>"><button class="boards-index-create-btn">New Board</button></a>
@@ -70,4 +42,3 @@
     </div>
   <% end %>
 </div>
->>>>>>> master

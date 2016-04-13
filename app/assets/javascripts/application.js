@@ -97,18 +97,23 @@ function getResults(searchStr, offset, limit) {
         htmlStr +=
           "<div class='design-card'>\n" +
           "  <img class='design-thumbnail' src='" + this.thumbnail_url + "'>\n" +
-          "  <div class='design-id'>ID: " + this.id + " YAY!!!</div>\n" +
+          "  <div class='design-id'>ID: " + this.id + "</div>\n" +
           "  <div class='design-name'>Name: " + truncate(this.name.split(" // ")[0]) + "</div>\n";
 
         htmlStr += "<div class='design-form-wrapper'>\n  " +
                    $(".design-form-wrapper:last").html() +
                    "\n</div>\n";
+
+        htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
+
         htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
                    $(".design-board-dropdown-label-wrapper:last").html() +
                    "\n</div>\n";
+
         htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
                    $(".design-board-dropdown-wrapper:last").html() +
                    "\n</div>\n";
+
         htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
                    $(".design-board-btn-wrapper:last").html() +
                    "\n</div>\n";
@@ -117,14 +122,24 @@ function getResults(searchStr, offset, limit) {
                    "    <input type='hidden' name='design[spoonflower_id]' id='design_spoonflower_id' value='" + this.id + "'>\n" +
                    "  </div>\n";
 
+        htmlStr += "</form\n>";
         htmlStr += "</div>\n";
 
         $(".search-results-container").append(htmlStr);
         htmlStr = "";
 
 // need to add form elements in above template back into form object in DOM
-//
-// $("form")[i + 1][5] = ($(".design-board-btn:first"));
+// sometimes vanilla tastes the best...  but the following is not needed
+// var parent = document.getElementsByClassName("design-board-btn-wrapper")[document.getElementsByClassName("design-board-btn-wrapper").length - 1];
+// var child = document.createElement("input");
+// child.setAttribute("type", "submit");
+// child.setAttribute("name", "commit");
+// child.setAttribute("value", "Add");
+// child.setAttribute("class", "design-board-btn");
+// child.setAttribute("onclick", "alert('test message')");
+// parent.appendChild(child);
+
+
       });
 
       console.log(htmlStr);

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cart_item_id: 1
+  city: MyString
+  adr_1: MyString
+  adr_2: MyString
+  state: MyString
+  zip: 1
+  name: MyString
+  price: 1
+
+two:
+  cart_item_id: 1
+  city: MyString
+  adr_1: MyString
+  adr_2: MyString
+  state: MyString
+  zip: 1
+  name: MyString
+  price: 1
