@@ -6,12 +6,11 @@ class Cart < ActiveRecord::Base
 
 
   def combine_prices_and_ids
-    cart_items = CartItem.where(cart_id: self.id)
     total_price = []
     cart_item_ids = []
     total_price_and_id = []
 
-    cart_items.each do |cart_item|
+    self.cart_items.each do |cart_item|
       if cart_item.purchased == true
       elsif cart_item.purchased == nil || cart_item.price < 1
         cart_item.price = 5.00
