@@ -12,7 +12,7 @@
   <tbody>
     <% @cart_stuff = [] %>
     <% @carts.each do |cart| %>
-    <%cart.cart_items.each do |cart_item| %>
+    <%cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
       <% cart_item.id %>
       <% @cart_stuff << cart_item.id %>
       <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" >

@@ -2,17 +2,39 @@ class ChargesController < ApplicationController
 
   def new
     @cart = Cart.where(user_id: session[:user_id]).first
-    @total_and_id = @cart.combine_prices_and_ids
-    @amount = (@total_and_id[0] * 100)
-
-
+    total = []
+    @cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item|
+      if cart_item.price == nil
+        cart_item.price = 5
+        cart_item.save
+      else
+      end
+      total << cart_item.price
+    end
+    @amount = total.sum
   end
+
+    # @amount = (@amount * 100)
+
 
 
   def create
     @cart = Cart.where(user_id: session[:user_id]).first
-    @total_and_id = @cart.combine_prices_and_ids
-    @amount = (@total_and_id[0] * 100)
+    # @total_and_id = @cart.combine_prices_and_ids
+    total = []
+    @cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item|
+      if cart_item.price == nil
+        cart_item.price = 5
+        cart_item.save
+      else
+      end
+      total << cart_item.price
+    end
+
+    @amount = total.sum
+
+
+    # @amount = (@total_and_id[0] * 100)
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -21,7 +43,7 @@ class ChargesController < ApplicationController
 
     @charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount.to_i,
+      :amount      => charge_amount = (@amount * 100).to_i,
       :description => 'Rails Stripe customer',
       :currency    => 'usd',
       :receipt_email => customer.email
@@ -30,7 +52,7 @@ class ChargesController < ApplicationController
 
     # Amount in cents
     @confirmation_details = []
-    @confirmation_details << @total_and_id.second
+    @confirmation_details << @amount
     @confirmation_details << @charge[:amount]
     @confirmation_details << @charge[:source][:address_line1]
     @confirmation_details << @charge[:source][:address_line2]
@@ -43,8 +65,6 @@ class ChargesController < ApplicationController
 
     @receipt = @cart.create_receipt(@confirmation_details)
     @cart.mark_cart_items_purchased(@receipt.id)
-
-
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
