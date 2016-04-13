@@ -79,13 +79,14 @@ a {
   display: inline-block;
   border: 1px solid #999;
   border-radius: 5px;
-  width: 200px;
-  height: 260px;
-  padding: 10px;
+  width: 202px;
+  height: 202px;
+  padding: 5px;
   margin: 0 10px 10px 0;
   font-size: 0.8em;
   white-space: nowrap;
-  background: #fdfdfd;
+  // background: #fdfdfd;
+  background: $primary-accent-color;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
@@ -106,6 +107,40 @@ a {
 .design-board-btn-wrapper {
   display: inline-block;
 }
+//==================================
+.design-card-image-wrapper {
+
+}
+
+.design-card-image-overlay {
+  // display: none;
+  border-radius: 5px;
+  position: relative;
+  margin-top: -205px;
+  // top: 330px;
+  width: 182px;
+  height: 182px;
+  background:rgba(0, 0, 0, 0.50);
+  // background:rgba(82, 255, 209, 0.50); // primary-accent-color
+  // text-align:center;
+  padding:10px;
+  opacity:0;
+  -webkit-transition: opacity .4s ease;
+  -moz-transition: opacity .4s ease;
+}
+
+.design-card-image-overlay-content {
+  font-family: 'Lato';
+  // font-weight:bold;
+  color:rgba(255, 255, 255, 1.0);
+  font-size:14px;
+}
+
+.design-card-image-wrapper:hover .design-card-image-overlay {
+  opacity: 1;
+}
+
+//===================================
 
 .design-board-dropdown {
   // border: 1px solid #666;
