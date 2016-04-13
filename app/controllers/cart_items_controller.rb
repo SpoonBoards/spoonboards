@@ -36,7 +36,6 @@ class CartItemsController < ApplicationController
   def add_entire_board
     @board = Board.find(params[:board_id])
     user_cart = User.find(session[:user_id]).carts.first.id
-
     @board.designs.all.each do |design|
     api_response = []
     api_response << design.get_json_for_design(design.spoonflower_id, design.id)

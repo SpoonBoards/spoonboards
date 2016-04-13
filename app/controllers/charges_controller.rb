@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
     @total_and_id = @cart.combine_prices_and_ids
     @amount = (@total_and_id[0] * 100)
 
-
   end
 
 
