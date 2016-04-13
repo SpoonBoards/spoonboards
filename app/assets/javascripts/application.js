@@ -34,7 +34,6 @@ $(function () {  // short hand for $(document).ready(function() {})
 */
 $(".design-board-btn").on("click", function() {
   console.log("click");
-  // console.log( $(this).parent().next() );
   $(this).parent().next().css("opacity", "1.0");
 });
 
