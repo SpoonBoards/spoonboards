@@ -7,23 +7,19 @@
     <% end %>
     <label class="amount">
 
+  <%= @amount %>
 
-      <!-- <span>Amount: <%= @amount %> </span> -->
-      <%= @total_and_id[0] %>
-    <%= @total_and_id[1]%>
-    <%= @total_and_id.as_json %>
     </label>
-
-
 
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="<%= @amount %>"
+          data-amount="<%= @amount * 100 %>"
           data-locale="auto"
           data-billingAddress="true"
-          data-shippingAddress="true"
+          data-shippingAddress="true">
+
   </script>
 <% end %>
