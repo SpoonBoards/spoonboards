@@ -9,14 +9,17 @@
 <%= @charge[:source][:address_country] %>
 
 
-<%= @order_information.as_json %>
+<br>
+<%= @confirmation_details.first %>
+<br>
+<%= @confirmation_details.second %>
+<br>
+<%= @confirmation_details.as_json %>
+
+<br>
+<%= @receipt.as_json %>
 
 
 
-
-
-
-<!-- order = []
-something.each do |thing|
-  order << Receipt.create(thing)
-end -->
+<!-- <%= @total_price %>
+<%= @amount.to_i %> -->
