@@ -29,6 +29,15 @@ $(function () {  // short hand for $(document).ready(function() {})
     hideElement($("footer"));
   }
 
+/*
+* event hanldler for 'Add' design to board button
+*/
+$(".design-board-btn").on("click", function() {
+  console.log("click");
+  // console.log( $(this).parent().next() );
+  $(this).parent().next().css("opacity", "1.0");
+});
+
 });  // end of $(document).ready() block
 
 
@@ -57,6 +66,7 @@ function loadScrollData (e){
   }
 }
 // });
+
 
 
 //============================= functions ======================================
