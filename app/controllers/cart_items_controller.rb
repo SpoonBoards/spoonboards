@@ -22,16 +22,30 @@ class CartItemsController < ApplicationController
   end
 
   def add_to_cart
-    @design = Design.find(params[:design_id])
+    design = Design.find(params[:design_id])
     user_cart = User.find(session[:user_id]).carts.first.id
     api_response = []
-    api_response << @design.get_json_for_design(@design.spoonflower_id, @design.id)
-    @api_values = api_response.first
-    @api_values << user_cart
+    api_response << design.get_json_for_design(design.spoonflower_id, design.id)
+    api_values = api_response.first
+    api_values << user_cart
     cart_item = CartItem.new
-    @created_card = cart_item.create_cart_item_from_design(@api_values)
+    cart_item.create_cart_item_from_design(api_values)
+    redirect_to carts_path
+  end
 
-    # CartItem.create!(design_name: @api_values[0], design_id: @api_values[3], spoonflower_id: @api_values[0], thumbnail_url: @api_values[2], cart_id: User.find(session[:user_id]).carts.first.id)
+  def add_entire_board
+    @board = Board.find(params[:board_id])
+    user_cart = User.find(session[:user_id]).carts.first.id
+
+    @board.designs.all.each do |design|
+    api_response = []
+    api_response << design.get_json_for_design(design.spoonflower_id, design.id)
+    api_values = api_response.first
+    api_values << user_cart
+    cart_item = CartItem.new
+    cart_item.create_cart_item_from_design(api_values)
+    end
+
 
     redirect_to carts_path
   end

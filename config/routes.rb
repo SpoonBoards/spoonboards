@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 
   post '/v1/boards'
-
+  post 'cart_items/add_entire_board'
   post 'cart_items/add_to_cart'
   post 'searches/index'
   get 'designs/index'

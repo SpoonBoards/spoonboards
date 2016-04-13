@@ -15,6 +15,7 @@
         <div class="design-board-btn-wrapper"><%= button_to "ATC", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
       </div>
     <% end %>
+      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
   </div>
 
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
