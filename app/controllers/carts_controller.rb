@@ -6,6 +6,10 @@ class CartsController < ApplicationController
   def index
     # @carts = Cart.all
     @carts = Cart.where(user_id: session[:user_id])
+
+    # @carts.cart_items.where(purchased: false, receipt_id: nil)
+
+    # @cart_stuff = params[:format]
   end
 
   # GET /carts/1
