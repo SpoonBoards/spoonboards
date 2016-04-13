@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Carts</h1>
+<h1>Shopping Cart</h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th colspan="5"></th>
@@ -13,23 +13,31 @@
     <% @cart_stuff = [] %>
     <% @carts.each do |cart| %>
     <%cart.cart_items.each do |cart_item| %>
-    <%= cart_item.id %>
-    <% @cart_stuff << cart_item.id %>
-  <td>  <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" ></td>
+      <% cart_item.id %>
+      <% @cart_stuff << cart_item.id %>
+      <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" >
       <td><%= link_to 'Show', cart_item %> |</td>
       <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %> |</td>
-      <% end %>
-      <tr>
-        <!-- <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
+      <td><%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %><br>
     <% end %>
   </tbody>
         <td><%= link_to 'Checkout', new_charge_path(@cart_stuff) %></td>
-        <%= @cart_stuff.as_json %>
-</table>
+</table> -->
 
-<br>
 
-<!-- <%= link_to 'New Cart', new_cart_path %> -->
+<% @cart_stuff = [] %>
+<% form_for @carts.each do |cart| %>
+  <% cart.cart_items.each do |cart_item| %>
+    <% cart_item.id %>
+    <% @cart_stuff << cart_item.id %>
+    <div><img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>">
+      <td><%= link_to 'Show', cart_item %> |</td>
+      <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %> |</td>
+      <td><%= link_to 'Remove', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </div>
+    <% end %>
+  <% end %>
+
+  <%= cart.collection_select %>
+  <%= cart.submit %>
