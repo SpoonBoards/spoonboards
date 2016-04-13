@@ -77,15 +77,17 @@ a {
 
 .design-card {
   display: inline-block;
+  position: relative;
   border: 1px solid #999;
   border-radius: 5px;
-  width: 200px;
-  height: 260px;
-  padding: 10px;
+  width: 202px;
+  height: 202px;
+  padding: 5px;
   margin: 0 10px 10px 0;
   font-size: 0.8em;
   white-space: nowrap;
-  background: #fdfdfd;
+  // background: #fdfdfd;
+  background: $primary-accent-color;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
@@ -100,12 +102,78 @@ a {
   // overflow-x: scroll;
   overflow-x: hidden;
 }
+// scroll bar styles - no cross browser comapatible
+// .design-name::-webkit-scrollbar {
+//     width: 12px;
+// }
+//
+// .design-name::-webkit-scrollbar-track {
+//     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+//     border-radius: 10px;
+//     background: #666;
+// }
+//
+// .design-name::-webkit-scrollbar-thumb {
+//     border-radius: 10px;
+//     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+//     background: #666;
+// }
+
 
 .design-board-dropdown-label-wrapper,
 .design-board-dropdown-wrapper,
 .design-board-btn-wrapper {
   display: inline-block;
 }
+//==================================
+
+// .design-card-image-wrapper {
+//
+// }
+
+.design-card-image-overlay {
+  // display: none;
+  border-radius: 5px;
+  position: relative;
+  margin-top: -205px;
+  // top: 330px;
+  width: 182px;
+  height: 182px;
+  background:rgba(0, 0, 0, 0.70);
+  // background:rgba(82, 255, 209, 0.50); // primary-accent-color
+  // text-align:center;
+  padding:10px;
+  opacity:0;
+  -webkit-transition: opacity 0.35s ease;
+  -moz-transition: opacity 0.35s ease;
+}
+
+.design-card-image-overlay-content {
+  font-family: 'Lato';
+  // font-weight:bold;
+  color:rgba(255, 255, 255, 1.0);
+  font-size:14px;
+  width: 100%;
+  height: 100%;
+}
+
+.design-card-image-wrapper:hover .design-card-image-overlay {
+  opacity: 1;
+}
+
+.design-card-add-board-msg {
+  opacity: 0;
+  // height:20px;
+  // border:1px dashed white;
+  overflow:hidden;
+  text-align: right;
+  margin-top: 35px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: $secondary-accent-color;
+}
+
+//===================================
 
 .design-board-dropdown {
   // border: 1px solid #666;
