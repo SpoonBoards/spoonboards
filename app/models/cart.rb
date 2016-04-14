@@ -4,26 +4,38 @@ class Cart < ActiveRecord::Base
   validates :user_id, presence: true
 
 
-
-  def combine_prices_and_ids
-    total_price = []
-    cart_item_ids = []
-    total_price_and_id = []
-
-    self.cart_items.each do |cart_item|
-      if cart_item.purchased == true
-      elsif cart_item.purchased == nil || cart_item.price < 1
-        cart_item.price = 5.00
+  def calculate_price_based_on_qty
+    total = []
+    self.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item|
+      if cart_item.price == nil
+        cart_item.price = 5
+        cart_item.quantity = 1
         cart_item.save
       else
       end
-      total_price << cart_item.price
-      cart_item_ids << cart_item.id
+      price_based_on_quantity = cart_item.price * cart_item.quantity
+      total << price_based_on_quantity
     end
-    total_price_and_id << total_price.sum
-    total_price_and_id << cart_item_ids
-    return total_price_and_id
+    total.sum
   end
+
+  def prepare_receipt_details(amount, charge)
+    confirmation_details = []
+    confirmation_details << amount
+    confirmation_details << charge[:amount]
+    confirmation_details << charge[:source][:address_line1]
+    confirmation_details << charge[:source][:address_line2]
+    confirmation_details << charge[:source][:address_city]
+    confirmation_details << charge[:source][:address_state]
+    confirmation_details << charge[:source][:address_zip]
+    confirmation_details << charge[:source][:address_country]
+    confirmation_details << charge[:source][:last4]
+    confirmation_details << charge[:source][:brand]
+    return confirmation_details
+  end
+
+
+
 
   def create_receipt(confirmation_details)
     receipt = Receipt.create!(

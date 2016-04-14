@@ -29,21 +29,22 @@ class CartItemsController < ApplicationController
     api_values = api_response.first
     api_values << user_cart
     cart_item = CartItem.new
-    cart_item.create_cart_item_from_design(api_values)
+    @fabric_type = "Cashmere"
+    cart_item.create_cart_item_from_design(api_values, @fabric_type)
     redirect_to carts_path
   end
 
   def add_entire_board
     @board = Board.find(params[:board_id])
+    @fabric_type = params[:fabric_type]
     user_cart = User.find(session[:user_id]).carts.first.id
-
     @board.designs.all.each do |design|
     api_response = []
     api_response << design.get_json_for_design(design.spoonflower_id, design.id)
     api_values = api_response.first
     api_values << user_cart
     cart_item = CartItem.new
-    cart_item.create_cart_item_from_design(api_values)
+    cart_item.create_cart_item_from_design(api_values, @fabric_type)
     end
 
 
