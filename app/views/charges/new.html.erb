@@ -7,7 +7,7 @@
     <% end %>
     <label class="amount">
 
-  <%= @amount %>
+  <%= number_to_currency(@amount, :unit => "$")  %>
 
     </label>
 
@@ -15,7 +15,7 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
+          data-description="SpoonBoards Order Total"
           data-amount="<%= @amount * 100 %>"
           data-locale="auto"
           data-billingAddress="true"

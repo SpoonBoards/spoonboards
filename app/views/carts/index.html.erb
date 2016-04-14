@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>Shopping Cart</h1>
@@ -13,68 +14,106 @@
     <% @cart_stuff = [] %>
     <% @carts.each do |cart| %>
     <%cart.cart_items.each do |cart_item| %>
+=======
+  <!-- <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp; -->
+<div class="cart-container">
+  <h1>Shopping Cart</h1>
+  <ul class="cart-item-container cart-item-labels-container">
+    <li class="cart-item-label-thumbnail">Item</li>
+    <li class="cart-item-label-name"> &nbsp; </li>
+    <li class="cart-item-label-fabric"> Fabric </li>
+    <li class="cart-item-label-quantity"> Qty </li>
+    <li class="cart-item-label-price"> Price </li>
+    <li class="cart-item-label-button"> &nbsp; </li>
+    <li class="cart-item-label-btn"> &nbsp; </li>
+    <li class="cart-item-label-btn""> &nbsp; </li>
+    <li class="cart-item-label-btn"> &nbsp; </li>
+  </ul>
+  <% @cart_stuff = [] %>
+  <% @carts.each do |cart| %>
+  <%cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
+    <ul class="cart-item-container">
+>>>>>>> development
       <% cart_item.id %>
       <% @cart_stuff << cart_item.id %>
-      <img class="design-thumbnail" src="<%= cart_item.thumbnail_url %>" >
-      <td><%= link_to 'Show', cart_item %> |</td>
-      <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %> |</td>
-      <td><%= link_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td>
-      <%= form_for(cart_item) do |f| %>
-        <% if cart_item.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
-
-            <ul>
-            <% cart_item.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <!-- <div class="field">
+      <li>
+        <img class="cart-item-thumbnail" src="<%= cart_item.thumbnail_url %>" >
+      </li>
+      <li>
+        <%= form_for(cart_item) do |f| %>
+          <% if cart_item.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
+              <ul>
+              <% cart_item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </li>
+        <!-- <li class="field">
           <%= f.label :cart_id %><br>
           <%= f.number_field :cart_id %>
-        </div> -->
-        <div class="field">
-          <%= f.label :price %><br>
-          <%= f.text_field :price %>
-        </div>
-        <div class="field">
-          <%= f.label :quantity %><br>
-          <%= f.number_field :quantity %>
-        </div>
-        <div class="field">
-          <%= f.label :design_name %><br>
-          <%= f.text_field :design_name, disabled: true %>
-        </div>
-        <!-- <div class="field">
+        </li> -->
+        <li>
+          <!-- <%= f.label :design_name, class: "cart-item-label-name" %><br> -->
+          <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
+        </li>
+        <!-- <li class="field">
           <%= f.label :design_id %><br>
           <%= f.number_field :design_id %>
-        </div> -->
-        <!-- <div class="field">
+        </li> -->
+        <!-- <li class="field">
           <%= f.label :spoonflower_id %><br>
           <%= f.number_field :spoonflower_id %>
-        </div> -->
-        <!-- <div class="field">
+        </li> -->
+        <!-- <li class="field">
           <%= f.label :thumbnail_url %><br>
           <%= f.text_field :thumbnail_url %>
-        </div> -->
-        <div class="field">
-          <%= f.label :fabric_type %><br>
-          <%= f.text_field :fabric_type %>
-        </div>
-        <!-- <div class="field">
+        </li> -->
+        <li>
+          <!-- <%= f.label :fabric_type, class: "cart-item-label-fabric" %><br> -->
+          <%= f.text_field :fabric_type, value: "Cotton Blend", class: "cart-item-fabric" %>
+        </li>
+        <li class="field">
+          <!-- <%= f.label "Qty", class: "cart-item-label-quantity" %><br> -->
+          <%= f.number_field :quantity, value: "1", class: "cart-item-quantity" %>
+        </li>
+        <li class="field">
+          <!-- <%= f.label :price, class: "cart-item-label-price" %><br> -->
+          <%= f.text_field :price, value: "$5.00", class: "cart-item-price" %>
+        </li>
+        <!-- <li class="field">
           <%= f.label :purchased %><br>
           <%= f.check_box :purchased %>
-        </div> -->
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <td>
-      <% end %>
-      <% end %><br>
+        </li> -->
+        <li>
+          <%= button_to 'Show', cart_item, class: "cart-item-btn" %>
+        </li>
+        <li>
+          <%= button_to 'Edit', edit_cart_item_path(cart_item), class: "cart-item-btn" %>
+        </li>
+        <li>
+          <%= button_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-item-btn" %>
+        </li>
+        <li class="actions">
+          <%= f.submit "Update", class: "cart-item-btn" %>
+        </li>
+      </ul>
+      <br>
     <% end %>
-  </tbody>
-        <td><%= link_to 'Checkout', new_charge_path(@cart_stuff) %></td>
-</table>
+    <% end %>
+    <% end %>
+    <div class="cart-item-totals-wrapper">
+      <div class="cart-item-totals-label">Subtotal:</div><div>$25.00</div><br>
+      <div class="cart-item-totals-label">Tax:</div><div>$1.49</div><br>
+      <div class="cart-item-totals-label">Shipping:</div><div>$8.00</div><br>
+      <div class="cart-item-totals-label">Total:</div><div>$34.49</div><br>
+    </div>
+    <div class="cart-checkout-btn-wrapper"><%= link_to 'Checkout', new_charge_path(@cart_stuff), class: "cart-item-btn" %></div>
+</div>
+
+<script>
+  hideElement(".header-search-container");
+</script>
