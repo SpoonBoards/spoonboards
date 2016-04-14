@@ -10,6 +10,30 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
+
+    if @board.marked_private == true && @board.user_id != session[:used_id]
+      redirect_to boards_path, notice: "You must be the Owner of this board to view" unless session[:user_id]
+
+    elsif @board.marked_private == true && @board.user_id == session[:used_id]
+      # @designs = @board.designs
+      # @feature_display = []
+      # @designs.each do |design|
+      #   @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
+
+    elsif @board.marked_private == false && @board.user_id != session[:used_id]
+      # @designs = @board.designs
+      # @feature_display = []
+      # @designs.each do |design|
+      #   @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
+
+    elsif @board.marked_private == false && @board.user_id == session[:used_id]
+      # @designs = @board.designs
+      # @feature_display = []
+      # @designs.each do |design|
+      #   @feature_display <<  design.get_json_for_design(design.spoonflower_id, design.id)
+    else
+    end
+
     @designs = @board.designs
     @feature_display = []
     @designs.each do |design|
@@ -75,6 +99,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:name, :user_id)
+      params.require(:board).permit(:name, :user_id, :marked_private)
     end
 end
