@@ -5,13 +5,28 @@
   <br>
   <% @feature_display.calculate_results.each do |x| %>
     <div class='design-card'>
-      <img class="design-thumbnail" src="<%= x.as_json.first.second[2] %>" >
-      <div class="design-id">ID: <%= x.as_json.first.second[0] %></div>
-      <div class="design-name">Name: <%= x.as_json.first.second[1] %></div>
-      <div class="design-form-wrapper"><%= form_tag({controller: "designs", action: "create"}, remote: true, class: "design-form") do %></div>
-      <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "Board:", class: "design-board-dropdown-label") %> &nbsp; </div>
-      <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
-      <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You added a design to a board!'); alert('You added a design to a board!')") %> </div>
+
+      <div class="design-card-image-wrapper">  <!-- box -->
+        <img class="design-thumbnail" src="<%= x.as_json.first.second[2] %>" >
+        <div class="design-card-image-overlay"> <!-- overlay -->
+          <div class="design-card-image-overlay-content">  <!-- content -->
+
+            <div class="design-name"><strong> Name: </strong> <br> <%= x.as_json.first.second[1] %></div>
+            <br>
+            <div class="design-id"><strong>Product ID: </strong> &nbsp; <%= x.as_json.first.second[0] %></div>
+            <br>
+            <div class="design-form-wrapper"><%= form_tag({controller: "designs", action: "create"}, remote: true, class: "design-form") do %></div>
+            <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "SpoonBoard:", class: "design-board-dropdown-label") %> &nbsp; </div>
+            <br>
+            <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
+            &nbsp;
+            <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You added a design to a board!');alert('You added a design to a board!');") %></div>
+            <div class="design-card-add-board-msg">Added</div>
+
+          </div>
+        </div>
+      </div>
+
       <div class="design-borad-hidden-spoonflower-id-wrapper"><%= hidden_field_tag "design[spoonflower_id]",x.as_json.first.second[0] %> </div>
     </div>
     <% end %>
