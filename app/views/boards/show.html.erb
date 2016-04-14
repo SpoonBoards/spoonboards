@@ -15,9 +15,10 @@
         <div class="design-board-btn-wrapper"><%= button_to "ATC", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
       </div>
     <% end %>
-      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => fabric_type.id), :method => :post, class: "design-board-btn" %></div>
+
       <p><strong>Please Select 1 Fabric Per Board</strong></p>
-      <p><%= select_tag(:fabric_id, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
+      <p><%= select_tag(:fabric_type, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
       ['Performance Piqué ($20/yd)', 4], ['Cotton Poplin ($20/yd)', 5], ['Poly Crepe de Chine ($23/yd)', 6],
       ['Cotton Lawn Ultra ($24/yd)', 7], ['Silky Faille ($24/yd)', 8], ['Performance Knit ($24/yd)', 9], ['Modern Jersey ($26.50/yd)', 10],
       ['Cotton Spandex Jersey ($26.75/yd)', 11], ['Fleece ($27/yd)', 12], ['Minky ($27/yd)', 13],
