@@ -299,7 +299,7 @@ function getResults(searchStr, offset, limit) {
 * hide DOM elements
 */
 function hideElement(element) {
-  console.log("** function call : hideElement() ** ", element);
+  console.log("** function call : hideElement() => ", element);
   $(element).hide();
 }
 
@@ -360,9 +360,12 @@ function truncate(str) {
   return str;
 }
 
+/*
+*  send notification messages to #notice element in page header
+*/
 function notify(str) {
   if (str != undefined && str.length > 0) {
     $("#notice").empty();
-    $("#notice").prepend(str);
+    $("#notice").prepend(str).fadeIn(600, "swing").delay(2000).fadeOut(600, "swing");
   }
 }

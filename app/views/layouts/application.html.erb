@@ -50,13 +50,15 @@
           <div class="header-search-btn-wrapper"><%= submit_tag "Search", :name => nil, class: "header-search-btn" %></div>
         <% end %>
       </div>
-      <p id="notice" style="text-align:center;height:16px;"><%= notice %></p>
+      <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp;
     </header>
     <input type="hidden" name="controller_name" id="controller-name" value="<%= params[:controller] %>">
     <input type="hidden" name="controller_action" id="controller-action" value="<%= params[:action] %>">
     <input type="hidden" name="user_id" id="user-id" value="<%= session[:user_id] %>">
-
-    <div class="yield-container"> <%= yield %> </div>
+    
+    <div class="yield-container">
+      <%= yield %>
+    </div>
 
     <footer>
       <div class="footer-container">

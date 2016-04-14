@@ -1,8 +1,17 @@
-
-  <br>
   <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name"><%= @board.name %></div>
+      <div class="board-function-bar">
+        <div class="board-function-bar-item"><strong>Fabric Type</strong></div>
+        <div class="board-function-bar-item"><%= select_tag(:fabric_id, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
+        ['Performance Piqué ($20/yd)', 4], ['Cotton Poplin ($20/yd)', 5], ['Poly Crepe de Chine ($23/yd)', 6],
+        ['Cotton Lawn Ultra ($24/yd)', 7], ['Silky Faille ($24/yd)', 8], ['Performance Knit ($24/yd)', 9], ['Modern Jersey ($26.50/yd)', 10],
+        ['Cotton Spandex Jersey ($26.75/yd)', 11], ['Fleece ($27/yd)', 12], ['Minky ($27/yd)', 13],
+        ['Linen-Cotton Canvas ($27/yd)', 14], ['Organic Cotton Knit ($27/yd)', 15], ['Organic Cotton Sateen ($27/yd)', 16],
+        ['Sport Lycra ($32/yd)', 17], ['  Heavy Cotton Twill ($32/yd)', 18], ['  Eco Canvas ($32/yd)', 19],
+        ['Faux Suede ($34/yd)', 20], ['Silk Crepe de Chine ($38/yd)', 21]])) %></div>
+        <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+      </div>
     </div>
     <% @feature_display.each do |design|%>
       <div class="board-card">
@@ -12,21 +21,9 @@
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
         <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
-        <div class="design-board-btn-wrapper"><%= button_to "ATC", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
       </div>
     <% end %>
-      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
-      <p><strong>Please Select 1 Fabric Per Board</strong></p>
-      <p><%= select_tag(:fabric_id, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
-      ['Performance Piqué ($20/yd)', 4], ['Cotton Poplin ($20/yd)', 5], ['Poly Crepe de Chine ($23/yd)', 6],
-      ['Cotton Lawn Ultra ($24/yd)', 7], ['Silky Faille ($24/yd)', 8], ['Performance Knit ($24/yd)', 9], ['Modern Jersey ($26.50/yd)', 10],
-      ['Cotton Spandex Jersey ($26.75/yd)', 11], ['Fleece ($27/yd)', 12], ['Minky ($27/yd)', 13],
-      ['Linen-Cotton Canvas ($27/yd)', 14], ['Organic Cotton Knit ($27/yd)', 15], ['Organic Cotton Sateen ($27/yd)', 16],
-      ['Sport Lycra ($32/yd)', 17], ['  Heavy Cotton Twill ($32/yd)', 18], ['  Eco Canvas ($32/yd)', 19],
-      ['Faux Suede ($34/yd)', 20], ['Silk Crepe de Chine ($38/yd)', 21]])) %></p>
-      </div>
-
-      <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-
-    <br>
+  </div>
+  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
   <br>
