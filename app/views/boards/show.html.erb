@@ -22,16 +22,30 @@
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
-        <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+      <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+
+
+      <% if @board.user_id == session[:user_id] %>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
         <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
-
+      <% end %>
       </div>
     <% end %>
 
+
+
       <% @fabric_type = "CASHMERE" %>
+      <% if @board.user_id == session[:user_id] %>
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
+      <% end %>
+
       <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+
+
+
+    <% if @board.user_id == session[:user_id] %>
+
+
 
       <%= form_for(@board,remote: true) do |f| %>
         <% if @board.errors.any? %>
@@ -61,7 +75,7 @@
           <%= f.submit %>
         </div>
       <% end %>
-
+    <% end %>
 
       <!-- <% @fabric_type = "CASHMERE" %>
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div> -->
