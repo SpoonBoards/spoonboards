@@ -23,16 +23,16 @@
       </li>
       <li>
         <%= form_for(cart_item) do |f| %>
-          <% if cart_item.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
-              <ul>
-              <% cart_item.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
+            <% if cart_item.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
+                <ul>
+                <% cart_item.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
         </li>
         <!-- <li class="field">
           <%= f.label :cart_id %><br>
@@ -66,6 +66,9 @@
           <!-- <%= f.label :price, class: "cart-item-label-price" %><br> -->
           <%= f.text_field :price, value: "$5.00", class: "cart-item-price" %>
         </li>
+        <li class="actions">
+          <%= f.submit "Update", class: "cart-item-btn" %>
+        </li>
         <!-- <li class="field">
           <%= f.label :purchased %><br>
           <%= f.check_box :purchased %>
@@ -79,9 +82,7 @@
         <li>
           <%= button_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-item-btn" %>
         </li>
-        <li class="actions">
-          <%= f.submit "Update", class: "cart-item-btn" %>
-        </li>
+
       </ul>
       <br>
     <% end %>

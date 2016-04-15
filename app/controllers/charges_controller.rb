@@ -2,37 +2,13 @@ class ChargesController < ApplicationController
 
   def new
     @cart = Cart.where(user_id: session[:user_id]).first
-    total = []
-    @cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item|
-      if cart_item.price == nil
-        cart_item.price = 5
-        cart_item.save
-      else
-      end
-      total << cart_item.price
-    end
-    @amount = total.sum
-  end
+    @amount = @cart.calculate_price_based_on_qty
 
-    # @amount = (@amount * 100)
+  end
 
   def create
     @cart = Cart.where(user_id: session[:user_id]).first
-    # @total_and_id = @cart.combine_prices_and_ids
-    total = []
-    @cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item|
-      if cart_item.price == nil
-        cart_item.price = 5
-        cart_item.save
-      else
-      end
-      total << cart_item.price
-    end
-
-    @amount = total.sum
-
-
-    # @amount = (@total_and_id[0] * 100)
+    @amount = @cart.calculate_price_based_on_qty
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -47,22 +23,22 @@ class ChargesController < ApplicationController
       :receipt_email => customer.email
     )
 
+    # Insert API call here dawg
+    @result = HTTParty.post("https://api-dev.sproutpatterns.com:9517/order/create"),
+        :body => { :fabric_id => 'This is the fabric id',
+                   :user_id => 'SpoonBoards user_id',
+                   :design_id => '111111',
+                   :app_id => 2,
+                 }.to_json,
 
-    # Amount in cents
-    @confirmation_details = []
-    @confirmation_details << @amount
-    @confirmation_details << @charge[:amount]
-    @confirmation_details << @charge[:source][:address_line1]
-    @confirmation_details << @charge[:source][:address_line2]
-    @confirmation_details << @charge[:source][:address_city]
-    @confirmation_details << @charge[:source][:address_state]
-    @confirmation_details << @charge[:source][:address_zip]
-    @confirmation_details << @charge[:source][:address_country]
-    @confirmation_details << @charge[:source][:last4]
-    @confirmation_details << @charge[:source][:brand]
+        :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"
 
-    @receipt = @cart.create_receipt(@confirmation_details)
+    receipt_details = @cart.prepare_receipt_details(@amount, @charge)
+    @receipt = @cart.create_receipt(receipt_details)
     @cart.mark_cart_items_purchased(@receipt.id)
+
+
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
