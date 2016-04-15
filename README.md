@@ -1,13 +1,31 @@
 # SpoonBoards
 
-## Description
-SpoonBoards is a Ruby on Rails app that allows the user to search for Spoonflower designs and create themed online collections. Explore SpoonBoards on <a href="https://spoonboards.herokuapp.com"> Heroku </a> today!
+## Introduction
+<a href="http://www.spoonflower.com">Spoonflower</a> is a print-on-demand company that provides custom-printed fabric, wallpaper and gift wrap. Users can search through hundreds of thousands of incredible designs, but that much variety can be a little overwhelming --  especially when you don’t have a tool that can help you easily categorize your top picks.
 
-## Usage
+**SpoonBoards** is a Ruby on Rails app that lets users to browse the Spoonflower marketplace and create unique, curated collections by adding designs to boards. Feel free to explore **SpoonBoards** on <a href="https://spoonboards.herokuapp.com"> Heroku. </a>
 
-`GET /design/search`
+## Features & Functionality
 
-SpoonBoards connects to the Spoonflower API to display search results, and the user adds designs to a board.
+Let’s say you’re working on decorating your kid’s room using a dinosaur theme. Our app makes it easy to search for designs using Spoonflower’s API. Infinite scroll pulls up dozens of designs, and the user can quickly create a board and add designs to it.
+
+`screenshot goes here`
+
+After creating an awesome dinosaur board, you might want to share it with friends or family. We use OmniAuth to communicate with <a href="https://github.com/jot/omniauth-pinterest">Pinterest’s API.</a> You can create pins, new Pinterest boards and even use its service to log into **SpoonBoards**.
+
+`screenshot goes here`
+
+Now you’re ready to move on with your dino decorating, but you need to see your board in person first. **SpoonBoards** allows you to add a board sampler to your cart on one of <a href="http://www.spoonflower.com/spoonflower_fabrics">Spoonflower’s base fabrics</a>, so you can have it printed on the material that best suits your needs.
+
+`screenshot goes here`
+
+<a href="https://stripe.com/docs/api">Stripe’s API</a> keeps the checkout process easy. Once the transaction is complete, SpoonBoards communicates with Spoonflower’s API to generate an order, and soon you would receive your dinosaur collection printed onto fabric.
+
+## Future Targets
+
+Not only is SpoonBoards an efficient organizational tool, we’re adding another avenue through which Spoonflower community members can interact with each other. As this app grows, developing the social media aspect would be a big priority.
+
+We also hope that by making board samplers easy to purchase, we give users the ability plan out their project needs and generate more conversions.
 
 ## Additional Information
 
