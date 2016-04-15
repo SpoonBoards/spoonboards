@@ -1,4 +1,4 @@
-  <!-- <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp; -->
+
 <div class="cart-container">
   <h1>Shopping Cart</h1>
   <ul class="cart-item-container cart-item-labels-container">
@@ -9,17 +9,14 @@
     <li class="cart-item-label-price"> Price </li>
     <li class="cart-item-label-button"> &nbsp; </li>
     <li class="cart-item-label-btn"> &nbsp; </li>
-    <li class="cart-item-label-btn""> &nbsp; </li>
+    <li class="cart-item-label-btn"> &nbsp; </li>
     <li class="cart-item-label-btn"> &nbsp; </li>
   </ul>
-  <% @cart_stuff = [] %>
   <% @carts.each do |cart| %>
   <%cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
     <ul class="cart-item-container">
-      <% cart_item.id %>
-      <% @cart_stuff << cart_item.id %>
       <li>
-        <img class="cart-item-thumbnail" src="<%= cart_item.thumbnail_url %>" >
+        <img class="cart-item-thumbnail" src='<%= cart_item.thumbnail_url %>' >
       </li>
       <li>
         <%= form_for(cart_item) do |f| %>
@@ -34,45 +31,29 @@
               </div>
             <% end %>
         </li>
-        <!-- <li class="field">
-          <%= f.label :cart_id %><br>
-          <%= f.number_field :cart_id %>
-        </li> -->
-        <li>
-          <!-- <%= f.label :design_name, class: "cart-item-label-name" %><br> -->
-          <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
-        </li>
-        <!-- <li class="field">
-          <%= f.label :design_id %><br>
-          <%= f.number_field :design_id %>
-        </li> -->
-        <!-- <li class="field">
-          <%= f.label :spoonflower_id %><br>
-          <%= f.number_field :spoonflower_id %>
-        </li> -->
-        <!-- <li class="field">
-          <%= f.label :thumbnail_url %><br>
-          <%= f.text_field :thumbnail_url %>
-        </li> -->
-        <li>
-          <!-- <%= f.label :fabric_type, class: "cart-item-label-fabric" %><br> -->
-          <%= f.text_field :fabric_type, value: "Cotton Blend", class: "cart-item-fabric" %>
+
+
+        <li class="field">
+          <%= f.label :fabric_type %><br>
+          <%= f.text_field :fabric_type %>
         </li>
         <li class="field">
-          <!-- <%= f.label "Qty", class: "cart-item-label-quantity" %><br> -->
-          <%= f.number_field :quantity, value: "1", class: "cart-item-quantity" %>
+        <%= f.label :design_name, class: "cart-item-label-name" %><br>
+        <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
         </li>
         <li class="field">
-          <!-- <%= f.label :price, class: "cart-item-label-price" %><br> -->
-          <%= f.text_field :price, value: "$5.00", class: "cart-item-price" %>
+        <%= f.label "Qty", class: "cart-item-label-quantity" %><br>
+          <%= f.number_field :quantity, class: "cart-item-quantity" %>
         </li>
+        <li class="field">
+          <%= f.label :price, class: "cart-item-label-price" %><br>
+          <%= f.text_field :price, class: "cart-item-price" %>
+        </li>
+
         <li class="actions">
           <%= f.submit "Update", class: "cart-item-btn" %>
         </li>
-        <!-- <li class="field">
-          <%= f.label :purchased %><br>
-          <%= f.check_box :purchased %>
-        </li> -->
+
         <li>
           <%= button_to 'Show', cart_item, class: "cart-item-btn" %>
         </li>
