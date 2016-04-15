@@ -4,20 +4,20 @@ one:
   cart_id: 1
   price: 9.99
   quantity: 1
-  design_name: MyString
+  design_name: forest
   design_id: 1
   spoonflower_id: 1
-  thumbnail_url: MyString
-  fabric_type: MyString
+  thumbnail_url: something.com
+  fabric_type: chiffon
   purchased: false
 
 two:
-  cart_id: 1
+  cart_id: 2
   price: 9.99
   quantity: 1
-  design_name: MyString
-  design_id: 1
-  spoonflower_id: 1
-  thumbnail_url: MyString
-  fabric_type: MyString
+  design_name: birds
+  design_id: 2
+  spoonflower_id: 2
+  thumbnail_url: cat.com
+  fabric_type: velvet
   purchased: false
