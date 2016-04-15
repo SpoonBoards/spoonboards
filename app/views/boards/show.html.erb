@@ -13,7 +13,7 @@
         <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
       </div>
     <% end %>
-      <% @fabric_type = "CASHMERE" %>
+
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
 
       <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
