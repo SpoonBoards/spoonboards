@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'boards/show'
 
   get 'boards/pinterest_board_create'
+  post 'boards/clone_board'
 
 
   post 'cart_items/add_entire_board'

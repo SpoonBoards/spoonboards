@@ -25,12 +25,13 @@
         <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
         <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
+
       </div>
     <% end %>
-    
+
       <% @fabric_type = "CASHMERE" %>
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
-
+      <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
 
       <%= form_for(@board,remote: true) do |f| %>
         <% if @board.errors.any? %>
