@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
+  post 'boards/show'
+
   get 'boards/pinterest_board_create'
 
 

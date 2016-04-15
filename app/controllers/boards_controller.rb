@@ -72,14 +72,41 @@ class BoardsController < ApplicationController
   def update
     respond_to do |format|
       if @board.update(board_params)
-        format.html { redirect_to @board, notice: 'Board was successfully updated.' }
-        format.json { render :show, status: :ok, location: @board }
+        format.html { redirect_to @board, notice: 'User was successfully created.' }
+        format.js   {}
+        format.json { render json: @board, notice: 'User was successfully created.'}
       else
-        format.html { render :edit }
+        format.html { render action: "new" }
         format.json { render json: @board.errors, status: :unprocessable_entity }
       end
     end
   end
+
+
+  # def create
+  #   @user = User.new(params[:user])
+  #
+  #   respond_to do |format|
+  #     @board.update(board_params)
+  #       format.html { redirect_to @board, notice: 'User was successfully created.' }
+  #       format.js   {}
+  #       format.json { render json: @board, notice: 'User was successfully created.'}
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @board.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+
+
+
+
+
+
+
+
+
 
   # DELETE /boards/1
   # DELETE /boards/1.json
