@@ -2,20 +2,20 @@
 
 one:
   cart_item_id: 1
-  city: MyString
-  adr_1: MyString
+  city: chapel hill
+  adr_1: 211 northwood drive
   adr_2: MyString
-  state: MyString
-  zip: 1
-  name: MyString
-  price: 1
+  state: nc
+  zip: 27516
+  name: Daniel
+  price: 5
 
 two:
-  cart_item_id: 1
-  city: MyString
-  adr_1: MyString
-  adr_2: MyString
-  state: MyString
-  zip: 1
-  name: MyString
-  price: 1
+  cart_item_id: 2
+  city: bronx
+  adr_1: 120 gale place
+  adr_2: apt 8b
+  state: ny
+  zip: 10463
+  name: Carolyn
+  price: 5

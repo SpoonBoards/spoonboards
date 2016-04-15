@@ -1,6 +1,22 @@
   <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name"><%= @board.name %></div>
+
+      <div class="board-function-bar">
+        <!-- <div class="board-function-bar-item"><strong>Fabric Type</strong></div> -->
+        <!-- <div class="board-function-bar-item"><%= select_tag(:fabric_id, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
+        ['Performance Piqué ($20/yd)', 4], ['Cotton Poplin ($20/yd)', 5], ['Poly Crepe de Chine ($23/yd)', 6],
+        ['Cotton Lawn Ultra ($24/yd)', 7], ['Silky Faille ($24/yd)', 8], ['Performance Knit ($24/yd)', 9], ['Modern Jersey ($26.50/yd)', 10],
+        ['Cotton Spandex Jersey ($26.75/yd)', 11], ['Fleece ($27/yd)', 12], ['Minky ($27/yd)', 13],
+        ['Linen-Cotton Canvas ($27/yd)', 14], ['Organic Cotton Knit ($27/yd)', 15], ['Organic Cotton Sateen ($27/yd)', 16],
+        ['Sport Lycra ($32/yd)', 17], ['  Heavy Cotton Twill ($32/yd)', 18], ['  Eco Canvas ($32/yd)', 19],
+        ['Faux Suede ($34/yd)', 20], ['Silk Crepe de Chine ($38/yd)', 21]])) %></div> -->
+        <!-- <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div> -->
+      </div>
+      <%="you are not private" if @board.marked_private == nil  %>
+      <%="you are private" if @board.marked_private == true  %>
+      <%="you are not private" if @board.marked_private == false  %>
+
     </div>
     <% @feature_display.each do |design|%>
       <div class="board-card">
@@ -8,16 +24,63 @@
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
-        <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+      <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+
+
+      <% if @board.user_id == session[:user_id] %>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
         <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
+      <% end %>
       </div>
     <% end %>
+
+
+
       <% @fabric_type = "CASHMERE" %>
+      <% if @board.user_id == session[:user_id] %>
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
+      <% end %>
 
-      <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+      <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
 
+
+
+    <% if @board.user_id == session[:user_id] %>
+
+
+
+      <%= form_for(@board,remote: true) do |f| %>
+        <% if @board.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+            <ul>
+            <% @board.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <div>
+
+        <div class="field">
+          <%= f.label :marked_private %><br>
+          <%= f.check_box :marked_private %>
+        <div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    <% end %>
+
+      <!-- <% @fabric_type = "CASHMERE" %>
+      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div> -->
     <br>
 
   </div>
