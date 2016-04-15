@@ -6,12 +6,12 @@
 #
 one:
 user_id: 1
-price: 9.99
-quantity: 1
+receipt_id: 11111
+private: true
 # column: value
 #
 two:
-user_id: 1
-price: 9.99
-quantity: 1
+user_id: 2
+receipt_id: 22222
+private: false
 #  column: value

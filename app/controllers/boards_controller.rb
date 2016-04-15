@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  # before_action :privates_check, only: [:show]
 
   # GET /boards
   # GET /boards.json
@@ -11,8 +12,8 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
 
-    if @board.marked_private == true && @board.user_id != session[:used_id]
-      redirect_to boards_path, notice: "You must be the Owner of this board to view" unless session[:user_id]
+    if @board.marked_private == true && @board.user_id != session[:user_id]
+      redirect_to boards_path, notice: "You must be the Owner of this board to view"
 
     elsif @board.marked_private == true && @board.user_id == session[:used_id]
       # @designs = @board.designs
