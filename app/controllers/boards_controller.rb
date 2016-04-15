@@ -69,45 +69,6 @@ class BoardsController < ApplicationController
 
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # @fabric_type = params[:fabric_type]
-    # user_cart = User.find(session[:user_id]).carts.first.id
-    # @board.designs.all.each do |design|
-    # api_response = []
-    # api_response << design.get_json_for_design(design.spoonflower_id, design.id)
-    # api_values = api_response.first
-    # api_values << user_cart
-    # cart_item = CartItem.new
-    # cart_item.create_cart_item_from_design(api_values, @fabric_type)
-    # end
-    #
-    #
-    # redirect_to carts_path
-
-
-
-
-
-
-
-
-
-
-
-
-
   # POST /boards
   # POST /boards.json
   def create
@@ -138,30 +99,6 @@ class BoardsController < ApplicationController
       end
     end
   end
-
-
-  # def create
-  #   @user = User.new(params[:user])
-  #
-  #   respond_to do |format|
-  #     @board.update(board_params)
-  #       format.html { redirect_to @board, notice: 'User was successfully created.' }
-  #       format.js   {}
-  #       format.json { render json: @board, notice: 'User was successfully created.'}
-  #     else
-  #       format.html { render action: "new" }
-  #       format.json { render json: @board.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-
-
-
-
-
-
-
 
 
 
