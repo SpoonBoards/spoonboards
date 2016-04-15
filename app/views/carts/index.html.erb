@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<h1>Shopping Cart</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cart_stuff = [] %>
-    <% @carts.each do |cart| %>
-    <%cart.cart_items.each do |cart_item| %>
-=======
   <!-- <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp; -->
 <div class="cart-container">
   <h1>Shopping Cart</h1>
@@ -33,7 +16,6 @@
   <% @carts.each do |cart| %>
   <%cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
     <ul class="cart-item-container">
->>>>>>> development
       <% cart_item.id %>
       <% @cart_stuff << cart_item.id %>
       <li>

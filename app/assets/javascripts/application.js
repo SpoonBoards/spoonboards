@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+ //= require introjs
 // this block will run on every page refresh
 $(function () {  // short hand for $(document).ready(function() {})
   'use strict';
