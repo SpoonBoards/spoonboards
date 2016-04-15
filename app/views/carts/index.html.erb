@@ -4,7 +4,6 @@
   <ul class="cart-item-container cart-item-labels-container">
     <li class="cart-item-label-thumbnail">Item</li>
     <li class="cart-item-label-name"> &nbsp; </li>
-    <li class="cart-item-label-fabric"> Fabric </li>
     <li class="cart-item-label-quantity"> Qty </li>
     <li class="cart-item-label-price"> Price </li>
     <li class="cart-item-label-button"> &nbsp; </li>
@@ -56,7 +55,18 @@
         </li> -->
         <li>
           <!-- <%= f.label :fabric_type, class: "cart-item-label-fabric" %><br> -->
-          <%= f.text_field :fabric_type, value: "Cotton Blend", class: "cart-item-fabric" %>
+
+                  <!-- <div class="board-function-bar">
+                    <div class="board-function-bar-item"><strong>Fabric Type</strong></div> -->
+                    <div class="board-function-bar-item"><%= select_tag(:fabric_id, options_for_select([['Basic Cotton Ultra ($17.50/yd)', 1], ['Satin ($18/yd)', 2], ['Kona® Cotton ($19/yd)', 3],
+                    ['Performance Piqué ($20/yd)', 4], ['Cotton Poplin ($20/yd)', 5], ['Poly Crepe de Chine ($23/yd)', 6],
+                    ['Cotton Lawn Ultra ($24/yd)', 7], ['Silky Faille ($24/yd)', 8], ['Performance Knit ($24/yd)', 9], ['Modern Jersey ($26.50/yd)', 10],
+                    ['Cotton Spandex Jersey ($26.75/yd)', 11], ['Fleece ($27/yd)', 12], ['Minky ($27/yd)', 13],
+                    ['Linen-Cotton Canvas ($27/yd)', 14], ['Organic Cotton Knit ($27/yd)', 15], ['Organic Cotton Sateen ($27/yd)', 16],
+                    ['Sport Lycra ($32/yd)', 17], ['  Heavy Cotton Twill ($32/yd)', 18], ['  Eco Canvas ($32/yd)', 19],
+                    ['Faux Suede ($34/yd)', 20], ['Silk Crepe de Chine ($38/yd)', 21]])) %></div>
+                  </div>
+                </div>
         </li>
         <li class="field">
           <!-- <%= f.label "Qty", class: "cart-item-label-quantity" %><br> -->

@@ -25,18 +25,18 @@ class ChargesController < ApplicationController
     )
 
     # Insert API call here dawg
-    @result = HTTParty.post("https://api-dev.sproutpatterns.com:9517/order/create"),
-        :body => { :fabric_id => 'This is the fabric id',
-                   :user_id => 'SpoonBoards user_id',
-                   :design_id => '111111',
-                   :app_id => 2,
-                 }.to_json,
-
-        :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"
-
-    receipt_details = @cart.prepare_receipt_details(@amount, @charge)
-    @receipt = @cart.create_receipt(receipt_details)
-    @cart.mark_cart_items_purchased(@receipt.id)
+    # @result = HTTParty.post("https://api-dev.sproutpatterns.com:9517/order/create"),
+    #     :body => { :fabric_id => 'This is the fabric id',
+    #                :user_id => 'SpoonBoards user_id',
+    #                :design_id => '111111',
+    #                :app_id => 2,
+    #              }.to_json,
+    #
+    #     :headers => {"X-Auth-Token" => "#{ENV["SPOON_KEY"]}"
+    #
+    # receipt_details = @cart.prepare_receipt_details(@amount, @charge)
+    # @receipt = @cart.create_receipt(receipt_details)
+    # @cart.mark_cart_items_purchased(@receipt.id)
 
 
 
