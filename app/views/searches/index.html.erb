@@ -18,8 +18,8 @@
             <br>
             <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
             &nbsp;
-            <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You added a design to a board!');alert('You added a design to a board!');") %></div>
-            <div class="design-card-add-board-msg">Added</div>
+            <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You added a design to a board!');") %></div>
+            <!-- <div class="design-card-add-board-msg">Added</div> -->
 
           </div>
         </div>
