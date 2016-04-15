@@ -25,13 +25,14 @@
 $title-font: "Thirsty Rough Reg One";
 $body-font: "Lato";
 $default-font: "sans-serif";
-$color-soft-white: #fdfdfd;
+$soft-white: #fdfdfd;
 $background-color: #fdfaf1;
-$primary-color: #1DE9B6;
-$primary-accent-color: #64FFDA;
-$secondary-color: #00B0FF;
-$secondary-accent-color: #80D8FF;
-
+$green: #1DE9B6;
+$light-green: #64FFDA;
+$blue: #00B0FF;
+$light-blue: #80D8FF;
+$grey: #999999;
+$dark-grey: #333333;
 
 body {
   margin: 0;
@@ -87,7 +88,7 @@ a {
   font-size: 0.8em;
   white-space: nowrap;
   // background: #fdfdfd;
-  background: $primary-accent-color;
+  background: $light-green;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
@@ -140,7 +141,7 @@ a {
   width: 182px;
   height: 182px;
   background:rgba(0, 0, 0, 0.70);
-  // background:rgba(82, 255, 209, 0.50); // primary-accent-color
+  // background:rgba(82, 255, 209, 0.50); // light-green
   // text-align:center;
   padding:10px;
   opacity:0;
@@ -170,7 +171,7 @@ a {
   margin-top: 35px;
   font-size: 1.2em;
   font-weight: bold;
-  color: $secondary-accent-color;
+  color: $light-blue;
 }
 
 //===================================
@@ -231,14 +232,14 @@ a {
 .board-name-wrapper {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: $primary-color;
+  background: $green;
   text-align: center;
 }
 
 .board-function-bar {
-  border-bottom: 6px solid $primary-accent-color;
-  background: $primary-color;
-  color: $color-soft-white;
+  border-bottom: 6px solid $light-green;
+  background: $green;
+  color: $soft-white;
   .board-function-bar-item {
     display: inline-block;
     margin: 5px;
@@ -248,7 +249,7 @@ a {
 .board-name {
   line-height: 1.4;
   height: 40px;
-  color: $color-soft-white;
+  color: $soft-white;
   font: {
     family: $title-font;
     size: 2em;
@@ -429,9 +430,9 @@ a {
   line-height: 2.5;
   background: #fff;   // default
   color: #aaa;        // default
-  background: -webkit-linear-gradient(right, #aaa, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // background: -webkit-linear-gradient(right, #aaa, #333);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 }
 
 header {
@@ -486,8 +487,8 @@ header {
 }
 
 .header-images-wrapper {
-  border-top: 4px solid $secondary-color;
-  border-bottom: 4px solid $secondary-color;
+  border-top: 4px solid $blue;
+  border-bottom: 4px solid $blue;
   width: 100%;
   height: 104px;
   overflow: hidden;
@@ -499,7 +500,7 @@ header {
   padding: 10px;
   border: 1px solid #999;
   border-radius: 5px;
-  background: $primary-color;
+  background: $green;
 }
 
 .header-search-title,
@@ -517,7 +518,7 @@ header {
     size: 1.2em;
     weight: bold;
   }
-  color: $color-soft-white;
+  color: $soft-white;
 }
 
 .header-search-input {
@@ -574,12 +575,12 @@ header {
 
 footer {
   margin: 25px;
-  border-top: 2px solid $secondary-color;
+  border-top: 2px solid $blue;
 }
 
 .footer-container {
   width: 100%;
-  border-top: 2px solid $secondary-accent-color;
+  border-top: 2px solid $light-blue;
 }
 
 .footer-logo {
@@ -602,7 +603,7 @@ footer {
   border: 1px solid #999;
   border-radius: 5px;
   margin: 10px 10px 0 0;
-  background: $color-soft-white;
+  background: $soft-white;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   .boards-index-card-image-wrapper {
     display: inline-block;
@@ -618,9 +619,9 @@ footer {
 }
 
 .boards-index-card-name {
-  border-bottom: 4px solid $primary-accent-color;
-  background: $primary-color;
-  color: $color-soft-white;
+  border-bottom: 4px solid $light-green;
+  background: $green;
+  color: $soft-white;
   text-align: center;
   font: {
     family: $title-font;
@@ -664,7 +665,7 @@ footer {
 
 .cart-item-container {
   display: inline-block;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $green;
   // border: 2px solid #aaa;
   // border-radius: 5px;
   margin: 0;
@@ -710,7 +711,7 @@ footer {
 
 .cart-checkout-btn-wrapper {
   // border: 1px dashed red;
-  // border-bottom: 2px solid $primary-color;
+  // border-bottom: 2px solid $green;
   width: 100%;
   padding: 10px;
   text-align: right;
@@ -718,7 +719,7 @@ footer {
 
 .cart-item-totals-wrapper {
   // border: 1px dashed red;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $green;
   width: 100%;
   margin: 0;
   padding: 10px;
