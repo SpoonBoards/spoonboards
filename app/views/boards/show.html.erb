@@ -4,8 +4,15 @@
 
       <div class="board-function-bar">
         <div class="board-function-bar-item"><strong>Fabric Type</strong></div>
-        <div class="board-function-bar-item"><%= select_tag(:set_fabric_type, options_for_select(@fabric_type)) %></div>
-        <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+
+
+        <div class="board-function-bar-item"><%= select_tag(:set_fabric_type, options_for_select(@fabric_type_options)) %></div>
+
+
+
+
+
+        <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
       </div>
       <%="you are not private" if @board.marked_private == nil  %>
       <%="you are private" if @board.marked_private == true  %>
@@ -21,7 +28,7 @@
 
       <% if @board.user_id == session[:user_id] %>
         <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn", remote: true %></div>
-        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
       <% end %>
       </div>
       <div>
@@ -41,7 +48,7 @@
       <!-- <% @fabric_type = "CASHMERE" %> -->
 
       <% if @board.user_id == session[:user_id] %>
-      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
+      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
       <% end %>
 
       <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
@@ -68,14 +75,20 @@
           <%= f.label :marked_private %><br>
           <%= f.check_box :marked_private %>
         <div>
+
+        <div class="field">
+          <%= f.label :fabric_type %><br>
+          <%= f.select :fabric_type, @fabric_type_options %>
+        </div>
+
+
+
         <div class="actions">
           <%= f.submit %>
         </div>
       <% end %>
     <% end %>
 
-      <!-- <% @fabric_type = "CASHMERE" %>
-      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div> -->
     <br>
 
   </div>

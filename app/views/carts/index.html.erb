@@ -35,7 +35,7 @@
 
         <li class="field">
           <%= f.label :fabric_type %><br>
-          <%= f.text_field :fabric_type, class: "cart-item-quantity"%>
+          <%= f.select :fabric_type, @fabric_type_options %>
         </li>
         <li class="field">
         <%= f.label :design_name, class: "cart-item-label-name" %><br>
@@ -70,7 +70,7 @@
       <div class="cart-item-totals-label">Shipping:</div><div>$0.00</div><br>
       <div class="cart-item-totals-label">Total:</div><div><%= @amount %></div><br>
     </div>
-    <div class="cart-checkout-btn-wrapper"><%= link_to 'Checkout', new_charge_path, class: "cart-item-btn" %></div>
+    <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn" %></div>
 </div>
 
 <script>
