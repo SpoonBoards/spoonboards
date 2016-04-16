@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-
+    @boards = Board.where(user_id: session[:user_id])
     if @board.marked_private == true && @board.user_id != session[:user_id]
       redirect_to boards_path, notice: "You must be the Owner of this board to view"
 
@@ -64,48 +64,8 @@ class BoardsController < ApplicationController
     board_id: created_board.id,
     spoonflower_id: design.spoonflower_id)
     end
-
     redirect_to boards_path
-
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # @fabric_type = params[:fabric_type]
-    # user_cart = User.find(session[:user_id]).carts.first.id
-    # @board.designs.all.each do |design|
-    # api_response = []
-    # api_response << design.get_json_for_design(design.spoonflower_id, design.id)
-    # api_values = api_response.first
-    # api_values << user_cart
-    # cart_item = CartItem.new
-    # cart_item.create_cart_item_from_design(api_values, @fabric_type)
-    # end
-    #
-    #
-    # redirect_to carts_path
-
-
-
-
-
-
-
-
-
-
-
 
 
   # POST /boards
@@ -138,32 +98,6 @@ class BoardsController < ApplicationController
       end
     end
   end
-
-
-  # def create
-  #   @user = User.new(params[:user])
-  #
-  #   respond_to do |format|
-  #     @board.update(board_params)
-  #       format.html { redirect_to @board, notice: 'User was successfully created.' }
-  #       format.js   {}
-  #       format.json { render json: @board, notice: 'User was successfully created.'}
-  #     else
-  #       format.html { render action: "new" }
-  #       format.json { render json: @board.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-
-
-
-
-
-
-
-
-
 
   # DELETE /boards/1
   # DELETE /boards/1.json
