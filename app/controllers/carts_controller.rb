@@ -5,7 +5,10 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     # @carts = Cart.all
-    @carts = Cart.where(user_id: session[:user_id])
+    # @cart = Cart.where(user_id: session[:user_id]).first
+    @cart = Cart.where(user_id: session[:user_id]).first
+
+      @amount = @cart.calculate_price_based_on_qty
 
     # @carts.cart_items.where(purchased: false, receipt_id: nil)
 

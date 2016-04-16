@@ -26,7 +26,7 @@
 
 
       <% if @board.user_id == session[:user_id] %>
-        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn", remote: true %></div>
         <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
       <% end %>
       </div>
@@ -47,7 +47,7 @@
 
 
 
-      <%= form_for(@board,remote: true) do |f| %>
+      <%= form_for(@board, remote: true) do |f| %>
         <% if @board.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>

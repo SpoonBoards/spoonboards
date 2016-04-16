@@ -12,14 +12,14 @@
     <li class="cart-item-label-btn"> &nbsp; </li>
     <li class="cart-item-label-btn"> &nbsp; </li>
   </ul>
-  <% @carts.each do |cart| %>
-  <%cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
+
+  <%@cart.cart_items.where(purchased: nil, receipt_id: nil).each do |cart_item| %>
     <ul class="cart-item-container">
       <li>
         <img class="cart-item-thumbnail" src='<%= cart_item.thumbnail_url %>' >
       </li>
       <li>
-        <%= form_for(cart_item) do |f| %>
+        <%= form_for(cart_item, remote: true) do |f| %>
             <% if cart_item.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
@@ -35,14 +35,14 @@
 
         <li class="field">
           <%= f.label :fabric_type %><br>
-          <%= f.text_field :fabric_type %>
+          <%= f.text_field :fabric_type, class: "cart-item-quantity"%>
         </li>
         <li class="field">
         <%= f.label :design_name, class: "cart-item-label-name" %><br>
         <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
         </li>
         <li class="field">
-        <%= f.label "Qty", class: "cart-item-label-quantity" %><br>
+        <!-- <%= f.label "Qty", class: "cart-item-label-quantity" %><br> -->
           <%= f.number_field :quantity, class: "cart-item-quantity" %>
         </li>
         <li class="field">
@@ -53,29 +53,24 @@
         <li class="actions">
           <%= f.submit "Update", class: "cart-item-btn" %>
         </li>
+    <% end %>
 
-        <li>
-          <%= button_to 'Show', cart_item, class: "cart-item-btn" %>
-        </li>
-        <li>
-          <%= button_to 'Edit', edit_cart_item_path(cart_item), class: "cart-item-btn" %>
-        </li>
         <li>
           <%= button_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-item-btn" %>
         </li>
 
       </ul>
       <br>
-    <% end %>
-    <% end %>
+
+
     <% end %>
     <div class="cart-item-totals-wrapper">
-      <div class="cart-item-totals-label">Subtotal:</div><div>$25.00</div><br>
-      <div class="cart-item-totals-label">Tax:</div><div>$1.49</div><br>
-      <div class="cart-item-totals-label">Shipping:</div><div>$8.00</div><br>
-      <div class="cart-item-totals-label">Total:</div><div>$34.49</div><br>
+      <div class="cart-item-totals-label">Subtotal:</div><div><%= @amount %></div><br>
+      <div class="cart-item-totals-label"></div><div>$0.00</div><br>
+      <div class="cart-item-totals-label">Shipping:</div><div>$0.00</div><br>
+      <div class="cart-item-totals-label">Total:</div><div><%= @amount %></div><br>
     </div>
-    <div class="cart-checkout-btn-wrapper"><%= link_to 'Checkout', new_charge_path(@cart_stuff), class: "cart-item-btn" %></div>
+    <div class="cart-checkout-btn-wrapper"><%= link_to 'Checkout', new_charge_path, class: "cart-item-btn" %></div>
 </div>
 
 <script>
