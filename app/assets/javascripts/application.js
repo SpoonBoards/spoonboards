@@ -30,13 +30,13 @@ $(function () {  // short hand for $(document).ready(function() {})
   }
 
 /*
-* event hanldler for 'Add' design to board button
+* event hanldler for 'Add' design to board button - not a main feature, turned off for now - not implemented in infinite scroll yet
 */
-$(".design-board-btn").on("click", function() {
-  console.log("click");
-  // console.log( $(this).parent().next() );
-  $(this).parent().next().css("opacity", "1.0");
-});
+// $(".design-board-btn").on("click", function() {
+//   console.log("click");
+//   // console.log( $(this).parent().next() );
+//   $(this).parent().next().css("opacity", "1.0");
+// });
 
 });  // end of $(document).ready() block
 
@@ -118,6 +118,7 @@ function getResults(searchStr, offset, limit) {
       // wrap HTML around each result
       $.each(data.results[0].results, function(i){
 
+// "Added" message not working, sugmit not working on inifinite scroll
   // htmlStr +=
   //   "<div class='design-card'>\n" +
   //   "  <div class='design-card-image-wrapper'>  <!-- box -->\n" +
@@ -174,69 +175,70 @@ function getResults(searchStr, offset, limit) {
   // htmlStr +=
   //   "</div>\n";
 
-//       htmlStr +=
-//         "<div class='design-card'>\n" +
-//
-// "<div class='design-card-image-wrapper'>  <!-- box -->" +
-//
-//         "  <img class='design-thumbnail' src='" + this.thumbnail_url + "'>\n" +
-//
-// "<div class='design-card-image-overlay'> <!-- overlay -->" +
-// "<div class='design-card-image-overlay-content'> <!-- content -->" +
-//
-//         "  <div class='design-id'>ID: " + this.id + "</div>\n" +
-//         "  <div class='design-name'>Name: " + truncate(this.name.split(" // ")[0]) + "</div>\n";
-//
-//       htmlStr += "<div class='design-form-wrapper'>\n  " +
-//                  $(".design-form-wrapper:last").html() +
-//                  "\n</div>\n";
-//
-//       htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
-//
-//       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-//                  $(".design-board-dropdown-label-wrapper:last").html() +
-//                  "\n</div>\n";
-//
-//       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-//                  $(".design-board-dropdown-wrapper:last").html() +
-//                  "\n</div>\n";
-//
-//       htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
-//                  $(".design-board-btn-wrapper:last").html() +
-//                  "\n</div>\n";
+// submit working, hover working
+      htmlStr +=
+        "<div class='design-card'>\n" +
 
-// htmlStr += "<div class='design-card-add-board-msg'>Added</div>";
+"<div class='design-card-image-wrapper'>  <!-- box -->" +
 
-//       htmlStr += "  <div class='design-borad-hidden-spoonflower-id-wrapper'>\n" +
-//                  "    <input type='hidden' name='design[spoonflower_id]' id='design_spoonflower_id' value='" + this.id + "'>\n" +
-//                  "  </div>\n";
-//
-//       htmlStr += "</form>\n";
-//
-// htmlStr += "</div></div></div>\n";
-//
-//       htmlStr += "</div>\n";
-//
-//       $(".search-results-container").append(htmlStr);
-//       htmlStr = "";
+        "  <img class='design-thumbnail' src='" + this.thumbnail_url + "'>\n" +
+
+"<div class='design-card-image-overlay'> <!-- overlay -->" +
+"<div class='design-card-image-overlay-content'> <!-- content -->" +
+
+        "  <div class='design-name'><strong> Name:  </strong> <br> " + truncate(this.name.split(" // ")[0]) + "</div>\n" +
+        "  <br>\n" +
+        "  <div class='design-id'><strong>Product ID:  </strong> &nbsp; " + this.id + "</div>\n" +
+        "  <br>\n";
+
+      htmlStr += "<div class='design-form-wrapper'>\n  " +
+                 $(".design-form-wrapper:last").html() +
+                 "\n</div>\n";
+
+      htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
+
+      htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
+                 $(".design-board-dropdown-label-wrapper:last").html() +
+                 "\n</div>\n<br>";
+
+      htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
+                 $(".design-board-dropdown-wrapper:last").html() +
+                 "\n</div>\n &nbsp; \n";
+
+      htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
+                 $(".design-board-btn-wrapper:last").html() +
+                 "\n</div>\n";
+
+htmlStr += "<div class='design-card-add-board-msg'>Added</div>";
+
+      htmlStr += "  <div class='design-borad-hidden-spoonflower-id-wrapper'>\n" +
+                 "    <input type='hidden' name='design[spoonflower_id]' id='design_spoonflower_id' value='" + this.id + "'>\n" +
+                 "  </div>\n";
+
+      htmlStr += "</form>\n";
+
+htmlStr += "</div></div></div>\n";
+
+      htmlStr += "</div>\n";
 
 
-        htmlStr +=
-          "<div class='design-card'>\n" +
-          "  <img class='design-thumbnail' src='" + this.thumbnail_url + "'>\n";
-
+// working - original code before hover
+        // htmlStr +=
+        //   "<div class='design-card'>\n" +
+        //   "  <img class='design-thumbnail' src='" + this.thumbnail_url + "'>\n";
+        //
         // htmlStr +=
         //   "  <div class='design-id'>ID: " + this.id + "</div>\n";
         //
         // htmlStr +=
         //   "  <div class='design-name'>Name: " + truncate(this.name.split(" // ")[0]) + "</div>\n";
-
-        htmlStr += "<div class='design-form-wrapper'>\n  " +
-                   $(".design-form-wrapper:last").html() +
-                   "\n</div>\n";
-
-        htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
-
+        //
+        // htmlStr += "<div class='design-form-wrapper'>\n  " +
+        //            $(".design-form-wrapper:last").html() +
+        //            "\n</div>\n";
+        //
+        // htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
+        //
         // htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
         //            $(".design-board-dropdown-label-wrapper:last").html() +
         //            "\n</div>\n";
@@ -248,13 +250,13 @@ function getResults(searchStr, offset, limit) {
         // htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
         //            $(".design-board-btn-wrapper:last").html() +
         //            "\n</div>\n";
-
-        htmlStr += "  <div class='design-borad-hidden-spoonflower-id-wrapper'>\n" +
-                   "    <input type='hidden' name='design[spoonflower_id]' id='design_spoonflower_id' value='" + this.id + "'>\n" +
-                   "  </div>\n";
-
-        htmlStr += "</form>\n";
-        htmlStr += "</div>\n";
+        //
+        // htmlStr += "  <div class='design-borad-hidden-spoonflower-id-wrapper'>\n" +
+        //            "    <input type='hidden' name='design[spoonflower_id]' id='design_spoonflower_id' value='" + this.id + "'>\n" +
+        //            "  </div>\n";
+        //
+        // htmlStr += "</form>\n";
+        // htmlStr += "</div>\n";
 
         $(".search-results-container").append(htmlStr);
         htmlStr = "";
