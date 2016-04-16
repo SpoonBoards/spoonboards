@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-
+    @boards = Board.where(user_id: session[:user_id])
     if @board.marked_private == true && @board.user_id != session[:user_id]
       redirect_to boards_path, notice: "You must be the Owner of this board to view"
 
@@ -52,9 +52,7 @@ class BoardsController < ApplicationController
     board_id: created_board.id,
     spoonflower_id: design.spoonflower_id)
     end
-
     redirect_to boards_path
-
   end
 
   # POST /boards
@@ -87,6 +85,7 @@ class BoardsController < ApplicationController
       end
     end
   end
+
   # DELETE /boards/1
   # DELETE /boards/1.json
   def destroy
