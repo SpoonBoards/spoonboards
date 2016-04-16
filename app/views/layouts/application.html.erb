@@ -15,17 +15,17 @@
   </head>
   <body>
     <header>
-      <nav>
+      <div>
         <ul>
-          <li><a href="/searches">Search</a></li>
+          <li><a href="#">Something</a></li>
           <li><a href="/boards">SpoonBoards</a></li>
           <li><a href="/carts">Shopping Cart</a></li>
           <li><a href="/users">Profile</a></li>
           <li><%= link_to 'Logout', logout_path %></li>
         </ul>
-      </nav>
+      </div>
       <div class="header-images-wrapper">
-        <img class="header-images" src="<%= asset_path('rdino_jade_full_shop_crop_thumb.png') %>" alt="Design">
+        <!-- <img class="header-images" src="<%= asset_path('rdino_jade_full_shop_crop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rkatta2_shop_crop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rr4850076_rSPOONS1repeated_shop_crop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rrfitness_300_WATER_BOTTLES_shop_crop_thumb.png') %>" alt="Design">
@@ -39,17 +39,25 @@
         <img class="header-images" src="<%= asset_path('rrturtle_single_repeat_v_final_blues-01_shop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('Space_Invaders_1_shop_thumb.png') %>" alt="Design">
         <img class="header-images" src="<%= asset_path('rrmonkey-forest2_shop_thumb.png') %>" alt="Design">
-        <img class="header-images" src="<%= asset_path('rrtumblr_lx3o12NY0N1r94cc5o1_500_shop_thumb.png') %>" alt="Design">
-      </div>
-      <div class="header-images-overlay">
-        <span class="header-images-overlay-title">SpoonBoards</span>
-        <span class="header-images-overlay-text">Curate your favorite designs...</span>
+        <img class="header-images" src="<%= asset_path('rrtumblr_lx3o12NY0N1r94cc5o1_500_shop_thumb.png') %>" alt="Design"> -->
+      <!-- </div> -->
+      <!-- <div class="header-images-overlay"> -->
+        <div class="header-images-overlay-title">SpoonBoards</div>
+        <div class="header-images-overlay-text">Curate your Spoonflower experience</div>
       </div>
       <div class="header-search-container">
         <%= form_tag searches_path, :method => 'get' do %>
-          <div class="header-search-title">Spoonflower</div>
-          <div class="header-search-input-wrapper"><%= text_field_tag :term, params[:term], class: "header-search-input" %></div>
-          <div class="header-search-btn-wrapper"><%= submit_tag "Search", :name => nil, class: "header-search-btn" %></div>
+          <!-- <div class="header-search-title">Spoonflower</div> -->
+          <!-- <div class="header-search-input-wrapper"><%= text_field_tag :term, params[:term], class: "header-search-input" %></div> -->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= text_field_tag :term, params[:term], class: "mdl-textfield__input" %>
+            <label class="mdl-textfield__label" for="term">Spoonflower Market Search</label>
+          </div>
+          <!-- <div class="header-search-btn-wrapper"><%= button_to "Search", :name => nil, class: "header-search-btn" %></div> -->
+          <div class="header-search-btn-wrapper"><%= button_to "", :name => nil, class: "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          </div>
         <% end %>
       </div>
       <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp;

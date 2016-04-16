@@ -27,14 +27,14 @@ $body-font: "Lato";
 $body-backup-font: "Helvetica";
 $default-font: "sans-serif";
 $soft-white: #fdfdfd;
-$background-color: #fdfaf1;
-// $background-color: #f9f9f9;
+// $background-color: #fdfaf1;
+$background-color: #f9f9f9;
 $green: #1DE9B6;
 $light-green: #64FFDA;
 $blue: #00B0FF;
 $light-blue: #80D8FF;
-$grey: #999999;
-// $grey: #aaaaaa;
+// $grey: #999999;
+$grey: #aaaaaa;
 $dark-grey: #626262;
 
 body {
@@ -444,10 +444,10 @@ header {
   margin: 0;
   // border-bottom: 1px solid #bbb;
   div {
-    // border: 1px dashed red;
+    border: 1px dashed red;
   }
   ul {
-    // border: 1px dashed red;
+    border: 1px dashed red;
     display: inline-block;
     list-style: none;
     float: right;
@@ -456,12 +456,12 @@ header {
     margin: 0;
     padding: 0;
     li {
-      // border: 1px dashed red;
+      border: 1px dashed red;
       display: inline-block;
       height: 50px;
     }
     li a {
-      // border: 1px dashed blue;
+      border: 1px dashed blue;
       display: block;
       margin-right: 20px;
       height: 48px;
@@ -490,20 +490,21 @@ header {
 }
 
 .header-images-wrapper {
-  border-top: 4px solid $blue;
-  border-bottom: 4px solid $blue;
+  // border-top: 4px solid $blue;
+  // border-bottom: 4px solid $blue;
   width: 100%;
-  height: 104px;
+  // height: 104px;
+  height  : 112px;
   overflow: hidden;
 }
 
 .header-search-container {
-  width: 460px;
+  width: 340px;
   margin: 10px auto;
-  padding: 10px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  background: $green;
+  padding: 10px 12px 0 10px;
+  border: 1px solid $grey;
+  border-radius: 3px;
+  // background: $green;
 }
 
 .header-search-title,
@@ -547,31 +548,36 @@ header {
   background: #eee;
 }
 
-.header-images-overlay {
-  position: absolute;
-  top: 58px;
-  z-index: 1000;
-  height: 100px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.50);
-}
+// .header-images-overlay {
+//   position: absolute;
+//   top: 58px;
+//   z-index: 1000;
+//   height: 100px;
+//   width: 100%;
+//   background: rgba(0, 0, 0, 0.25);
+// }
 
 .header-images-overlay-title {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  font-family: $title-font;
-  font-size: 3.5em;
-  color: #fff;
+  // position: absolute;
+  // top: 30px;
+  // left: 30px;
+  font: {
+    family: $title-font;
+    size: 3.5em;
+  }
+  color: $dark-grey;
 }
 
 .header-images-overlay-text {
-  position: absolute;
-  top: 71px;
-  left: 60px;
-  font-size: 1.4em;
-  font-family: $title-font;
-  color: #fff;
+  // position: absolute;
+  // top: 71px;
+  // left: 60px;
+  font: {
+    size: 1.4em;
+    family: $body-font;
+    weight: lighter;
+  }
+  color: $dark-grey;
 }
 
 // footer styles
