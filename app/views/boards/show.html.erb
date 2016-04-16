@@ -28,7 +28,7 @@
     <% end %>
 
 
-      <%= @fabric_type %>
+      <% @fabric_type %>
       <% if @board.user_id == session[:user_id] %>
       <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
       <% end %>
