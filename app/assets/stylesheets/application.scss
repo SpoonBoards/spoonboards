@@ -24,15 +24,18 @@
 
 $title-font: "Thirsty Rough Reg One";
 $body-font: "Lato";
+$body-backup-font: "Helvetica";
 $default-font: "sans-serif";
 $soft-white: #fdfdfd;
 $background-color: #fdfaf1;
+// $background-color: #f9f9f9;
 $green: #1DE9B6;
 $light-green: #64FFDA;
 $blue: #00B0FF;
 $light-blue: #80D8FF;
 $grey: #999999;
-$dark-grey: #333333;
+// $grey: #aaaaaa;
+$dark-grey: #626262;
 
 body {
   margin: 0;
@@ -201,7 +204,7 @@ a {
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
-  max-width: 1014px;
+  max-width: 1018px;
   // background: #fdfdfd;
   background: rgba(255, 255, 255, 0);
   // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -463,15 +466,15 @@ header {
       margin-right: 20px;
       height: 48px;
       text-decoration: none !important;
-      font-size: 1.2em;
-      line-height: 3.5em;
-      color: #999;
+      // font-size: 1.2em;
+      line-height: 4em;
+      color: $grey;
     }
     li a:hover {
-      // border-bottom: 2px solid #333;
-      border-bottom: 3px solid red;
+      border-bottom: 2px solid $dark-grey;
+      // border-bottom: 3px solid red;
       // border-bottom: 2px solid #bbb;
-      color: #333;
+      color: $dark-grey;
     }
   }
 }
