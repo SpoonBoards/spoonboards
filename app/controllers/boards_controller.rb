@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-
+    @boards = Board.where(user_id: session[:user_id])
     if @board.marked_private == true && @board.user_id != session[:user_id]
       redirect_to boards_path, notice: "You must be the Owner of this board to view"
 
@@ -45,6 +45,7 @@ class BoardsController < ApplicationController
     created_board = Board.create!(
     name: @board.name,
     user_id: session[:user_id],
+    fabric_type: @board.fabric_type,
     marked_private: @board.marked_private)
 
     @board.designs.all.each do |design|
@@ -54,7 +55,6 @@ class BoardsController < ApplicationController
     end
 
     redirect_to boards_path
-
   end
 
   # POST /boards
@@ -87,6 +87,7 @@ class BoardsController < ApplicationController
       end
     end
   end
+
   # DELETE /boards/1
   # DELETE /boards/1.json
   def destroy
@@ -100,7 +101,7 @@ class BoardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fabric_type
-      @fabric_type = [['Basic Cotton Ultra ($17.50/yd)', 30], ['Satin ($18/yd)', 40], ['Kona® Cotton ($19/yd)', 44],
+      @fabric_type_options = [['Basic Cotton Ultra ($17.50/yd)', 30], ['Satin ($18/yd)', 40], ['Kona® Cotton ($19/yd)', 44],
       ['Performance Piqué ($20/yd)', 33], ['Cotton Poplin ($20/yd)', 59], ['Poly Crepe de Chine ($23/yd)', 39],
       ['Cotton Lawn Ultra ($24/yd)', 47], ['Silky Faille ($24/yd)', 23], ['Performance Knit ($24/yd)', 21], ['Modern Jersey ($26.50/yd)', 31],
       ['Cotton Spandex Jersey ($26.75/yd)', 55], ['Fleece ($27/yd)', 56], ['Minky ($27/yd)', 46],
