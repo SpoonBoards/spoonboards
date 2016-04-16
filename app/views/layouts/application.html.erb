@@ -15,7 +15,7 @@
   </head>
   <body>
     <header>
-      <div>
+      <div class="nav-wrapper">
         <ul>
           <li><a href="#">Something</a></li>
           <li><a href="/boards">SpoonBoards</a></li>
@@ -42,8 +42,8 @@
         <img class="header-images" src="<%= asset_path('rrtumblr_lx3o12NY0N1r94cc5o1_500_shop_thumb.png') %>" alt="Design"> -->
       <!-- </div> -->
       <!-- <div class="header-images-overlay"> -->
-        <div class="header-images-overlay-title">SpoonBoards</div>
-        <div class="header-images-overlay-text">Curate your Spoonflower experience</div>
+        <div class="header-title">SpoonBoards</div>
+        <div class="header-tag-line">Curate your Spoonflower experience</div>
       </div>
       <div class="header-search-container">
         <%= form_tag searches_path, :method => 'get' do %>
