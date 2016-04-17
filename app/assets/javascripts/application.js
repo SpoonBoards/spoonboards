@@ -352,12 +352,18 @@ function trigger(element) {
 }
 
 /*
-*  format long strings to be approx. 30 characters worth of pixels
+*  format long strings to be approx. 21 characters worth of pixels
 */
 function truncate(str) {
-  if (str.length > 26) {
-    var arrStr = str.split("");
-    return arrStr.slice(0, 25).join("") + "...";
+  var arrStr;
+  if (str != undefined && str.length > 0) {
+    if (str.indexOf(" // ")) {
+      str = str.split(" // ")[0];
+    }
+    if (str.length > 21) {
+      arrStr = str.split("");
+      return arrStr.slice(0, 21).join("") + "...";
+    }
   }
   return str;
 }

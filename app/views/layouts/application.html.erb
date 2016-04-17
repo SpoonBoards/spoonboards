@@ -60,7 +60,8 @@
           </div>
         <% end %>
       </div>
-      <p style="text-align:center;height:16px;"><span id="notice"><%= notice %> </span></p> &nbsp;
+      <div class="notice-wrapper"><span id="notice"><%= notice %> </span></div> &nbsp;
+
     </header>
     <input type="hidden" name="controller_name" id="controller-name" value="<%= params[:controller] %>">
     <input type="hidden" name="controller_action" id="controller-action" value="<%= params[:action] %>">
@@ -152,12 +153,7 @@
     </ul>
   </div>
   <div class="mdl-mini-footer__right-section">
-    <!-- <button class="mdl-mini-footer__social-btn"></button>
-    <button class="mdl-mini-footer__social-btn"></button>
-    <button class="mdl-mini-footer__social-btn"></button> -->
-    <!-- <div class="footer-container"> -->
-      <img class="footer-logo" src="<%= asset_path('spoonflower_powered_by_logo_vector_transparent.png') %>">
-    <!-- </div> -->
+    <img class="footer-logo" src="<%= asset_path('spoonflower_powered_by_logo_vector_transparent.png') %>">
   </div>
 </footer>
 

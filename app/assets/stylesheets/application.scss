@@ -48,13 +48,20 @@ body {
   }
 }
 
-h1 {
-  font-size: 1.5em;
-}
 
-h2 {
-  font-size: 1.1em;
+h1, h2, h3, h4, h5 ,h6 {
+  font: {
+    family: $body-font !important;
+    weight: lighter !important;
+  }
 }
+// h1 {
+//   font-size: 1.5em;
+// }
+//
+// h2 {
+//   font-size: 1.1em;
+// }
 
 // prevents strange inheritance from unknown source
 a {
@@ -67,6 +74,17 @@ a {
   text-decoration: underline;;
   color: #000;
   background: none;
+}
+
+#notice {
+  color: $grey;
+}
+
+.notice-wrapper {
+  margin: 20px auto 0 auto;
+  height: 16px;
+  width: 300px;
+  text-align: center;
 }
 
 // search results styles
@@ -82,30 +100,44 @@ a {
 .design-card {
   display: inline-block;
   position: relative;
-  border: 1px solid #999;
-  border-radius: 5px;
-  width: 202px;
-  height: 202px;
-  padding: 5px;
-  margin: 0 10px 10px 0;
-  font-size: 0.8em;
-  white-space: nowrap;
+  border: 1px solid $dark-grey;
+  border-radius: 3px;
+  width: 200px;
+  height: 200px;
+  // padding: 5px;
+  margin: 0 5px 8px 0;
+  // font-size: 0.8em;
+  // white-space: nowrap;
   // background: #fdfdfd;
-  background: $light-green;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  // background: $light-green;
+  // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
     height: 200px;
-    border: 1px solid #999;
-    border-radius: 5px;
+    // border: 1px solid $dark-grey;
+    border-radius: 3px;
   }
 }
 
-.design-name {
-  overflow-y: hidden;
-  // overflow-x: scroll;
-  overflow-x: hidden;
+.design-name,
+.design-id {
+  // overflow: hidden !important;
+  font-size: 1.0em !important;
+  color: #fff !important;
 }
+
+.design-name-wrapper span,
+.design-id-wrapper span,
+.design-board-dropdown-label {
+  // overflow: hidden !important;
+  font-size: 0.9em;
+  color: $grey;
+}
+
+.design-board-dropdown-label {
+  font-size: 1.0em !important;
+}
+
 // scroll bar styles - no cross browser comapatible
 // .design-name::-webkit-scrollbar {
 //     width: 12px;
@@ -137,16 +169,18 @@ a {
 
 .design-card-image-overlay {
   // display: none;
-  border-radius: 5px;
+  border-radius: 3px;
   position: relative;
-  margin-top: -205px;
+  margin-top: -190px;
+  margin-left: 10px;
   // top: 330px;
-  width: 182px;
-  height: 182px;
-  background:rgba(0, 0, 0, 0.70);
+  width: 160px;
+  height: 160px;
+  background:rgba(0, 0, 0, 0.75);
   // background:rgba(82, 255, 209, 0.50); // light-green
   // text-align:center;
-  padding:10px;
+  padding: 10px;
+  // margin: 10px;
   opacity:0;
   -webkit-transition: opacity 0.35s ease;
   -moz-transition: opacity 0.35s ease;
@@ -434,7 +468,7 @@ header {
     display: inline-block;
     list-style: none;
     float: right;
-    width: 500  px;
+    width: 500px;
     height: 52px;
     margin: 0;
     padding: 0;
@@ -606,11 +640,13 @@ footer {
 // }
 
 .footer-logo {
-  position: absolute;
+  position: inherit;
   float: right;
   width: 175px;
-  right: 25px;
-  bottom: 15px
+  // height: 36px;
+  // margin-top: -5px;
+  // right: 25px;
+  // bottom: 35px
 }
 
 .mdl-logo {   // override MDL class
@@ -619,6 +655,10 @@ footer {
     size: 1.5em;
   }
   color: $dark-grey !important;
+}
+
+.mdl-mini-footer__left-section {   // override MDL class
+  padding-top: 7px !important;
 }
 
 //  boards index style
