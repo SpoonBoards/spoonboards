@@ -21,9 +21,6 @@ class DesignsController < ApplicationController
   def destroy
     @design = Design.find(params[:design_id])
     @design.destroy
-    respond_to do |format|
-      format.html { redirect_to boards_path, notice: 'Design was successfully removed.' }
-    end
   end
 
 private

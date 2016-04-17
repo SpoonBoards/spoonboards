@@ -371,3 +371,19 @@ function notify(str) {
     $("#notice").prepend(str).fadeIn(600, "swing").delay(2000).fadeOut(600, "swing");
   }
 }
+
+
+
+
+/*
+*  hide designs after removing them in board show
+*/
+
+function deleteDesign() {
+  var card = $(event.target).closest(".board-card");
+  card.css("display", "none");
+}
+
+function bindDeleteDesign() {
+  $(".remove").on("click", deleteDesign);
+}
