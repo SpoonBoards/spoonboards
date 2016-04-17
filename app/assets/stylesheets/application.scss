@@ -592,19 +592,33 @@ header {
 // footer styles
 
 footer {
-  margin: 25px;
-  border-top: 2px solid $blue;
+  margin-top: 25px;
+  // margin: 25px;
+  // border-top: 2px solid $blue;
+  // border-top: 1px solid $dark-grey;
+  // background: #d0d0d0 !important;
+  background: #fff !important;
 }
 
-.footer-container {
-  width: 100%;
-  border-top: 2px solid $light-blue;
-}
+// .footer-container {
+//   width: 100%;
+//   border-top: 2px solid $light-blue;
+// }
 
 .footer-logo {
+  position: absolute;
   float: right;
-  width: 200px;
-  margin: 10px 0;
+  width: 175px;
+  right: 25px;
+  bottom: 15px
+}
+
+.mdl-logo {   // override MDL class
+  font: {
+    family: $title-font;
+    size: 1.5em;
+  }
+  color: $dark-grey !important;
 }
 
 //  boards index style
