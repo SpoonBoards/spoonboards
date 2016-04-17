@@ -28,11 +28,22 @@ class CartsController < ApplicationController
     # @cart_stuff = params[:format]
   end
 
+
   # GET /carts/1
   # GET /carts/1.json
-
-
   def show
+    @cart.destroy_cart_items
+
+    # respond_to do |format|
+    #     format.html { redirect_to @board, notice: 'User was successfully created.' }
+        # format.js   {}
+        # format.json { render json: @board, notice: 'User was successfully created.'}
+
+    # end
+
+
+
+
     # @boards = Board.where(user_id: session[:user_id])
     # @carts = Cart.where(user_id: session[:user_id])
   end

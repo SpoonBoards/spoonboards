@@ -70,6 +70,8 @@
       <div class="cart-item-totals-label">Shipping:</div><div>$0.00</div><br>
       <div class="cart-item-totals-label">Total:</div><div><%= @amount %></div><br>
     </div>
+
+    <div class="cart-checkout-btn-wrapper"><%= link_to 'Clear Cart', @cart, class: "cart-item-btn", :remote => true %></div>
     <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn" %></div>
 </div>
 

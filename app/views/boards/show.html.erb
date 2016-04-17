@@ -19,12 +19,12 @@
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
         <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
-      <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+        <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
 
-      <% if @board.user_id == session[:user_id] %>
-        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn", remote: true %></div>
-        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-      <% end %>
+        <% if @board.user_id == session[:user_id] %>
+          <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div>
+          <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+        <% end %>
       </div>
       <div>
             <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
@@ -88,5 +88,6 @@
 
   </div>
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+  <script>$(bindDeleteDesign);</script>
 
   <br>

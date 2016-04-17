@@ -62,7 +62,11 @@ class Cart < ActiveRecord::Base
     end
   end
 
-
+  def destroy_cart_items
+    self.cart_items.each do |cart_item|
+      cart_item.destroy
+    end
+  end
 
 
 
