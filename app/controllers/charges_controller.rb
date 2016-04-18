@@ -43,9 +43,9 @@ class ChargesController < ApplicationController
            "paid_price": 5,
            "order_items": [
             {
-              "quantity": 5,
-              "fabric_id": 4,
-              "design_id": 5081479,
+              "quantity": f.quantity,
+              "fabric_id": f.fabric_type,
+              "design_id": f.spoonflower_id,
               "length_mm":203.2,
               "price": 5,
               "paid_price": 5,
@@ -58,7 +58,7 @@ class ChargesController < ApplicationController
 
           @all_order = []
           sf_order_id = pending_order["results"][0]["id"]
-          processing_order = HTTParty.put("https://api-dev.sproutpatterns.com:9517/order/#{"sf_order_id"}/process", :headers => {'X-Auth-Token' => "#{ENV["SPOON_KEY"]}"})
+          processing_order = HTTParty.put("https://api-dev.sproutpatterns.com:9517/order/#{sf_order_id}/process", :headers => {'X-Auth-Token' => "#{ENV["SPOON_KEY"]}"})
           @all_order << sf_order_id
         end
 

@@ -4,18 +4,12 @@
 
       <div class="board-function-bar">
 
-        <div class="board-function-bar-item"><strong>Fabric Type</strong></div>
-
-        <div class="board-function-bar-item"><%= select_tag(:set_fabric_type, options_for_select(@fabric_type_options)) %></div>
-
-        <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-
         <div>
           <%="you are not private" if @board.marked_private == nil  %>
           <%="you are private" if @board.marked_private == true  %>
           <%="you are not private" if @board.marked_private == false  %>
         </div>
-<!-- ================== -->
+
         <div>
             <% if @board.user_id == session[:user_id] %>
             <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
