@@ -22,7 +22,6 @@ class ChargesController < ApplicationController
       :currency    => 'usd',
       :receipt_email => customer.email
     )
-
     @cart.cart_items.each do |f|
       @payload = {
            "ship_to": "SpoonBoards",
