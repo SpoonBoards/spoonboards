@@ -12,10 +12,16 @@
 
         <div>
             <% if @board.user_id == session[:user_id] %>
-            <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+            <% elsif session[:user_id] == nil %>
+            <% elsif session[:user_id] != nil %>
+              <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+            <% else %>
             <% end %>
 
-            <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+
           <% if @board.user_id == session[:user_id] %>
             <%= form_for(@board, remote: true) do |f| %>
               <% if @board.errors.any? %>
@@ -63,25 +69,24 @@
 
     <% @feature_display.each do |design|%>
 <li class="board-card" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <!-- <div class="board-card"> -->
         <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
         <img class="design-thumbnail" src="<%= design.third %>">
         <div class="board-card-design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
-        <!-- <div class="board-card-design-id">Board ID: <%= design[3] %></div> -->
         <div class="board-card-design-name-wrapper">Name: <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><span class="board-card-design-name"><%= design.second %></span></a></div>
 
         <% if @board.user_id == session[:user_id] %>
           <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div>
           <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
         <% end %>
-      <!-- </div> -->
       <div>
+          <% if session[:user_id] != nil %>
             <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
             <%= label_tag(:board_id, "Board:") %>
             <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] })%>
             <%= submit_tag("Add") %>
             <%= hidden_field_tag "design[spoonflower_id]",design.first %>
             <% end %>
+          <% end %>
       </div>
 
     <!-- </div> -->
