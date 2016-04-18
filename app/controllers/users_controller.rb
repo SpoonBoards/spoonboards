@@ -24,9 +24,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         Cart.create!(user_id: @user.id)
-        Board.create!(user_id: @user.id, name: "My First Board")
+        board1 = Board.create!(user_id: @user.id, name: "My First Board")
+        Design.create!(board_id: board1.id, spoonflower_id: 3099024)
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to boards_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
