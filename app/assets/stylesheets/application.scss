@@ -200,15 +200,17 @@ a {
 }
 
 .design-card-add-board-msg {
-  opacity: 0;
+  display: none;
+  position: absolute;
+  // opacity: 0;
   // height:20px;
   // border:1px dashed white;
   overflow:hidden;
   text-align: right;
-  margin-top: 35px;
+  margin-top: 5px;
   font-size: 1.2em;
   font-weight: bold;
-  color: $light-blue;
+  color: $soft-white;
 }
 
 //===================================
@@ -225,7 +227,7 @@ a {
   background: #ddd;
 }
 
-#design-card-overlay-add-button:hover {
+.design-card-overlay-add-button:hover {
   background: rgba(239, 239, 239, 0.40) !important;
   color: rgba(0, 0, 0, 0.80) !important;
 }
