@@ -19,7 +19,7 @@
 $(function () {  // short hand for $(document).ready(function() {})
   'use strict';
 
-  var boardFunctionVisible = false;
+  // var boardFunctionVisible = false;
 
   var contName   = $("#controller-name").val(),    // session => controller-name
       contAction = $("#controller-action").val(),  // session => controller-action
@@ -42,26 +42,28 @@ $(function () {  // short hand for $(document).ready(function() {})
     $(this).parent().next().fadeIn(400, "swing").delay(1500).fadeOut(400, "swing");
   });
 
+  // moved to boards/show.html.erb
   /*
   * event hanldler for board funciton 'Hamburger' - toggle visibility
   */
-  $(".board-function-hamburger").on("click", function() {
-    console.log("** board hamburger click **");
-    if (boardFunctionVisible) {
-      $(".board-function-bar").slideUp(300);
-      boardFunctionVisible = false;
-    }
-    else {
-      $(".board-function-bar").slideDown(300);
-      boardFunctionVisible = true;
-    }
-  });
+  // $(".board-function-hamburger").on("click", function() {
+  //   console.log("** board hamburger click **");
+  //   if (boardFunctionVisible) {
+  //     $(".board-function-bar").slideUp(300);
+  //     boardFunctionVisible = false;
+  //   }
+  //   else {
+  //     $(".board-function-bar").slideDown(300);
+  //     boardFunctionVisible = true;
+  //   }
+  // });
 
+  // moved to boards/show.html.erb
   //  initialize drag & drop
-  $(".gridster ul").gridster({
-    widget_margins: [5, 5],
-    widget_base_dimensions: [200, 290]
-  });
+  // $(".gridster ul").gridster({
+  //   widget_margins: [5, 5],
+  //   widget_base_dimensions: [200, 290]
+  // });
 
 
 });  // end of $(document).ready() block
