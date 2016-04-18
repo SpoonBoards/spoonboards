@@ -15,7 +15,7 @@
           <%="you are private" if @board.marked_private == true  %>
           <%="you are not private" if @board.marked_private == false  %>
         </div>
-<!-- ================== -->
+
         <div>
             <% if @board.user_id == session[:user_id] %>
             <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
