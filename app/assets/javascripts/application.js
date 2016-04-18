@@ -19,6 +19,8 @@
 $(function () {  // short hand for $(document).ready(function() {})
   'use strict';
 
+  var boardFunctionVisible = false;
+
   var contName   = $("#controller-name").val(),    // session => controller-name
       contAction = $("#controller-action").val(),  // session => controller-action
       userLogin  = $("#user-id").val();            // params  => user id
@@ -37,6 +39,28 @@ $(function () {  // short hand for $(document).ready(function() {})
 //   // console.log( $(this).parent().next() );
 //   $(this).parent().next().css("opacity", "1.0");
 // });
+
+/*
+* event hanldler for board funciton 'Hamburger' - toggle visibility
+*/
+$(".board-function-hamburger").on("click", function() {
+  console.log("** board hambrger click **");
+  if (boardFunctionVisible) {
+    $(".board-function-bar").slideUp(300);
+    boardFunctionVisible = false;
+  }
+  else {
+    $(".board-function-bar").slideDown(300);
+    boardFunctionVisible = true;
+  }
+});
+
+
+$(".gridster ul").gridster({
+        widget_margins: [5, 5],
+        widget_base_dimensions: [200, 290]
+});
+
 
 });  // end of $(document).ready() block
 
@@ -303,6 +327,14 @@ htmlStr += "</div></div></div>\n";
 function hideElement(element) {
   console.log("** function call : hideElement() => ", element);
   $(element).hide();
+}
+
+/*
+* hide DOM elements
+*/
+function showElement(element) {
+  console.log("** function call : showElement() => ", element);
+  $(element).show();
 }
 
 /*

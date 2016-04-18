@@ -44,7 +44,7 @@ body {
   // background: #fdfdfd;
   font: {
     family: $body-font, $default-font;
-    size: 100%; // relative ems
+    size: 100%; // relative ems ???
   }
 }
 
@@ -100,8 +100,8 @@ a {
 .design-card {
   display: inline-block;
   position: relative;
-  border: 1px solid $dark-grey;
-  border-radius: 3px;
+  border: 1px solid $grey;
+  // border-radius: 3px;
   width: 200px;
   height: 200px;
   // padding: 5px;
@@ -115,7 +115,7 @@ a {
     width: 200px;
     height: 200px;
     // border: 1px solid $dark-grey;
-    border-radius: 3px;
+    // border-radius: 3px;
   }
 }
 
@@ -169,7 +169,7 @@ a {
 
 .design-card-image-overlay {
   // display: none;
-  border-radius: 3px;
+  // border-radius: 3px;
   position: relative;
   margin-top: -190px;
   margin-left: 10px;
@@ -225,11 +225,16 @@ a {
   background: #ddd;
 }
 
+#design-card-overlay-add-button:hover {
+  background: rgba(239, 239, 239, 0.40) !important;
+  color: rgba(0, 0, 0, 0.80) !important;
+}
+
 // show board styles
 
 .board-container {
-  // border: 1px solid #999;
-  border-radius: 5px;
+  // border: 1px dashed red;
+  // border-radius: 5px;
   // width: auto;
   // width: 1014px;
   // height: 260px;
@@ -238,7 +243,7 @@ a {
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
-  max-width: 1018px;
+  max-width: 1055px;
   // background: #fdfdfd;
   background: rgba(255, 255, 255, 0);
   // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -246,56 +251,85 @@ a {
 
 .board-card {
   display: inline-block;
-  // border: 1px solid #999;
-  border-top: 3px solid $background-color;
-  border-bottom: 3px solid $background-color;
-  border-radius: 5px;
+  border: 1px solid $grey;
+  // border-top: 3px solid $background-color;
+  // border-bottom: 3px solid $background-color;
+  // border-radius: 5px;
   width: 200px;
-  height: 260px;
+  height: 290px;
   // padding: 1px;
   // margin: 0 0 15px 15px;
   font-size: 0.8em;
   white-space: nowrap;
   background: #fdfdfd;
+  margin: 10px 3px 0 2px;
   // box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
     height: 200px;
     // border: 1px solid #999;
-    border-radius: 5px;
+    // border-radius: 5px;
   }
 }
 
 .board-name-wrapper {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  background: $green;
+  // border-top-left-radius: 5px;
+  // border-top-right-radius: 5px;
+  border: 1px solid $grey;
+  background: #eee;
   text-align: center;
 }
 
 .board-function-bar {
-  border-bottom: 6px solid $light-green;
-  background: $green;
-  color: $soft-white;
+  // border-bottom: 6px solid $light-green;
+  background: #eee;
+  color: $grey;
   .board-function-bar-item {
     display: inline-block;
     margin: 5px;
   }
+  display: none;
 }
 
 .board-name {
+  // border: 1px dashed red;
+  padding: 0  0 0 24px;
   line-height: 1.4;
   height: 40px;
-  color: $soft-white;
+  color: $grey;
   font: {
-    family: $title-font;
+    family: $body-font;
+    weight: lighter;
     size: 2em;
   }
 }
 
-.board-design-hover-content {
-  display: none;
+.board-function-hamburger {
+  float: right;
+  margin: 0 10px;
 }
+
+.board-function-hamburger:hover {
+  color: $dark-grey;
+}
+
+.board-design-hover-content {
+  // display: none;
+}
+
+.board-card-design-name {
+    color: $dark-grey;
+}
+
+// gridster style
+
+.gridster ul {
+  font-family: $body-font;
+  font-size: 14px;
+  line-height: 20px;
+  list-style-type: none;
+}
+
 
 // .board-card design-thumbnail:hover {
 //   color: yellow;
