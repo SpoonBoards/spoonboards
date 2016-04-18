@@ -46,8 +46,9 @@
           <%= f.number_field :quantity, class: "cart-item-quantity" %>
         </li>
         <li class="field">
-          <%= f.label :price, class: "cart-item-label-price" %><br>
-          <%= f.text_field :price, class: "cart-item-price" %>
+          <!-- <%= f.label :price, class: "cart-item-label-price" %><br> -->
+          <!-- <%= f.text_field :price, class: "cart-item-price", disabled: true %> -->
+          <%= number_to_currency(cart_item.price) %>
         </li>
 
         <li class="actions">
@@ -65,10 +66,10 @@
 
     <% end %>
     <div class="cart-item-totals-wrapper">
-      <div class="cart-item-totals-label">Subtotal:</div><div><%= @amount %></div><br>
+      <div class="cart-item-totals-label">Subtotal:</div><div><%= number_to_currency(@amount) %></div><br>
       <div class="cart-item-totals-label"></div><div>$0.00</div><br>
       <div class="cart-item-totals-label">Shipping:</div><div>$0.00</div><br>
-      <div class="cart-item-totals-label">Total:</div><div><%= @amount %></div><br>
+      <div class="cart-item-totals-label">Total:</div><div><%= number_to_currency(@amount) %></div><br>
     </div>
 
     <div class="cart-checkout-btn-wrapper"><%= link_to 'Clear Cart', @cart, class: "cart-item-btn", :remote => true %></div>
