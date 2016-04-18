@@ -3,9 +3,8 @@ class ChargesController < ApplicationController
   def new
     @cart = Cart.where(user_id: session[:user_id]).first
     @amount = @cart.calculate_price_based_on_qty
-    @cart.as_json
-  end
 
+  end
 
   def create
     @cart = Cart.where(user_id: session[:user_id]).first
@@ -67,6 +66,9 @@ class ChargesController < ApplicationController
     receipt_details = @cart.prepare_receipt_details(@amount, @charge)
     @receipt = @cart.create_receipt(receipt_details)
     @cart.mark_cart_items_purchased(@receipt.id)
+
+
+
 
 
   rescue Stripe::CardError => e

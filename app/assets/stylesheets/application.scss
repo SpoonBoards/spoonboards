@@ -24,14 +24,18 @@
 
 $title-font: "Thirsty Rough Reg One";
 $body-font: "Lato";
+$body-backup-font: "Helvetica";
 $default-font: "sans-serif";
-$color-soft-white: #fdfdfd;
-$background-color: #fdfaf1;
-$primary-color: #1DE9B6;
-$primary-accent-color: #64FFDA;
-$secondary-color: #00B0FF;
-$secondary-accent-color: #80D8FF;
-
+$soft-white: #fdfdfd;
+// $background-color: #fdfaf1;
+$background-color: #f9f9f9;
+$green: #1DE9B6;
+$light-green: #64FFDA;
+$blue: #00B0FF;
+$light-blue: #80D8FF;
+// $grey: #999999;
+$grey: #aaaaaa;
+$dark-grey: #626262;
 
 body {
   margin: 0;
@@ -44,13 +48,20 @@ body {
   }
 }
 
-h1 {
-  font-size: 1.5em;
-}
 
-h2 {
-  font-size: 1.1em;
+h1, h2, h3, h4, h5 ,h6 {
+  font: {
+    family: $body-font !important;
+    weight: lighter !important;
+  }
 }
+// h1 {
+//   font-size: 1.5em;
+// }
+//
+// h2 {
+//   font-size: 1.1em;
+// }
 
 // prevents strange inheritance from unknown source
 a {
@@ -63,6 +74,17 @@ a {
   text-decoration: underline;;
   color: #000;
   background: none;
+}
+
+#notice {
+  color: $grey;
+}
+
+.notice-wrapper {
+  margin: 20px auto 0 auto;
+  height: 16px;
+  width: 300px;
+  text-align: center;
 }
 
 // search results styles
@@ -78,30 +100,44 @@ a {
 .design-card {
   display: inline-block;
   position: relative;
-  border: 1px solid #999;
-  border-radius: 5px;
-  width: 202px;
-  height: 202px;
-  padding: 5px;
-  margin: 0 10px 10px 0;
-  font-size: 0.8em;
-  white-space: nowrap;
+  border: 1px solid $dark-grey;
+  border-radius: 3px;
+  width: 200px;
+  height: 200px;
+  // padding: 5px;
+  margin: 0 5px 8px 0;
+  // font-size: 0.8em;
+  // white-space: nowrap;
   // background: #fdfdfd;
-  background: $primary-accent-color;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  // background: $light-green;
+  // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
     height: 200px;
-    border: 1px solid #999;
-    border-radius: 5px;
+    // border: 1px solid $dark-grey;
+    border-radius: 3px;
   }
 }
 
-.design-name {
-  overflow-y: hidden;
-  // overflow-x: scroll;
-  overflow-x: hidden;
+.design-name,
+.design-id {
+  // overflow: hidden !important;
+  font-size: 1.0em !important;
+  color: #fff !important;
 }
+
+.design-name-wrapper span,
+.design-id-wrapper span,
+.design-board-dropdown-label {
+  // overflow: hidden !important;
+  font-size: 0.9em;
+  color: $grey;
+}
+
+.design-board-dropdown-label {
+  font-size: 1.0em !important;
+}
+
 // scroll bar styles - no cross browser comapatible
 // .design-name::-webkit-scrollbar {
 //     width: 12px;
@@ -133,16 +169,18 @@ a {
 
 .design-card-image-overlay {
   // display: none;
-  border-radius: 5px;
+  border-radius: 3px;
   position: relative;
-  margin-top: -205px;
+  margin-top: -190px;
+  margin-left: 10px;
   // top: 330px;
-  width: 182px;
-  height: 182px;
-  background:rgba(0, 0, 0, 0.70);
-  // background:rgba(82, 255, 209, 0.50); // primary-accent-color
+  width: 160px;
+  height: 160px;
+  background:rgba(0, 0, 0, 0.75);
+  // background:rgba(82, 255, 209, 0.50); // light-green
   // text-align:center;
-  padding:10px;
+  padding: 10px;
+  // margin: 10px;
   opacity:0;
   -webkit-transition: opacity 0.35s ease;
   -moz-transition: opacity 0.35s ease;
@@ -170,7 +208,7 @@ a {
   margin-top: 35px;
   font-size: 1.2em;
   font-weight: bold;
-  color: $secondary-accent-color;
+  color: $light-blue;
 }
 
 //===================================
@@ -200,7 +238,7 @@ a {
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
-  max-width: 1014px;
+  max-width: 1018px;
   // background: #fdfdfd;
   background: rgba(255, 255, 255, 0);
   // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -231,14 +269,14 @@ a {
 .board-name-wrapper {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: $primary-color;
+  background: $green;
   text-align: center;
 }
 
 .board-function-bar {
-  border-bottom: 6px solid $primary-accent-color;
-  background: $primary-color;
-  color: $color-soft-white;
+  border-bottom: 6px solid $light-green;
+  background: $green;
+  color: $soft-white;
   .board-function-bar-item {
     display: inline-block;
     margin: 5px;
@@ -248,7 +286,7 @@ a {
 .board-name {
   line-height: 1.4;
   height: 40px;
-  color: $color-soft-white;
+  color: $soft-white;
   font: {
     family: $title-font;
     size: 2em;
@@ -417,29 +455,12 @@ a {
 
 //  header style
 
-.header-title {  // main page title
-  // border: 1px dashed red;
-  display: inline-block;
-  font-family: $title-font;
-  font-size: 1.5em;
-  font-weight: normal;
-  width: 290px;
-  height: 60px;
-  margin: 0;
-  line-height: 2.5;
-  background: #fff;   // default
-  color: #aaa;        // default
-  background: -webkit-linear-gradient(right, #aaa, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 header {
   width: 100%;
   // height: 60px;
   margin: 0;
   // border-bottom: 1px solid #bbb;
-  div {
+  .nav-wrapper, div {
     // border: 1px dashed red;
   }
   ul {
@@ -447,7 +468,7 @@ header {
     display: inline-block;
     list-style: none;
     float: right;
-    width: 500  px;
+    width: 500px;
     height: 52px;
     margin: 0;
     padding: 0;
@@ -462,17 +483,63 @@ header {
       margin-right: 20px;
       height: 48px;
       text-decoration: none !important;
-      font-size: 1.2em;
-      line-height: 3.5em;
-      color: #999;
+      // font-size: 1.2em;
+      line-height: 4em;
+      color: $grey;
     }
     li a:hover {
-      // border-bottom: 2px solid #333;
-      border-bottom: 3px solid red;
+      border-bottom: 2px solid $dark-grey;
+      // border-bottom: 3px solid red;
       // border-bottom: 2px solid #bbb;
-      color: #333;
+      color: $dark-grey;
     }
   }
+}
+
+.header-title {  // main page title
+  // border: 1px dashed red;
+  display: inline-block;
+  font-family: $title-font;
+  // font-size: 1.5em;
+  font-weight: normal;
+  width: auto;
+  // height: 60px;
+  margin: 0;
+  // line-height: 2.5;
+  // background: #fff;   // default
+  color: $dark-grey;        // default
+  // background: -webkit-linear-gradient(right, #aaa, #333);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+}
+
+.header-title {
+  // position: absolute;
+  // top: 30px;
+  // left: 30px;
+  padding: 10px 10px 4px 20px;
+  height: auto;
+  // width: auto;
+  line-height: 1.1em;
+  font: {
+    // family: $title-font;
+    size: 3.5em;
+  }
+  // color: $dark-grey;
+}
+
+.header-tag-line {
+  // position: absolute;
+  // top: 71px;
+  // left: 60px;
+  padding: 0 10px 10px 15px;
+  width: auto;
+  font: {
+    size: 1.4em;
+    family: $body-font;
+    weight: lighter;
+  }
+  color: $dark-grey;
 }
 
 .header-images {
@@ -486,20 +553,24 @@ header {
 }
 
 .header-images-wrapper {
-  border-top: 4px solid $secondary-color;
-  border-bottom: 4px solid $secondary-color;
+  // border-top: 4px solid $blue;
+  // border-bottom: 4px solid $blue;
+  border-top: 1px solid $grey;
+  border-bottom: 1px solid $grey;
   width: 100%;
-  height: 104px;
+  // height: 104px;
+  // height: 112px;
+    height: auto;
   overflow: hidden;
 }
 
 .header-search-container {
-  width: 460px;
-  margin: 10px auto;
-  padding: 10px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  background: $primary-color;
+  width: 338px;
+  margin: -90px auto 0 auto;
+  padding: 10px 10px 0 10px;
+  // border: 1px solid $grey;
+  border-radius: 3px;
+  // background: $green;
 }
 
 .header-search-title,
@@ -517,7 +588,7 @@ header {
     size: 1.2em;
     weight: bold;
   }
-  color: $color-soft-white;
+  color: $soft-white;
 }
 
 .header-search-input {
@@ -543,49 +614,51 @@ header {
   background: #eee;
 }
 
-.header-images-overlay {
-  position: absolute;
-  top: 58px;
-  z-index: 1000;
-  height: 100px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.50);
-}
-
-.header-images-overlay-title {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  font-family: $title-font;
-  font-size: 3.5em;
-  color: #fff;
-}
-
-.header-images-overlay-text {
-  position: absolute;
-  top: 71px;
-  left: 60px;
-  font-size: 1.4em;
-  font-family: $title-font;
-  color: #fff;
-}
+// .header-images-overlay {
+//   position: absolute;
+//   top: 58px;
+//   z-index: 1000;
+//   height: 100px;
+//   width: 100%;
+//   background: rgba(0, 0, 0, 0.25);
+// }
 
 // footer styles
 
 footer {
-  margin: 25px;
-  border-top: 2px solid $secondary-color;
+  margin-top: 25px;
+  // margin: 25px;
+  // border-top: 2px solid $blue;
+  // border-top: 1px solid $dark-grey;
+  // background: #d0d0d0 !important;
+  background: #fff !important;
 }
 
-.footer-container {
-  width: 100%;
-  border-top: 2px solid $secondary-accent-color;
-}
+// .footer-container {
+//   width: 100%;
+//   border-top: 2px solid $light-blue;
+// }
 
 .footer-logo {
+  position: inherit;
   float: right;
-  width: 200px;
-  margin: 10px 0;
+  width: 175px;
+  // height: 36px;
+  // margin-top: -5px;
+  // right: 25px;
+  // bottom: 35px
+}
+
+.mdl-logo {   // override MDL class
+  font: {
+    family: $title-font;
+    size: 1.5em;
+  }
+  color: $dark-grey !important;
+}
+
+.mdl-mini-footer__left-section {   // override MDL class
+  padding-top: 7px !important;
 }
 
 //  boards index style
@@ -602,7 +675,7 @@ footer {
   border: 1px solid #999;
   border-radius: 5px;
   margin: 10px 10px 0 0;
-  background: $color-soft-white;
+  background: $soft-white;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   .boards-index-card-image-wrapper {
     display: inline-block;
@@ -618,9 +691,9 @@ footer {
 }
 
 .boards-index-card-name {
-  border-bottom: 4px solid $primary-accent-color;
-  background: $primary-color;
-  color: $color-soft-white;
+  border-bottom: 4px solid $light-green;
+  background: $green;
+  color: $soft-white;
   text-align: center;
   font: {
     family: $title-font;
@@ -664,7 +737,7 @@ footer {
 
 .cart-item-container {
   display: inline-block;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $green;
   // border: 2px solid #aaa;
   // border-radius: 5px;
   margin: 0;
@@ -710,7 +783,7 @@ footer {
 
 .cart-checkout-btn-wrapper {
   // border: 1px dashed red;
-  // border-bottom: 2px solid $primary-color;
+  // border-bottom: 2px solid $green;
   width: 100%;
   padding: 10px;
   text-align: right;
@@ -718,7 +791,7 @@ footer {
 
 .cart-item-totals-wrapper {
   // border: 1px dashed red;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $green;
   width: 100%;
   margin: 0;
   padding: 10px;

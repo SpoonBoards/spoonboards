@@ -1,4 +1,4 @@
-<%= form_for(cart_item) do |f| %>
+<%= form_for(cart_items) do |f| %>
   <% if cart_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
@@ -40,8 +40,8 @@
     <%= f.text_field :thumbnail_url %>
   </div>
   <div class="field">
-    <%= f.label :fabric_type %><br>
-    <%= f.text_field :fabric_type %>
+    <%= f.label :set_fabric_type %><br>
+    <%= f.text_field :set_fabric_type %>
   </div>
   <div class="field">
     <%= f.label :purchased %><br>

@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413151653) do
+ActiveRecord::Schema.define(version: 20160415233636) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.boolean  "marked_private"
+    t.string   "fabric_type"
   end
 
   create_table "cart_items", force: :cascade do |t|

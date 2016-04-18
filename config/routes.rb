@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
 
+  post 'boards/show'
+
   get 'boards/pinterest_board_create'
+  post 'boards/clone_board'
 
 
   post 'cart_items/add_entire_board'
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
   get 'designs/show'
   get 'searches/search'
   post 'charges/index'
+  post 'charges/new'
 
   resources :designs
   resources :users

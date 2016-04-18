@@ -1,26 +1,88 @@
-  <div class="board-container">
-    <div class="board-name-wrapper">
-      <div class="board-name"><%= @board.name %></div>
+<div class="board-container">
+  <div class="board-name-wrapper">
+    <div class="board-name"><%= @board.name %></div>
+
+    <div class="board-function-bar">
+      <div class="board-function-bar-item"><strong>Fabric Type</strong></div>
+
+      <div class="board-function-bar-item"><%= select_tag(:set_fabric_type, options_for_select(@fabric_type_options)) %></div>
+
+      <div class="design-board-btn-wrapper board-function-bar-item"><%= button_to "Add to Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
     </div>
-    <% @feature_display.each do |design|%>
-      <div class="board-card">
-        <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
-        <img class="design-thumbnail" src="<%= design.third %>">
-        <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
-        <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
-        <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
-        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn" %></div>
-        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3]), :method => :post, class: "design-board-btn" %></div>
-      </div>
+    <%="you are not private" if @board.marked_private == nil  %>
+    <%="you are private" if @board.marked_private == true  %>
+    <%="you are not private" if @board.marked_private == false  %>
+  </div>
+  <% @feature_display.each do |design|%>
+    <div class="board-card">
+      <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
+      <img class="design-thumbnail" src="<%= design.third %>">
+      <div class="design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div>
+      <!-- <div class="design-id">Board ID: <%= design[3] %></div> -->
+      <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><div class="design-name">Name: <%= design.second %> </a></div>
+
+      <% if @board.user_id == session[:user_id] %>
+        <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div>
+        <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+      <% end %>
+    </div>
+    <div>
+          <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
+          <%= label_tag(:board_id, "Board:") %>
+          <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] })%>
+          <%= submit_tag("Add") %>
+          <%= hidden_field_tag "design[spoonflower_id]",design.first %>
+          <% end %>
+    </div>
+  <% end %>
+
+
+    <% if @board.user_id == session[:user_id] %>
+    <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
     <% end %>
 
-      <div class="design-board-btn-wrapper"><%= button_to "Add Entire Board", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @fabric_type), :method => :post, class: "design-board-btn" %></div>
+    <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+  <% if @board.user_id == session[:user_id] %>
+    <%= form_for(@board, remote: true) do |f| %>
+      <% if @board.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+          <ul>
+          <% @board.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+      <div>
+      <div class="field">
+        <%= f.label :marked_private %><br>
+        <%= f.check_box :marked_private %>
+      <div>
 
-      <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+      <div class="field">
+        <%= f.label :fabric_type %><br>
+        <%= f.select :fabric_type, @fabric_type_options %>
+      </div>
 
-    <br>
 
-  </div>
-  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  <% end %>
 
   <br>
+
+</div>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script>$(bindDeleteDesign);</script>
+
+<br>

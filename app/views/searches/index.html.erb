@@ -1,6 +1,5 @@
 <div class="search-results-container">
-  <h1>Spoonflower Search Results</h1>
-  <br>
+  <h3>Spoonflower Search Results</h3>
   <% @feature_display.calculate_results.each do |x| %>
     <div class='design-card'>
 
@@ -9,17 +8,22 @@
         <div class="design-card-image-overlay"> <!-- overlay -->
           <div class="design-card-image-overlay-content">  <!-- content -->
 
-            <div class="design-name"><strong> Name: </strong> <br> <%= x.as_json.first.second[1] %></div>
-            <br>
-            <div class="design-id"><strong>Product ID: </strong> &nbsp; <%= x.as_json.first.second[0] %></div>
-            <br>
+            <div class="design-id-wrapper"><span>Product ID <br> </span><span class="design-id"><%= x.as_json.first.second[0] %></span></div>
+
+            <div class="design-name-wrapper"><span>Name</span> <br> <span class="design-name"><%= x.as_json.first.second[1] %></span></div>
+
             <div class="design-form-wrapper"><%= form_tag({controller: "designs", action: "create"}, remote: true, class: "design-form") do %></div>
-            <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "SpoonBoard:", class: "design-board-dropdown-label") %> &nbsp; </div>
-            <br>
+            <div class="design-board-dropdown-label-wrapper"><%= label_tag(:board_id, "SpoonBoard", class: "design-board-dropdown-label") %> &nbsp; </div>
+
             <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
             &nbsp;
-            <div class="design-board-btn-wrapper"> <%= submit_tag("Add", class: "design-board-btn", onclick: "notify('You added a design to a board!');alert('You added a design to a board!');") %></div>
-            <div class="design-card-add-board-msg">Added</div>
+            <div class="design-board-btn-wrapper">
+
+              <%= button_tag(type: "submit", class: "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect", onclick: "notify('You added a design to a board!');") do %>
+                <i class="material-icons">add</i>
+              <% end %>
+            </div>
+            <!-- <div class="design-card-add-board-msg">Added</div> -->
 
           </div>
         </div>
@@ -35,4 +39,10 @@
 <!-- put infinite scroll trigger element in DOM -->
 <script>
   addScrollTrigger($(".design-card:last").prev().prev().prev().prev().prev());
+
+  // format design name string
+  $(".design-name").each(function(){
+    $(this).html(truncate($(this).html()));
+  });
+
 </script>

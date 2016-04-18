@@ -34,6 +34,9 @@ class Cart < ActiveRecord::Base
     return confirmation_details
   end
 
+
+
+
   def create_receipt(confirmation_details)
     receipt = Receipt.create!(
     cart_item_id: confirmation_details.first,
@@ -58,4 +61,16 @@ class Cart < ActiveRecord::Base
       end
     end
   end
+
+  def destroy_cart_items
+    self.cart_items.each do |cart_item|
+      cart_item.destroy
+    end
+  end
+
+
+
+
+
+
 end
