@@ -200,15 +200,17 @@ a {
 }
 
 .design-card-add-board-msg {
-  opacity: 0;
+  display: none;
+  position: absolute;
+  // opacity: 0;
   // height:20px;
   // border:1px dashed white;
   overflow:hidden;
   text-align: right;
-  margin-top: 35px;
+  margin-top: 5px;
   font-size: 1.2em;
   font-weight: bold;
-  color: $light-blue;
+  color: $soft-white;
 }
 
 //===================================
@@ -225,7 +227,7 @@ a {
   background: #ddd;
 }
 
-#design-card-overlay-add-button:hover {
+.design-card-overlay-add-button:hover {
   background: rgba(239, 239, 239, 0.40) !important;
   color: rgba(0, 0, 0, 0.80) !important;
 }
@@ -533,40 +535,45 @@ header {
 .header-title {  // main page title
   // border: 1px dashed red;
   display: inline-block;
-  font-family: $title-font;
+  // font-family: $title-font;
   // font-size: 1.5em;
-  font-weight: normal;
-  width: auto;
+  // font-weight: normal;
+  // width: auto;
   // height: 60px;
   margin: 0;
+  padding: 10px 10px 4px 20px;
   // line-height: 2.5;
-  // background: #fff;   // default
-  color: $dark-grey;        // default
+  // background: #fff;   default
+  // color: $dark-grey;         default
   // background: -webkit-linear-gradient(right, #aaa, #333);
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
 }
 
-.header-title {
+// .header-title {
   // position: absolute;
   // top: 30px;
   // left: 30px;
-  padding: 10px 10px 4px 20px;
-  height: auto;
+
+  // height: auto;
   // width: auto;
-  line-height: 1.1em;
-  font: {
+  // line-height: 1.1em;
+  // font: {
     // family: $title-font;
-    size: 3.5em;
-  }
+    // size: 3.5em;
+  // }
   // color: $dark-grey;
+// }
+
+.header-title-logo {
+  width: 250px;
 }
 
 .header-tag-line {
   // position: absolute;
   // top: 71px;
   // left: 60px;
-  padding: 0 10px 10px 15px;
+  padding: 0 10px 10px 20px;
   width: auto;
   font: {
     size: 1.4em;

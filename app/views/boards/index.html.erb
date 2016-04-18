@@ -12,9 +12,12 @@
       </div>
       <% if board.designs.as_json.length > 0 %>
         <div class="boards-index-card-image-wrapper">
-          <img class="boards-index-card-image" src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>">
+        <img class="boards-index-card-image" src="<%= board.designs.first.get_json_for_design(board.designs.first.spoonflower_id, board.designs.first.id).third %>">
         </div>
       <% else %>
+      <div class="boards-index-card-image-wrapper">
+        <img class="boards-index-card-image" src="http://cliparts.co/cliparts/pki/8aL/pki8aL4cr.png">
+        </div>
       <% end %>
         <div class="boards-index-card-btn-container">
           <div class="boards-index-card-btn-wrapper">
