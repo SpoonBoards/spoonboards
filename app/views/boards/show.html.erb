@@ -105,4 +105,28 @@
       $(this).html(truncate($(this).html()));
     });
 
+
+var boardFunctionVisible = false;
+/*
+* event hanldler for board funciton 'Hamburger' - toggle visibility
+*/
+$(".board-function-hamburger").on("click", function() {
+  console.log("** board hamburger click **");
+  if (boardFunctionVisible) {
+    $(".board-function-bar").slideUp(300);
+    boardFunctionVisible = false;
+  }
+  else {
+    $(".board-function-bar").slideDown(300);
+    boardFunctionVisible = true;
+  }
+});
+
+//  initialize drag & drop
+$(".gridster ul").gridster({
+  widget_margins: [5, 5],
+  widget_base_dimensions: [200, 290]
+});
+
   </script>
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>

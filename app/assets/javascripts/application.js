@@ -19,7 +19,7 @@
 $(function () {  // short hand for $(document).ready(function() {})
   'use strict';
 
-  var boardFunctionVisible = false;
+  // var boardFunctionVisible = false;
 
   var contName   = $("#controller-name").val(),    // session => controller-name
       contAction = $("#controller-action").val(),  // session => controller-action
@@ -31,35 +31,39 @@ $(function () {  // short hand for $(document).ready(function() {})
     hideElement($("footer"));
   }
 
-/*
-* event hanldler for 'Add' design to board button - not a main feature, turned off for now - not implemented in infinite scroll yet
-*/
-// $(".design-board-btn").on("click", function() {
-//   console.log("click");
-//   // console.log( $(this).parent().next() );
-//   $(this).parent().next().css("opacity", "1.0");
-// });
+  /*
+  * event hanldler for 'Add' design to board button in search results hover
+  */
+  $(".design-card-overlay-add-button").on("click", function() {
+    console.log("** click search result hover add design button **");
+    // console.log( $(this).parent().next() );
+    // $(this).parent().next().css("opacity", "1.0");
+    // $(this).parent().next().show().delay(1000).hide();
+    $(this).parent().next().fadeIn(400, "swing").delay(1500).fadeOut(400, "swing");
+  });
 
-/*
-* event hanldler for board funciton 'Hamburger' - toggle visibility
-*/
-$(".board-function-hamburger").on("click", function() {
-  console.log("** board hambrger click **");
-  if (boardFunctionVisible) {
-    $(".board-function-bar").slideUp(300);
-    boardFunctionVisible = false;
-  }
-  else {
-    $(".board-function-bar").slideDown(300);
-    boardFunctionVisible = true;
-  }
-});
+  // moved to boards/show.html.erb
+  /*
+  * event hanldler for board funciton 'Hamburger' - toggle visibility
+  */
+  // $(".board-function-hamburger").on("click", function() {
+  //   console.log("** board hamburger click **");
+  //   if (boardFunctionVisible) {
+  //     $(".board-function-bar").slideUp(300);
+  //     boardFunctionVisible = false;
+  //   }
+  //   else {
+  //     $(".board-function-bar").slideDown(300);
+  //     boardFunctionVisible = true;
+  //   }
+  // });
 
-
-$(".gridster ul").gridster({
-        widget_margins: [5, 5],
-        widget_base_dimensions: [200, 290]
-});
+  // moved to boards/show.html.erb
+  //  initialize drag & drop
+  // $(".gridster ul").gridster({
+  //   widget_margins: [5, 5],
+  //   widget_base_dimensions: [200, 290]
+  // });
 
 
 });  // end of $(document).ready() block
@@ -409,9 +413,6 @@ function notify(str) {
     $("#notice").prepend(str).fadeIn(600, "swing").delay(2000).fadeOut(600, "swing");
   }
 }
-
-
-
 
 /*
 *  hide designs after removing them in board show
