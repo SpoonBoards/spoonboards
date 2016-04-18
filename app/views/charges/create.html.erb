@@ -6,6 +6,7 @@
 <%= @charge[:source][:address_line1]%><br>
 <%= @charge[:source][:address_line2] %>
 <%= @charge[:source][:address_city] %>, <%= @charge[:source][:address_state] %> <%= @charge[:source][:address_zip] %><br>
-<%= @charge[:source][:address_country] %>
+<%= @charge[:source][:address_country] %><br>
 
-<%= @sf_order %>
+
+<%= @all_order.as_json %>
