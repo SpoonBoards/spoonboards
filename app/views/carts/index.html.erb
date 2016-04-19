@@ -72,4 +72,13 @@
 
 <script>
   // hideElement(".header-search-container");
+
+// format design name string
+$(".cart-item-name").each(function(){
+  $(this).val(truncate($(this).val(), 35));
+});
+
+
+// $(".cart-item-name").val("KOOOOOL!")
+
 </script>
