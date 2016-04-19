@@ -17,11 +17,11 @@
     <header>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="#">Something</a></li>
-          <li><a href="/boards">SpoonBoards</a></li>
-          <li><a href="/carts">Shopping Cart</a></li>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="/boards">My SpoonBoards</a></li>
           <li><a href="/users">Profile</a></li>
           <li><%= link_to 'Logout', logout_path %></li>
+          <li id="nav-cart"><a href="/carts"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
       <div class="header-images-wrapper">
@@ -51,8 +51,9 @@
           <!-- <div class="header-search-title">Spoonflower</div> -->
           <!-- <div class="header-search-input-wrapper"><%= text_field_tag :term, params[:term], class: "header-search-input" %></div> -->
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <!-- <div class="mdl-textfield mdl-js-textfield"> -->
             <%= text_field_tag :term, params[:term], class: "mdl-textfield__input" %>
-            <label class="mdl-textfield__label" for="term">Spoonflower Market Search</label>
+            <label class="mdl-textfield__label" for="term">Spoonflower Marketplace Search</label>
           </div>
           <!-- <div class="header-search-btn-wrapper"><%= button_to "Search", :name => nil, class: "header-search-btn" %></div> -->
           <div class="header-search-btn-wrapper"><%= button_to "", :name => nil, class: "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" do %>
