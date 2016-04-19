@@ -161,15 +161,18 @@ a {
 
 
 .design-board-dropdown-label-wrapper,
+.design-board-dropdown-wrapper,
 .design-board-btn-wrapper {
   display: inline-block;
 }
 
-.board-card-design-name-wrapper,
 .design-board-dropdown-wrapper,
-.design-board-btn-wrapper {
-  margin-left: 10px;
-  // border: 1px dashed red;
+.design-board-btn-wrapper  {
+    // border: 1px dashed red;
+}
+
+.design-board-dropdown-wrapper {
+  width: 112px;
 }
 
 //==================================
@@ -213,6 +216,7 @@ a {
 .design-card-add-board-msg {
   display: none;
   position: absolute;
+  left: 65px;
   // opacity: 0;
   // height:20px;
   // border:1px dashed white;
@@ -284,6 +288,17 @@ a {
     // border: 1px solid #999;
     // border-radius: 5px;
   }
+}
+
+.board-card-design-name-wrapper,
+.board-card-design-dropdown-wrapper,
+.board-card-design-btn-wrapper {
+  margin-left: 10px;
+  // border: 1px dashed red;
+}
+
+.board-card-design-btn-wrapper {
+  display: inline-block;
 }
 
 .board-name-wrapper {

@@ -1,33 +1,29 @@
   <div class="board-container" style="margin-bottom:10px;">
     <div class="board-name-wrapper">
       <div class="board-name">
-        <span id="boardjsname"><%= @board.name %></span> <span class="board-function-hamburger">
+        <%= @board.name %> <span class="board-function-hamburger">
         <i class="fa fa-bars" aria-hidden="true"></i></span>
       </div>
-
 
 <!-- <div class="board-function-bar"> -->
 
         <div class="board-private-message">
-          <span id ="boardjsprivate">
-            <%="( public )" if @board.marked_private == nil  %>
-            <%="( private )" if @board.marked_private == true  %>
-            <%="( public )" if @board.marked_private == false  %>
-          </span>
+          <%="( public )" if @board.marked_private == nil  %>
+          <%="( private )" if @board.marked_private == true  %>
+          <%="( public )" if @board.marked_private == false  %>
         </div>
 
 <div class="board-function-bar">
 
         <div>
             <% if @board.user_id == session[:user_id] %>
-
               <div class="design-board-btn-wrapper">
                 <%= button_to cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
                   <i class="fa fa-plus" aria-hidden="true"></i> CART
                 <% end %>
               </div>
               <div class="design-board-btn-wrapper">
-                <%= button_to "COPY", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+                <%= button_to "CLONE", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
               </div>
             <% elsif session[:user_id] == nil %>
             <% elsif session[:user_id] != nil %>
@@ -102,12 +98,10 @@
         <div class="board-card-design-name-wrapper">Name: <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><span class="board-card-design-name"><%= design.second %></span></a></div>
 
         <% if @board.user_id == session[:user_id] %>
-
-          <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div> &nbsp;
-          <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
-
+          <div class="board-card-design-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div> &nbsp;
+          <div class="board-card-design-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
         <% end %>
-        <div class="design-board-dropdown-wrapper">
+        <div class="board-card-design-dropdown-wrapper">
           <% if session[:user_id] != nil %>
             <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
             <%= label_tag(:board_id, "Board:") %> <br>
