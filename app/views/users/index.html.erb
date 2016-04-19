@@ -1,26 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Account Information</h1>
+<div class="for-update">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <p id="notice"><%= notice %></p>
 
-  <tbody>
+  <h1>Account Information</h1>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= @user.name%></td>
-        <td><%= @user.email %></td>
-        <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-        <td><%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="3"></th>
       </tr>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+        <tr>
+          <td><%= @user.name%></td>
+          <td><%= @user.email %></td>
+          <!-- <td><%= link_to 'Edit', edit_user_path(@user) %></td> -->
+          <td><%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    </tbody>
+  </table>
 
-<%= link_to 'Go to My Boards', boards_path %>
+  <div class= "form" >
+    <%= render 'form' %>
+  </div>
+
+  <br>
+
+  <%= link_to 'Go to My Boards', boards_path %>
+</div>

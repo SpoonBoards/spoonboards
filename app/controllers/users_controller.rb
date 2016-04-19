@@ -25,7 +25,6 @@ class UsersController < ApplicationController
       if @user.save
         Cart.create!(user_id: @user.id)
         board1 = Board.create!(user_id: @user.id, name: "My First Board")
-        Design.create!(board_id: board1.id, spoonflower_id: 3099024)
         session[:user_id] = @user.id
         format.html { redirect_to boards_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
@@ -40,7 +39,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.js   {}
+
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

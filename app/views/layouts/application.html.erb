@@ -12,16 +12,17 @@
     <!-- <link rel="stylesheet" href="https://www.google.com/fonts#UsePlace:use/Collection:Montserrat:400,700" rel="stylesheet" type="text/css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="<%= asset_path('jquery.gridster.min.css') %>" rel="stylesheet" type="text/css">
+    <script src="<%= asset_path('jquery.gridster.min.js') %>"></script>
   </head>
   <body>
     <header>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="/boards">My SpoonBoards</a></li>
-          <li><a href="/users">Profile</a></li>
-          <li><%= link_to 'Logout', logout_path %></li>
-          <li id="nav-cart"><a href="/carts"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+          <li><a href="/users/new" id="nav-link-sign-up">Sign Up</a></li>
+          <li><%= link_to 'My SpoonBoards', boards_path, id: 'nav-link-myspoonbaords' %></li>
+          <li><%= link_to 'Profile', users_path, id: 'nav-link-users'  %></li>
+          <li><%= link_to 'Logout', logout_path, id: 'nav-link-logout'  %></li>
+          <li id="nav-cart"><a href="/carts" id="nav-link-cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
       <div class="header-images-wrapper">
@@ -149,9 +150,9 @@
       SpoonBoards
     </div>
     <ul class="mdl-mini-footer__link-list">
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Privacy and Terms</a></li>
-      <li><a href="#">User Agreement</a></li>
+      <li><a href="https://support.spoonflower.com/hc/en-us" target="_blank">Help</a></li>
+      <li><a href="http://www.spoonflower.com/terms" target="_blank" >Privacy and Terms</a></li>
+      <li><a href="http://www.spoonflower.com/about" target="_blank">About Us</a></li>
     </ul>
   </div>
   <div class="mdl-mini-footer__right-section">
@@ -163,6 +164,5 @@
 
     <!-- <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script> -->
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    <script src="<%= asset_path('jquery.gridster.min.js') %>"></script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 
 <div class="cart-container">
-  <h1>Shopping Cart</h1>
+  <h3>Shopping Cart</h3>
   <ul class="cart-item-container cart-item-labels-container">
-    <li class="cart-item-label-thumbnail">Item</li>
-    <li class="cart-item-label-name"> &nbsp; </li>
+    <li class="cart-item-label-thumbnail"> &nbsp; </li>
+    <li class="cart-item-label-name"> &nbsp; &nbsp; Item </li>
     <li class="cart-item-label-fabric"> Fabric </li>
-    <li class="cart-item-label-quantity"> Qty </li>
+    <li class="cart-item-label-quantity"> &nbsp; &nbsp; &nbsp; Qty </li>
     <li class="cart-item-label-price"> Price </li>
     <li class="cart-item-label-button"> &nbsp; </li>
     <li class="cart-item-label-btn"> &nbsp; </li>
@@ -20,62 +20,56 @@
       </li>
       <li>
         <%= form_for(cart_item, remote: true) do |f| %>
-            <% if cart_item.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
-                <ul>
+          <% if cart_item.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@cart_item.errors.count, "error") %> prohibited this cart_item from being saved:</h2>
+              <ul>
                 <% cart_item.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
                 <% end %>
-                </ul>
-              </div>
-            <% end %>
-        </li>
+              </ul>
+          </div>
+        <% end %>
+      </li>
 
-        <li class="field">
-          <%= f.label :fabric_type %><br>
-          <%= f.select :fabric_type, @fabric_type_options %>
-
-        </li>
-        <li class="field">
-        <%= f.label :design_name, class: "cart-item-label-name" %><br>
+      <li>
         <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
-        </li>
-        <li class="field">
-        <!-- <%= f.label "Qty", class: "cart-item-label-quantity" %><br> -->
-          <%= f.number_field :quantity, class: "cart-item-quantity" %>
-        </li>
-        <li class="field">
-          <!-- <%= f.label :price, class: "cart-item-label-price" %><br> -->
-          <!-- <%= f.text_field :price, class: "cart-item-price", disabled: true %> -->
-          <%= number_to_currency(cart_item.price) %>
-        </li>
-
-        <li class="actions">
-          <%= f.submit "Update", class: "cart-item-btn" %>
-        </li>
+      </li>
+      <li>
+        <div class="cart-item-fabric"><%= f.select :fabric_type, @fabric_type_options %></div>
+      </li>
+      <li>
+        <%= f.number_field :quantity, class: "cart-item-quantity" %>
+      </li>
+      <li>
+        <div class="cart-item-price"><%= number_to_currency(cart_item.price)%></div>
+      </li>
+      <li>
+        <%= button_to cart_item, type: 'submit', method: :get, class: "cart-update-btn mdl-button mdl-js-button mdl-button--icon" do %>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        <% end %>
+      </li>
     <% end %>
 
-        <li>
-          <%= button_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-item-btn" %>
-        </li>
+      <li>
+        <%= button_to cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-remove-btn mdl-button mdl-js-button mdl-button--icon" do %>
+          <i class="fa fa-times" aria-hidden="true"></i>
+        <% end %>
+      </li>
+    </ul>
+    <br>
+  <% end %>
 
-      </ul>
-      <br>
-
-
-    <% end %>
-    <div class="cart-item-totals-wrapper">
-      <div class="cart-item-totals-label">Subtotal:</div><div><%= number_to_currency(@amount) %></div><br>
-      <div class="cart-item-totals-label"></div><div>$0.00</div><br>
-      <div class="cart-item-totals-label">Shipping:</div><div>$0.00</div><br>
-      <div class="cart-item-totals-label">Total:</div><div><%= number_to_currency(@amount) %></div><br>
-    </div>
-
-    <div class="cart-checkout-btn-wrapper"><%= link_to 'Clear Cart', @cart, class: "cart-item-btn", :remote => true %></div>
-    <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn" %></div>
+  <div class="cart-item-totals-wrapper">
+    <div class="cart-item-totals-label">Subtotal:</div><div class="cart-show-da-money"><%= number_to_currency(@amount) %></div><br>
+    <div class="cart-item-totals-label">Tax:</div><div class="cart-show-da-money">$0.00</div><br>
+    <div class="cart-item-totals-label">Shipping:</div><div class="cart-show-da-money">$0.00</div><br>
+    <div class="cart-item-totals-label"><strong>Total:</strong></div><div class="cart-show-da-money"><%= number_to_currency(@amount) %></div><br>
+  </div>
+  <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn cart-checkout-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %></div>
+  <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, class: "cart-item-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get %></div>
 </div>
 
 <script>
-  hideElement(".header-search-container");
+  // hideElement(".header-search-container");
 </script>
