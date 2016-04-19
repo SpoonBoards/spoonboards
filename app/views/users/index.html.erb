@@ -15,11 +15,15 @@
       <tr>
         <td><%= @user.name%></td>
         <td><%= @user.email %></td>
-        <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+        <!-- <td><%= link_to 'Edit', edit_user_path(@user) %></td> -->
         <td><%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   </tbody>
 </table>
+
+<div class= "form" >
+  <%= render 'form' %>
+</div>
 
 <br>
 
