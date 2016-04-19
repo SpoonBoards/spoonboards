@@ -1,12 +1,18 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :check_user
 
   # GET /carts
   # GET /carts.json
   def index
     # @carts = Cart.all
     # @cart = Cart.where(user_id: session[:user_id]).first
+    # byebug
+
+
     @cart = Cart.where(user_id: session[:user_id]).first
+
+
 
       @amount = @cart.calculate_price_based_on_qty
 
@@ -18,14 +24,6 @@ class CartsController < ApplicationController
       ['Sport Lycra', 50], ['Heavy Cotton Twill', 7], ['Eco Canvas', 34],
       ['Faux Suede', 32], ['Silk Crepe de Chine', 10]]
 
-
-
-
-
-
-    # @carts.cart_items.where(purchased: false, receipt_id: nil)
-
-    # @cart_stuff = params[:format]
   end
 
 
@@ -34,18 +32,6 @@ class CartsController < ApplicationController
   def show
     @cart.destroy_cart_items
 
-    # respond_to do |format|
-    #     format.html { redirect_to @board, notice: 'User was successfully created.' }
-        # format.js   {}
-        # format.json { render json: @board, notice: 'User was successfully created.'}
-
-    # end
-
-
-
-
-    # @boards = Board.where(user_id: session[:user_id])
-    # @carts = Cart.where(user_id: session[:user_id])
   end
 
   # GET /carts/new
@@ -101,6 +87,12 @@ class CartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
+    end
+
+    def check_user
+      if session[:user_id] == nil
+        redirect_to login_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
