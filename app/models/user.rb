@@ -16,13 +16,13 @@ class User < ActiveRecord::Base
       user.uid = auth['uid']
 
       if auth['info']['first_name'] == nil
-      user.name =  auth['info']['name']
+      user.name = auth['info']['name']
       else
-      user.name =  auth['info']['last_name']
+      user.name =  auth['info']['first_name'], auth['info']['last_name']
       end
 
 
-        user.name
+        # user.name
       user.password = SecureRandom.hex
       user.save
       Cart.create!(user_id: user.id)
