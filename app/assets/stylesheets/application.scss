@@ -703,10 +703,12 @@ footer {
 
 .mdl-logo {   // override MDL class
   font: {
-    family: $title-font;
+    family: $body-font;
+    weight: lighter;
     size: 1.5em;
   }
   color: $dark-grey !important;
+  margin-bottom: 4px;
 }
 
 .mdl-mini-footer__left-section {   // override MDL class
