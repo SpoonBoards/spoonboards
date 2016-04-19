@@ -42,6 +42,15 @@ $(function () {  // short hand for $(document).ready(function() {})
     $(this).parent().next().fadeIn(400, "swing").delay(1500).fadeOut(400, "swing");
   });
 
+  /*
+  * event hanldler for navigation links in header - reload the page each click
+  */
+  // $("[id*='nav-link-']").on("click", function() {
+  //   console.log("*** nav link click **");
+    // $(this).dealy(100);
+    // document.location.reload();
+  // });
+
   // moved to boards/show.html.erb
   /*
   * event hanldler for board funciton 'Hamburger' - toggle visibility

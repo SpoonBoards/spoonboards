@@ -1,23 +1,25 @@
   <div class="board-container">
     <div class="board-name-wrapper">
-      <div class="board-name"><%= @board.name %> <span class="board-function-hamburger"><i class="fa fa-bars" aria-hidden="true"></i></span></div>
+      <div class="board-name"><span id="boardjsname"><%= @board.name %></span> <span class="board-function-hamburger"><i class="fa fa-bars" aria-hidden="true"></i></span></div>
 
-      <div class="board-function-bar">
+      <!-- <div class="board-function-bar"> -->
 
         <div>
-          <%="you are not private" if @board.marked_private == nil  %>
-          <%="you are private" if @board.marked_private == true  %>
-          <%="you are not private" if @board.marked_private == false  %>
+          <span id ="boardjsprivate">
+          <%="This board is public." if @board.marked_private == nil  %>
+          <%="This board is private." if @board.marked_private == true  %>
+          <%="This board is public." if @board.marked_private == false  %>
+          </span>
         </div>
 
         <div>
             <% if @board.user_id == session[:user_id] %>
               <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Copy Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
             <% elsif session[:user_id] == nil %>
             <% elsif session[:user_id] != nil %>
               <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Copy Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
             <% else %>
             <% end %>
 
@@ -34,29 +36,35 @@
                   </ul>
                 </div>
               <% end %>
-              <div class="field">
+            </div>
+
+            <div class="board-function-bar">
+
+            <ul class="board-function-bar-items">
+              <li class="">
                 <%= f.label :name %><br>
                 <%= f.text_field :name %>
-              </div>
-              <div class="field">
+              </li>
+              <li class="">
                 <%= f.hidden_field :user_id, value: session[:user_id] %>
-              </div>
-              <div class="field">
+              </li>
+              <li class="">
                 <%= f.label :marked_private %><br>
                 <%= f.check_box :marked_private %>
-              </div>
+              </li>
 
-              <div class="field">
+              <li class="">
                 <%= f.label :fabric_type %><br>
                 <%= f.select :fabric_type, @fabric_type_options %>
-              </div>
+              </li>
 
-              <div class="actions">
+              <li class="">
                 <%= f.submit %>
-              </div>
+              </li>
+
             <% end %>
           <% end %>
-        </div>
+        </ul>
 <!-- ================== -->
       </div> <!-- end of borad-function-bar -->
 
@@ -76,9 +84,9 @@
 
         <% if @board.user_id == session[:user_id] %>
           <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div>
-          <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+          <div class="design-board-btn-wrapper jsboardatc"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
         <% end %>
-      <div>
+        <div>
           <% if session[:user_id] != nil %>
             <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
             <%= label_tag(:board_id, "Board:") %>
@@ -87,7 +95,7 @@
             <%= hidden_field_tag "design[spoonflower_id]",design.first %>
             <% end %>
           <% end %>
-      </div>
+        </div>
 
     <!-- </div> -->
 
@@ -96,7 +104,7 @@
     <% end %>
 <!-- ========= -->
   </ul>
-</div>
+</div>  <!-- end of gridster -->
 <!-- ========= -->
   </div>
 
@@ -110,28 +118,28 @@
       $(this).html(truncate($(this).html()));
     });
 
+    // is function bar visisble
+    var boardFunctionVisible = false;
+    /*
+    * event hanldler for board funciton 'Hamburger' - toggle visibility
+    */
+    $(".board-function-hamburger").on("click", function() {
+      console.log("** board hamburger click **");
+      if (boardFunctionVisible) {
+        $(".board-function-bar").slideUp(300);
+        boardFunctionVisible = false;
+      }
+      else {
+        $(".board-function-bar").slideDown(300);
+        boardFunctionVisible = true;
+      }
+    });
 
-var boardFunctionVisible = false;
-/*
-* event hanldler for board funciton 'Hamburger' - toggle visibility
-*/
-$(".board-function-hamburger").on("click", function() {
-  console.log("** board hamburger click **");
-  if (boardFunctionVisible) {
-    $(".board-function-bar").slideUp(300);
-    boardFunctionVisible = false;
-  }
-  else {
-    $(".board-function-bar").slideDown(300);
-    boardFunctionVisible = true;
-  }
-});
-
-//  initialize drag & drop
-$(".gridster ul").gridster({
-  widget_margins: [5, 5],
-  widget_base_dimensions: [200, 290]
-});
+    //  initialize drag & drop
+    $(".gridster ul").gridster({
+      widget_margins: [5, 5],
+      widget_base_dimensions: [200, 290]
+    });
 
   </script>
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
