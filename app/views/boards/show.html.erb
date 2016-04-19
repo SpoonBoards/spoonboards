@@ -5,9 +5,11 @@
       <!-- <div class="board-function-bar"> -->
 
         <div>
+          <span id ="boardjsprivate">
           <%="you are not private" if @board.marked_private == nil  %>
           <%="you are private" if @board.marked_private == true  %>
           <%="you are not private" if @board.marked_private == false  %>
+          </span>
         </div>
 
         <div>
@@ -82,7 +84,7 @@
 
         <% if @board.user_id == session[:user_id] %>
           <div class="design-board-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div>
-          <div class="design-board-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
+          <div class="design-board-btn-wrapper jsboardatc"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
         <% end %>
         <div>
           <% if session[:user_id] != nil %>

@@ -23,7 +23,8 @@ class CartItemsController < ApplicationController
 
   def add_to_cart
     design = Design.find(params[:design_id])
-    @fabric_type = params[:fabric_type]
+    @fabric_type = Board.find(params[:board_id]).fabric_type
+
 
 
     user_cart = User.find(session[:user_id]).carts.first.id
@@ -39,7 +40,13 @@ class CartItemsController < ApplicationController
   def add_entire_board
 
     @board = Board.find(params[:board_id])
-    @fabric_type = params[:fabric_type]
+    @fabric_type = Board.find(params[:board_id]).fabric_type
+
+    if @fabric_type == nil
+    Board.find(params[:board_id]).fabric_type = 31
+    @fabric_type = Board.find(params[:board_id]).fabric_type
+    end
+
     user_cart = User.find(session[:user_id]).carts.first.id
     @board.designs.all.each do |design|
       api_response = []
