@@ -14,7 +14,17 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
-      user.name = auth["info"]["name"] || auth["info"]["first_name"], auth["info"]["last_name"]
+
+      if auth['info']['first_name'] == nil
+      user.name = auth['info']['name']
+      else
+      first = auth['info']['first_name']
+      last = auth['info']['last_name']
+      user.name = first + " " + last
+      end
+
+
+        # user.name
       user.password = SecureRandom.hex
       user.save
       Cart.create!(user_id: user.id)
