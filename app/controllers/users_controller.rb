@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       if @user.save
         Cart.create!(user_id: @user.id)
         board1 = Board.create!(user_id: @user.id, name: "My First Board")
-        Design.create!(board_id: board1.id, spoonflower_id: 3099024)
+        Design.create!(board_id: board1.id)
         session[:user_id] = @user.id
         format.html { redirect_to boards_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
