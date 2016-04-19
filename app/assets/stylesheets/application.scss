@@ -504,7 +504,7 @@ header {
     display: inline-block;
     list-style: none;
     float: right;
-    width: 500px;
+    // width: 500px;
     height: 52px;
     margin: 0;
     padding: 0;
@@ -520,7 +520,7 @@ header {
       height: 48px;
       text-decoration: none !important;
       // font-size: 1.2em;
-      line-height: 4em;
+      line-height: 3.5em;
       color: $grey;
     }
     li a:hover {
@@ -530,6 +530,17 @@ header {
       color: $dark-grey;
     }
   }
+}
+
+// cart icon in .nav-wrapper
+.fa-shopping-cart {
+  vertical-align: middle;
+  font-size: 2.5em !important;
+}
+
+// no border effect on cart icon hover
+#nav-cart a:hover {
+  border-bottom: 0px solid $background-color !important;
 }
 
 .header-title {  // main page title
@@ -692,10 +703,12 @@ footer {
 
 .mdl-logo {   // override MDL class
   font: {
-    family: $title-font;
+    family: $body-font;
+    weight: lighter;
     size: 1.5em;
   }
   color: $dark-grey !important;
+  margin-bottom: 4px;
 }
 
 .mdl-mini-footer__left-section {   // override MDL class

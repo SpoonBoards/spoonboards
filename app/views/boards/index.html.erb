@@ -1,8 +1,7 @@
 
 <div class="boards-index-container">
-  <div><h1>SpoonBoards</h1></div>
+  <div><h1>My SpoonBoards</h1></div>
   <div class="boards-index-btn-wrapper">
-    <!-- <%= link_to 'New Board', new_board_path, class: "boards-index-create-btn" %> -->
     <a href="<%= new_board_path %>"><button class="boards-index-create-btn">New Board</button></a>
   </div>
   <% @boards.each do |board| %>
@@ -21,18 +20,19 @@
       <% end %>
         <div class="boards-index-card-btn-container">
           <div class="boards-index-card-btn-wrapper">
-            <!-- <%= link_to 'Show', board %> -->
             <%= link_to board do %>
+              <!-- <button class="boards-index-show-btn"><i class="fa fa-eye" aria-hidden="true"></i></button> -->
               <button class="boards-index-show-btn">Show</button>
             <% end %>
           </div>
-          <div class="boards-index-card-btn-wrapper">
-            <!-- <%= link_to 'Edit', edit_board_path(board) %> -->
+          <!-- <div class="boards-index-card-btn-wrapper">
+            <%= link_to 'Edit', edit_board_path(board) %>
             <a href="<%= edit_board_path(board) %>"><button class="boards-index-edit-btn">Edit</button></a>
-          </div>
+          </div> -->
           <div class="boards-index-card-btn-wrapper">
             <!-- <%= link_to 'Remove', board, method: :delete, data: { confirm: 'Are you sure?' } %> -->
             <%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <!-- <button class="boards-index-remove-btn"><i class="material-icons">delete</i></button> -->
               <button class="boards-index-remove-btn">Remove</button>
             <% end %>
           </tr>
