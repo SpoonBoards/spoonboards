@@ -1,9 +1,8 @@
 class ChargesController < ApplicationController
 
   def new
-    @cart = Cart.where(user_id: session[:user_id]).first
-    @amount = @cart.calculate_price_based_on_qty
-
+      @cart = Cart.where(user_id: session[:user_id]).first
+      @amount = @cart.calculate_price_based_on_qty
   end
 
   def create

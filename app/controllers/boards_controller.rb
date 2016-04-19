@@ -34,6 +34,9 @@ class BoardsController < ApplicationController
   # GET /boards/new
   def new
     @board = Board.new
+    if session[:user_id] == nil
+      redirect_to root_path, notice: "Please log in to create a board."
+    end
   end
 
   # GET /boards/1/edit
