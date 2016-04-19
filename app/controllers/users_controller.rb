@@ -61,10 +61,17 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    if session[:user_id] == nil
+      redirect_to login_path
+    elsif session[:user_id] > 0
       @user = User.find(session[:user_id])
     end
+  end
+
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
