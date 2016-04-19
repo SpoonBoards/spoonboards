@@ -15,11 +15,11 @@
         <div>
             <% if @board.user_id == session[:user_id] %>
               <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Copy Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
             <% elsif session[:user_id] == nil %>
             <% elsif session[:user_id] != nil %>
               <div class="design-board-btn-wrapper"><%= button_to "Add Board To Cart", cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-              <div class="design-board-btn-wrapper"><%= button_to "Clone Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
+              <div class="design-board-btn-wrapper"><%= button_to "Copy Board", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn" %></div>
             <% else %>
             <% end %>
 
