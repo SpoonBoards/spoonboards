@@ -6,9 +6,9 @@
 
         <div>
           <span id ="boardjsprivate">
-          <%="you are not private" if @board.marked_private == nil  %>
-          <%="you are private" if @board.marked_private == true  %>
-          <%="you are not private" if @board.marked_private == false  %>
+          <%="This board is public." if @board.marked_private == nil  %>
+          <%="This board is private." if @board.marked_private == true  %>
+          <%="This board is public." if @board.marked_private == false  %>
           </span>
         </div>
 
