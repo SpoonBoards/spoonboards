@@ -29,10 +29,11 @@ $default-font: "sans-serif";
 $soft-white: #fdfdfd;
 // $background-color: #fdfaf1;
 $background-color: #f9f9f9;
-$mint-green: #5affd1;
+// $mint-green: #5affd1;
 // $mint-green: #63ffc8;
-// $mint-green: #39E9D2;
+$mint-green: #39E9D2;
 // $mint-green: #0DE5A8;
+// $mint-green: #9dc9ba;
 // $green: #1DE9B6;
 // $light-green: #64FFDA;
 // $blue: #00B0FF;
@@ -86,7 +87,7 @@ a {
 }
 
 .notice-wrapper {
-  margin: 20px auto 0 auto;
+  margin: 35px auto 0 auto;
   height: 16px;
   width: 300px;
   text-align: center;
@@ -161,15 +162,18 @@ a {
 
 
 .design-board-dropdown-label-wrapper,
+.design-board-dropdown-wrapper,
 .design-board-btn-wrapper {
   display: inline-block;
 }
 
-.board-card-design-name-wrapper,
 .design-board-dropdown-wrapper,
-.design-board-btn-wrapper {
-  margin-left: 10px;
-  // border: 1px dashed red;
+.design-board-btn-wrapper  {
+    // border: 1px dashed red;
+}
+
+.design-board-dropdown-wrapper {
+  width: 112px;
 }
 
 //==================================
@@ -213,6 +217,7 @@ a {
 .design-card-add-board-msg {
   display: none;
   position: absolute;
+  left: 65px;
   // opacity: 0;
   // height:20px;
   // border:1px dashed white;
@@ -286,6 +291,17 @@ a {
   }
 }
 
+.board-card-design-name-wrapper,
+.board-card-design-dropdown-wrapper,
+.board-card-design-btn-wrapper {
+  margin-left: 10px;
+  // border: 1px dashed red;
+}
+
+.board-card-design-btn-wrapper {
+  display: inline-block;
+}
+
 .board-name-wrapper {
   // border-top-left-radius: 5px;
   // border-top-right-radius: 5px;
@@ -315,7 +331,7 @@ a {
 }
 .board-name {
   // border: 1px dashed red;
-  padding: 0  0 0 24px;
+  padding: 0  0 0 34px;
   line-height: 1.4;
   height: 40px;
   color: $grey;
@@ -601,14 +617,16 @@ header {
 // }
 
 .header-title-logo {
-  width: 250px;
+  width: 260px;
+  // border: 1px dashed red;
 }
 
 .header-tag-line {
+  // border: 1px dashed red;
   // position: absolute;
   // top: 71px;
   // left: 60px;
-  padding: 0 10px 10px 20px;
+  padding: 0 10px 7px 20px;
   width: auto;
   font: {
     size: 1.1em;
@@ -629,8 +647,8 @@ header {
 }
 
 .header-images-wrapper {
-  // background: $mint-green;
-  background: #ccc;
+  background: $mint-green;
+  // background: #ccc;
   // border-top: 1px solid $grey;
   // border-bottom: 1px solid $grey;
   width: 100%;
