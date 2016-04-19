@@ -8,10 +8,10 @@ class SignInWorksTest < ActionDispatch::IntegrationTest
     assert_template "new"
     assert_select "#notice", 1
     assert_select "input[type=email]", 1
-    assert_select "input[type=password]", 1
+    assert_select "input[type=password_digest]", 1
 
     #Log in
-    post login_path email: "daniel@gmail.com", password: "password"
+    post login_path email: "daniel@gmail.com", password_digest: "password"
     assert_redirected_to boards_path
     follow_redirect!
 
