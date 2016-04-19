@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
       if auth['info']['first_name'] == nil
       user.name = auth['info']['name']
       else
-      user.name =  auth['info']['first_name'], auth['info']['last_name']
+      first = auth['info']['first_name']
+      last = auth['info']['last_name']
+      user.name = first + " " + last
       end
 
 
