@@ -4,6 +4,11 @@ class ChargesController < ApplicationController
     @cart = Cart.where(user_id: session[:user_id]).first
     @amount = @cart.calculate_price_based_on_qty
 
+    if @amount <= 0
+      redirect_to carts_path, notice: 'Please Add A Design Before Checking Out!'
+
+    end
+
   end
 
   def create
