@@ -796,11 +796,12 @@ footer {
 
 .boards-index-card {
   display: inline-block;
-  border: 1px solid #999;
-  border-radius: 5px;
+  // border: 1px solid $grey;
+  // border-radius: 5px;
   margin: 10px 10px 0 0;
-  background: $soft-white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  background: #fff;
+  // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   .boards-index-card-image-wrapper {
     display: inline-block;
     float: left;
@@ -816,7 +817,7 @@ footer {
 
 .boards-index-card-name {
   // background: $grey;
-  color: $soft-white;
+  color: $dark-grey;
   text-align: center;
   font: {
     family: $title-font;
@@ -828,8 +829,8 @@ footer {
 .boards-index-card-image {
   width: 125px;
   height: 125px;
-  border: 1px solid #999;
-  border-radius: 5px;
+  border: 1px solid $grey;
+  // border-radius: 5px;
 }
 
 .boards-index-card-btn-wrapper {
@@ -840,7 +841,8 @@ footer {
 .boards-index-edit-btn,
 .boards-index-remove-btn {
     border: 1px solid #999;
-    border-radius: 5px;
+    border-radius: 0px !important;
+    box-shadow: none !important;
     font: {
       family: $body-font;
       size: 1.1em;
@@ -851,8 +853,15 @@ footer {
     background: #eee;
 }
 
+.boards-index-create-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
 .board-private-message {
   margin: 0 0 10px 0;
+}
+
+.boards-index-card-remove-btn {
+  color: $dark-grey !important;
 }
 
 // cart styles
