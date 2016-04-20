@@ -2,17 +2,15 @@ require 'test_helper'
 
 class SignInWorksTest < ActionDispatch::IntegrationTest
   test "login works well" do
-    get root_path
-    assert_redirected_to login_path
-    follow_redirect!
+    get login_path
     assert_template "new"
-    assert_select "#notice", 1
+    assert_select "#notice", 2
     assert_select "input[type=email]", 1
-    assert_select "input[type=password_digest]", 1
+    assert_select "input[type=password]", 1
 
-    #Log in
-    post login_path email: "daniel@gmail.com", password_digest: "password"
-    assert_redirected_to boards_path
+    #Log in errantly
+    get login_path email: "danel@gmail.com", password_digest: "password"
+    assert_redirected_to login_path
     follow_redirect!
 
     #Make sure that I can see Boards
