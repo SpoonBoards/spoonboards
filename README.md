@@ -27,7 +27,7 @@ The board has several features in the hamburger drawer menu, including the abili
 
 ![Screenshot 5](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+5.jpg)
 
-`final shot of SF admin side and physical sampler?`
+![Screenshot 6](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+6.jpg)
 
 ## Future Targets
 
