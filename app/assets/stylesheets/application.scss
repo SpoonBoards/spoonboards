@@ -423,19 +423,23 @@ a {
 }
 
 .login-container{
-  width: 407px;
+  width: 350px;
   height: 407px;
   margin: auto;
 }
 
 .login-title-image {
-  width: 407px;
-  height: 71px;
-  margin: 0 auto;
+  // border: 1px dashed red;
+  width: 350px;
+  height: 111px;
+  margin: -45px auto 20px auto;
 }
 
 .login-form {
-  color: #fff;
+  // border: 1px dashed red;
+  // color: #fff;
+  background: #fff;
+  padding: 10px;
 }
 
 .login-email-wrapper,
@@ -447,95 +451,112 @@ a {
   text-align: center;
 }
 
+.login-btn-wrapper {
+  margin-bottom: 10px;
+}
+
 .login-email-input,
 .login-password-input {
-  width: 240px;
-  height: 30px;
-  border-radius: 8px;
+  // width: 200px !reimportant;
+  // height: 30px;
+  // border-radius: 8px;
   font-size: 1em;
-  border: 1px solid #fff;
-  margin: 0 auto;
+  // border: 1px solid #fff;
+  margin: 0 0 0 13px !important;
 }
 
-.login-email-input {
-  margin: 30px 0 10px 0;
-  padding: 0 6px;
+.login-email-label,
+.login-password-label {
+  margin: 0 0 0 13px !important;
 }
 
-.login-password-input {
-  margin: 0 0 10px 0;
-  padding: 0 6px;
-}
+// .login-email-input {
+//   margin: 30px 0 10px 0;
+//   padding: 0 6px;
+// }
+//
+// .login-password-input {
+//   margin: 0 0 10px 0;
+//   padding: 0 6px;
+// }
 
 .login-facebook-btn,
-.login-pinterest-btn,
-.login-twitter-btn {
-  width: 215px;
-  height: 30px;
-  font-weight: normal;
-  font-size: 0.8em;
-  color: #fff;
-  padding: 5px 0 5px 0;
-  margin-bottom: 10px;
-  background: #666; // default - overidden below
-  border: 1px solid grey; // default - overidden below
+.login-pinterest-btn  {
+  // width: 215px;
+  // height: 30px;
+  // font-weight: normal;
+  // font-size: 0.8em;
+  // color: #fff;
+  // padding: 5px 0 5px 0;
+  // margin-bottom: 10px;
+  // background: #666; // default - overidden below
+  // border: 1px solid grey; // default - overidden below
   // a, a:hover {
   //   text-decoration: none;
   //   color: #fff;
   // }
-  .fa-facebook-square {
-    font-size: 17px !important;
-  }
-  .fa-pinterest-square {
-    font-size: 17px !important;
-  }
+  // .fa-facebook-square {
+  //   font-size: 17px !important;
+  // }
+  // .fa-pinterest-square {
+  //   font-size: 17px !important;
+  // }
+  box-shadow: none !important;
 }
 
-.login-pinterest-btn {
-  background: rgb(149, 25, 23);
-  border: 1px solid rgb(182, 0, 79);
-  margin: 10px 0;
+.login-pinterest-btn:hover,
+.login-facebook-btn:hover {
+  // background: rgb(182, 0, 79);
+  // border: 1px solid rgb(182, 0, 79);
+  // margin: 10px 0;
+  background: darken(rgb(225 ,225 ,225), 3%) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
 }
 
-.login-facebook-btn {
-  background: rgb(14, 59, 119);
-  border: 1px solid rgb(37, 46, 263);
-  margin-bottom: 10px;
-}
+// .login-facebook-btn {
+//   background: rgb(37, 46, 263);
+//   border: 1px solid rgb(37, 46, 263);
+//   margin-bottom: 10px;
+// }
 
-.login-twitter-btn {
-  background: rgb(0, 172, 237);
-  border: 1px solid rgb(37, 46, 263);
-  margin-bottom: 30px;
-}
+// .login-twitter-btn {
+//   background: rgb(0, 172, 237);
+//   border: 1px solid rgb(37, 46, 263);
+//   margin-bottom: 30px;
+// }
 
 // .login-facebook-btn span {
 // }
 
 .login-submit-btn {
-  width: 80px;
-  height: 26px;
-  border-radius: 5px;
-  border: 1px solid #fff;
-  background: #fdfdfd;
-  margin: 0 0 10px 0;
-  font-size: 1em;
-  font-weight: bold;
+  // width: 80px;
+  // height: 26px;
+  border-radius: 0 !important;
+  // border: 1px solid #fff;
+  // background: #fdfdfd;
+  // margin: 0 0 10px 0;
+  // font-size: 1em;
+  // font-weight: bold;
+  box-shadow: none !important;
 }
 
 .login-or-wrapper,
 .login-register-account-wrapper {
   font-size: 1.15em;
   font-weight: bold;
+  color: $dark-grey;
   .login-register-account-link,
   .login-register-account-link:visited {
     text-decoration: none;
-    color: #fff;
+    color: $dark-grey;
     background: none;
+    font-weight: bold;
   }
   .login-register-account-link:hover {
     text-decoration: underline;
     background: none;
+    font-weight: bold;
   }
 }
 
@@ -856,6 +877,7 @@ footer {
 .boards-index-create-btn:hover {
   background: darken(rgb(225, 225, 225), 3%) !important;
 }
+
 .board-private-message {
   margin: 0 0 10px 0;
 }
@@ -1056,7 +1078,7 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(arrow-down.png) 101% / 16% no-repeat;
+  background: url(arrow-down-black.png) 101% / 16% no-repeat;
 }
 
 #board_fabric_type,
@@ -1071,7 +1093,7 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(arrow-down.png) 101% / 13% no-repeat;
+  background: url(arrow-down-grey.png) 101% / 13% no-repeat;
 }
 
 #board_fabric_type {

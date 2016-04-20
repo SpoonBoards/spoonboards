@@ -1,34 +1,42 @@
 <p id="alert" style="text-align:center;"><%= alert %></p>
 <p id="notice" style="text-align:center;"><%= notice %></p>
 
-<div class="login-background-container" style="background-image:url(<%= asset_path('spoonboards-login-background-black-overlay.jpg') %>);" >
+<div class="login-background-container" style="background:url(<%= asset_path('login-background-2.png') %>) 95% / 25% repeat;" >
 
   <div class="login-container">
 
     <div class="login-title-container">
-      <img class="login-title-image" src="<%= asset_path('spoonboards-logo.png') %>" alt="Logo">
+      <img class="login-title-image" src="<%= asset_path('SPBS.png') %>" alt="Logo">
     </div>
 
     <div class="login-form">
       <%= form_tag create_path do %>
-        <div class="login-email-wrapper">
-          <%= email_field_tag :email, "", class: "login-email-input", placeholder: "                     email" %>
+        <div class="login-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= email_field_tag :email, "", class: "login-email-input  mdl-textfield__input" %>
+          <label class="login-email-label mdl-textfield__label" for="term">Email</label>
         </div>
-        <div class="login-password-wrapper">
-          <%= password_field_tag :password, "", class: "login-password-input", placeholder: "                  password" %>
+        <div class="login-password-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= password_field_tag :password, "", class: "login-password-input mdl-textfield__input" %>
+          <label class="login-password-label mdl-textfield__label" for="term">Password</label>
+        </div>
+        <div class="login-btn-wrapper">
+          <%= submit_tag "LOGIN", class: "login-submit-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
         </div>
         <div class="login-or-wrapper">
           or
         </div>
         <div class="login-btn-wrapper">
-          <a href="https://spoonboards.herokuapp.com/auth/pinterest"><button class="login-pinterest-btn"><span>Sign in with Pinterest</span></button></a>
+          <a href="https://spoonboards.herokuapp.com/auth/pinterest" style="text-decoration:none;">
+            <button class="login-pinterest-btn mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"><span><i class="fa fa-pinterest-p" aria-hidden="true"></i></span></button>
+          </a>
+        <!-- </div>
+        <div class="login-btn-wrapper"> -->
+        &nbsp; &nbsp;
+          <a href="https://spoonboards.herokuapp.com/auth/facebook">
+            <button class="login-facebook-btn mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></button>
+          </a>
         </div>
-        <div class="login-btn-wrapper">
-          <a href="https://spoonboards.herokuapp.com/auth/facebook"><button class="login-facebook-btn"><span>Sign in with Facebook</span></button></a>
-        </div>
-        <div class="login-btn-wrapper">
-          <%= submit_tag "login", class: "login-submit-btn" %>
-        </div>
+
         <div class="login-register-account-wrapper">
           Don't have an account? &nbsp; <a class="login-register-account-link" href="users/new"> Register</a>
         </div>
