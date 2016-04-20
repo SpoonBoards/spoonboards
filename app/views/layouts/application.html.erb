@@ -25,8 +25,12 @@
     <link href="<%= asset_path('jquery.gridster.min.css') %>" rel="stylesheet" type="text/css">
     <script src="<%= asset_path('jquery.gridster.min.js') %>"></script>
   </head>
-  <body>
-    <header data-no-turbolink>
+ <% if params[:action] == "new" && params[:controller] == "sessions" %>
+    <body>
+  <% else %>
+    <body data-no-turbolink>
+  <% end %>
+    <header>
       <div class="nav-wrapper">
         <ul>
           <li><a href="/users/new" id="nav-link-sign-up">Sign Up</a></li>
