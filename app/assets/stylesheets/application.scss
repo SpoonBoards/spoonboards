@@ -173,9 +173,9 @@ a {
     // border: 1px dashed red;
 }
 
-.design-board-dropdown-wrapper {
-  width: 112px;
-}
+// .design-board-dropdown-wrapper {
+//   width: 112px;
+// }
 
 //==================================
 
@@ -233,9 +233,23 @@ a {
 //===================================
 
 .design-board-dropdown {
-  // border: 1px solid #666;
-  width: 110px;
-  height: 20px;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 2px solid $grey;
+    background: rgba(0 , 0, 0, 0);
+    width: 120px !important;
+    padding: 4px 8px 4px 4px !important;
+    font-size: 0.8em !important;
+    color: $soft-white !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(arrow-down-grey.png) 101% / 15% no-repeat !important;
+}
+
+.design-board-overlay-add-btn {
+  // border: 1px dashed red !important;
+  margin-right: -10px !important;
 }
 
 .design-board-btn {
