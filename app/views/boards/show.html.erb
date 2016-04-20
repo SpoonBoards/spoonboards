@@ -1,4 +1,4 @@
-  <div class="board-container" style="margin-bottom:10px;">
+  <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name">
         <%= @board.name %> <span class="board-function-hamburger">
@@ -130,7 +130,7 @@
 
     // format design name string
     $(".board-card-design-name").each(function(){
-      $(this).html(truncate($(this).html()));
+      $(this).html(truncate($(this).html(), 26));
     });
 
     // is function bar visisble

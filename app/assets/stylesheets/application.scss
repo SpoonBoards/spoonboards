@@ -22,7 +22,7 @@
     font-url('ThirstyRoughRegOne.otf');
 }
 
-$title-font: "Thirsty Rough Reg One";
+$title-font: "Merriweather";
 $body-font: "Lato";
 $body-backup-font: "Helvetica";
 $default-font: "sans-serif";
@@ -258,7 +258,7 @@ a {
   // width: 1014px;
   // height: 260px;
   // padding: 0 10px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
@@ -533,7 +533,7 @@ a {
 
 header {
   width: 100%;
-  // height: 60px;
+  height: 180px;
   margin: 0;
   // border-bottom: 1px solid #bbb;
   .nav-wrapper, div {
@@ -636,15 +636,15 @@ header {
   color: $dark-grey;
 }
 
-.header-images {
-  display: inline-block;
-  border-top: 2px solid #fdfdfd;
-  border-bottom: 2px solid #fdfdfd;
-  border-left: 0px;
-  border-right: 0px;
-  width: 100px;
-  height: 100px;
-}
+// .header-images {
+//   display: inline-block;
+//   border-top: 2px solid #fdfdfd;
+//   border-bottom: 2px solid #fdfdfd;
+//   border-left: 0px;
+//   border-right: 0px;
+//   width: 100px;
+//   height: 100px;
+// }
 
 .header-images-wrapper {
   background: $mint-green;
@@ -746,8 +746,8 @@ footer {
 
 .mdl-logo {   // override MDL class
   font: {
-    family: $body-font;
-    weight: bold;
+    family: $title-font;
+    // weight: bold;
     size: 1.2em;
   }
   color: $dark-grey !important;
@@ -832,7 +832,7 @@ footer {
 
 .cart-container {
   margin: 0 auto;
-  width: 810px;
+  width: 845px;
 }
 
 .cart-item-container {
@@ -884,9 +884,17 @@ footer {
   // background: #eee;
 }
 
-// .cart-checkout-btn {
-//   float: right;
-// }
+.cart-checkout-btn:hover {
+  background: lighten($mint-green, 10%) !important;
+}
+
+.cart-clear-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
+
+.cart-checkout-btn {
+  background: $mint-green !important;
+}
 
 .cart-checkout-btn-wrapper {
   // border: 1px dashed red;
@@ -941,7 +949,7 @@ footer {
 }
 
 .cart-item-label-fabric {
-  width: 165px;
+  width: 200px;
 }
 
 .cart-item-label-quantity {
@@ -965,7 +973,8 @@ footer {
 }
 
 .cart-item-fabric {
-  width: 165px !important;
+  // position: relative;
+  width: 200px !important;
   font-size: 1.0em !important;
 }
 
@@ -991,3 +1000,48 @@ footer {
 .cart-show-da-money {
   text-align: right;
 }
+
+#board_name {
+  border: 0;
+  border-bottom: 2px solid $grey;
+  font-size: 1.0em !important;
+  line-height: normal;
+  background: rgba(0 , 0, 0, 0);
+}
+
+#board_fabric_type,
+#cart_item_fabric_type {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $grey;
+  background: rgba(0 , 0, 0, 0);
+  width: 195px;
+  padding: 5px 10px 5px 5px;
+  font-size: 0.9em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(arrow-down.png) 101% / 13% no-repeat;
+}
+
+#board_fabric_type {
+  font-size: 1.0em !important;
+  line-height: normal;
+}
+
+#cart_item_quantity {
+  border: 0;
+  border-bottom: 2px solid $grey;
+  padding: 5px 0px 5px 5px;
+  font-size: 0.9em;
+  background: rgba(0 , 0, 0, 0);
+
+}
+
+// #cart_item_fabric_type:before {
+//   content: "\25AE";  this is your text. You can also use UTF-8 character codes as I do here
+//   font-family: FontAwesome;
+//   color: red;
+//   left:-5px;
+//   position:absolute;
+//   top:0;}
