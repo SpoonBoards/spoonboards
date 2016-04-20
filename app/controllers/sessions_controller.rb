@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  # include Turbolinks::Controller
   before_action :authenticate, except: [:new, :create]
 
 
