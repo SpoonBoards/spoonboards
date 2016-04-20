@@ -223,10 +223,10 @@ function getResults(searchStr, offset, limit) {
 "<div class='design-card-image-overlay'> <!-- overlay -->" +
 "<div class='design-card-image-overlay-content'> <!-- content -->" +
 
-        "  <div class='design-name'><strong> Name:  </strong> <br> " + truncate(this.name.split(" // ")[0]) + "</div>\n" +
-        "  <br>\n" +
-        "  <div class='design-id'><strong>Product ID:  </strong> &nbsp; " + this.id + "</div>\n" +
-        "  <br>\n";
+        "  <div class='design-name'><strong> Name:  </strong> <br> " + truncate(this.name, 20) + "</div>\n" +
+        // "  <br>\n" +
+        "  <div class='design-id'><strong>Product ID:  </strong> <br> " + this.id + "</div>\n" +
+        "\n";
 
       htmlStr += "<div class='design-form-wrapper'>\n  " +
                  $(".design-form-wrapper:last").html() +
@@ -235,15 +235,15 @@ function getResults(searchStr, offset, limit) {
       htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
 
       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-                 $(".design-board-dropdown-label-wrapper:last").html() +
-                 "\n</div>\n<br>";
+                 $(".design-board-dropdown-label-wrapper:first").html() +
+                 "\n</div>\n";
 
       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-                 $(".design-board-dropdown-wrapper:last").html() +
+                 $(".design-board-dropdown-wrapper:first").html() +
                  "\n</div>\n &nbsp; \n";
 
       htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
-                 $(".design-board-btn-wrapper:last").html() +
+                 $(".design-board-btn-wrapper:first").html() +
                  "\n</div>\n";
 
 htmlStr += "<div class='design-card-add-board-msg'>Added</div>";
