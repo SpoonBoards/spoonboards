@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to boards_path(user), notice: "Signed in!"
+      # else
+      #   flash[:notice] = 'unvalid email/password combination'
+      #   redirect_to login_path
       end
     elsif user = User.sign_in_from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
@@ -17,6 +20,7 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Invalid email/password combination'
       redirect_to login_path
     end
+    redirect_to login_path
   end
 
   def new
