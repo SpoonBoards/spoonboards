@@ -1,11 +1,11 @@
+  <br>
+  <br>
   <div class="board-container">
     <div class="board-name-wrapper">
       <div class="board-name">
-        <%= @board.name %> <span class="board-function-hamburger">
-        <i class="fa fa-bars" aria-hidden="true"></i></span>
+        <%= @board.name %>
+        <span class="board-function-hamburger"><i class="fa fa-bars" aria-hidden="true"></i></span>
       </div>
-
-<!-- <div class="board-function-bar"> -->
 
         <div class="board-private-message">
           <%="( public )" if @board.marked_private == nil  %>
@@ -13,32 +13,34 @@
           <%="( public )" if @board.marked_private == false  %>
         </div>
 
-<div class="board-function-bar">
+      <!-- <div class="board-function-bar"> -->
 
+        <!-- <br> -->
         <div>
             <% if @board.user_id == session[:user_id] %>
               <div class="design-board-btn-wrapper">
-                <%= button_to cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
-                  <i class="fa fa-plus" aria-hidden="true"></i> CART
+                <%= button_to cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn design-board-add-to-cart-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You added an entire board to the cart.');" do %>
+                  ADD TO CART
                 <% end %>
               </div>
+              &nbsp;
               <div class="design-board-btn-wrapper">
-                <%= button_to "CLONE", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+                <%= button_to "COPY", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn design-board-copy-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You created a copy of this board.');" %>
               </div>
             <% elsif session[:user_id] == nil %>
             <% elsif session[:user_id] != nil %>
               <div class="design-board-btn-wrapper">
-                <%= button_to cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
+                <%= button_to cart_items_add_entire_board_path(:board_id => @board.id, :fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn design-board-add-to-cart-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You added an entire board to the cart.');" do %>
                   <i class="fa fa-plus" aria-hidden="true"></i> CART
                 <% end %>
               </div>
               <div class="design-board-btn-wrapper">
-                <%= button_to "CLONE", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %></div>
+                <%= button_to "COPY", boards_clone_board_path(:board_id => @board.id), :method => :post, class: "design-board-btn design-board-copy-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You created a copy of this board.');" %></div>
             <% else %>
             <% end %>
-      </div>
+          </div>
 
-      <div>
+          <div>
           <% if @board.user_id == session[:user_id] %>
             <%= form_for(@board, remote: true) do |f| %>
               <% if @board.errors.any? %>
@@ -53,26 +55,23 @@
               <% end %>
             </div>
 
-<!-- <div class="board-function-bar"> -->
+            <div class="board-function-bar">
 
             <ul class="board-function-bar-items">
               <li class="">
-                <!-- <%= f.label :name  %>  -->
-                Name <%= f.text_field :name %> &nbsp; | &nbsp;
+                Name <%= f.text_field :name %>
               </li>
               <li class="">
-                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.hidden_field :user_id, value: session[:user_id] %> &nbsp; &nbsp; &nbsp; &nbsp;
               </li>
               <li class="">
-                <!-- <%= f.label :marked_private %>  -->
-                <%= f.check_box :marked_private %> Private &nbsp; | &nbsp;
+                Fabric <%= f.select :fabric_type, @fabric_type_options%> &nbsp; &nbsp; &nbsp; &nbsp;
               </li>
               <li class="">
-                <!-- <%= f.label :fabric_type  %>  -->
-                Fabric <%= f.select :fabric_type, @fabric_type_options %>
+                <%= f.check_box :marked_private %> Private &nbsp; &nbsp; &nbsp; &nbsp;
               </li>
               <li class="">
-                <%= button_to "", type: 'submit', method: :get, class: "board-show-update-btn mdl-button mdl-js-button mdl-button--icon" do %>
+                <%= button_to "", type: 'submit', method: :get, class: "board-show-update-btn mdl-button mdl-js-button mdl-button--icon", onclick: "notify('You updated a SpoonBoard.');" do %>
                   <i class="fa fa-refresh" aria-hidden="true"></i>
                 <% end %>
               </li>
@@ -80,47 +79,54 @@
             <% end %>
           <% end %>
         </ul>
-<!-- ================== -->
+
       </div> <!-- end of borad-function-bar -->
 
     </div> <!-- end of borad-function-wrapper -->
 
-<!-- ========= -->
-<div class="gridster">
-    <ul>
-<!-- ========= -->
+
+    <div class="gridster">
+      <ul>
 
     <% @feature_display.each do |design|%>
-<li class="board-card" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <li class="board-card" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
         <script async defer data-pin-hover="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
         <img class="design-thumbnail" src="<%= design.third %>">
-        <!-- <div class="board-card-design-id">Design ID: <%= design.first %>, &nbsp; Board ID: <%= design[3] %></div> -->
         <div class="board-card-design-name-wrapper">Name: <a href = "https://spoonflower.com/fabric/<%= design.first %>", target="_blank"><span class="board-card-design-name"><%= design.second %></span></a></div>
 
-        <% if @board.user_id == session[:user_id] %>
-          <div class="board-card-design-btn-wrapper"><%= button_to "Remove", design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn remove", remote: true %></div> &nbsp;
-          <div class="board-card-design-btn-wrapper"><%= button_to "Add to Cart", cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn" %></div>
-        <% end %>
         <div class="board-card-design-dropdown-wrapper">
           <% if session[:user_id] != nil %>
             <%= form_tag({controller: "designs", action: "create"}, remote: true) do %>
-            <%= label_tag(:board_id, "Board:") %> <br>
-            <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] })%> &nbsp;
-            <%= submit_tag("Add") %>
+            <%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }) %>
+            <%= button_tag("Add", type: "submit", name: "commit", class: "design-board-btn mdl-button mdl-js-button mdl-button--icon") do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            <% end %>
             <%= hidden_field_tag "design[spoonflower_id]",design.first %>
             <% end %>
           <% end %>
         </div>
 
-    <!-- </div> -->
+        <% if @board.user_id == session[:user_id] %>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <div class="board-card-design-btn-wrapper">
+            <%= button_to cart_items_add_to_cart_path(:design_id => design[3],:fabric_type => @board.fabric_type), :method => :post, class: "design-board-btn mdl-button mdl-button--icon" do %>
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            <% end %>
+          </div>
+          <div class="board-card-design-btn-wrapper">
+            <%= button_to design_path(:design_id => design[3]), :method => :delete, class: "design-board-btn mdl-button mdl-js-button mdl-button--icon", remote: true do %>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
 
-</li>
+      </li>
 
     <% end %>
-<!-- ========= -->
-  </ul>
-</div>  <!-- end of gridster -->
-<!-- ========= -->
+
+    </ul>
+  </div>  <!-- end of gridster -->
+
   </div>
 
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
@@ -130,7 +136,7 @@
 
     // format design name string
     $(".board-card-design-name").each(function(){
-      $(this).html(truncate($(this).html(), 26));
+      $(this).html(truncate($(this).html(), 20));
     });
 
     // is function bar visisble

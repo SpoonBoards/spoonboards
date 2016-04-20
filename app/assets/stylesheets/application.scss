@@ -29,6 +29,7 @@ $default-font: "sans-serif";
 $soft-white: #fdfdfd;
 // $background-color: #fdfaf1;
 $background-color: #f9f9f9;
+// $mint-green: #66bbb0;
 // $mint-green: #5affd1;
 // $mint-green: #63ffc8;
 $mint-green: #39E9D2;
@@ -244,6 +245,18 @@ a {
   box-shadow: none !important;
 }
 
+.design-board-add-to-cart-btn {
+  background: $mint-green !important;
+}
+
+.design-board-add-to-cart-btn:hover {
+  background: lighten($mint-green, 10%) !important;
+}
+
+.design-board-copy-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
+
 .design-card-overlay-add-button:hover {
   background: rgba(239, 239, 239, 0.40) !important;
   color: rgba(0, 0, 0, 0.80) !important;
@@ -291,6 +304,10 @@ a {
   }
 }
 
+.board-card-design-name-wrapper {
+  font-size: 1.15em;
+}
+
 .board-card-design-name-wrapper,
 .board-card-design-dropdown-wrapper,
 .board-card-design-btn-wrapper {
@@ -323,18 +340,24 @@ a {
 }
 
 .board-function-bar-items {
-  margin: 0;
+  // border: 1px dashed red;
+  margin:  10px 174px 0 174px;
+  padding: 5px 0px 5px 0;
   list-style: none;
+  background: $soft-white;
   li {
+    // text-align: left;
+    // border: 1px dashed red;
+    // margin-right: 44px;
     display: inline-block;
   }
 }
 .board-name {
   // border: 1px dashed red;
-  padding: 0  0 0 34px;
+  padding: 0  0 0 44px;
   line-height: 1.4;
   height: 40px;
-  color: $grey;
+  color: $dark-grey;
   font: {
     family: $body-font;
     weight: lighter;
@@ -343,8 +366,12 @@ a {
 }
 
 .board-function-hamburger {
+  // border: 1px dashed red;
+  // position: relative;
   float: right;
   margin: 0 10px;
+  right: 10px;
+  color: $grey;
 }
 
 .board-function-hamburger:hover {
@@ -825,7 +852,7 @@ footer {
 }
 
 .board-private-message {
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
 }
 
 // cart styles
@@ -1007,6 +1034,20 @@ footer {
   font-size: 1.0em !important;
   line-height: normal;
   background: rgba(0 , 0, 0, 0);
+}
+
+#design_board_id {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $grey;
+  background: rgba(0 , 0, 0, 0);
+  width: 150px;
+  padding: 5px 10px 5px 5px;
+  font-size: 1.1em !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(arrow-down.png) 101% / 16% no-repeat;
 }
 
 #board_fabric_type,

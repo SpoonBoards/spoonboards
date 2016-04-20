@@ -45,7 +45,7 @@
         <div class="cart-item-price"><%= number_to_currency(cart_item.price)%></div>
       </li>
       <li>
-        <%= button_to cart_item, type: 'submit', method: :get, class: "cart-update-btn mdl-button mdl-js-button mdl-button--icon", onclick: "notify('You have updated the cart.' do %>
+        <%= button_to cart_item, type: 'submit', method: :get, class: "cart-update-btn mdl-button mdl-js-button mdl-button--icon", onclick: "notify('You have updated the cart.');" do %>
           <i class="fa fa-refresh" aria-hidden="true"></i>
         <% end %>
       </li>
