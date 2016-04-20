@@ -398,15 +398,15 @@ function trigger(element) {
 /*
 *  format long strings to be approx. 21 characters worth of pixels
 */
-function truncate(str) {
+function truncate(str, num) {
   var arrStr;
-  if (str != undefined && str.length > 0) {
+  if (str != undefined && str.length > 0 && num != NaN && num > 0) {
     if (str.indexOf(" // ")) {
       str = str.split(" // ")[0];
     }
-    if (str.length > 21) {
+    if (str.length > num) {
       arrStr = str.split("");
-      return arrStr.slice(0, 21).join("") + "...";
+      return arrStr.slice(0, num).join("") + "...";
     }
   }
   return str;

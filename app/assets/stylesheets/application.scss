@@ -22,13 +22,14 @@
     font-url('ThirstyRoughRegOne.otf');
 }
 
-$title-font: "Thirsty Rough Reg One";
+$title-font: "Merriweather";
 $body-font: "Lato";
 $body-backup-font: "Helvetica";
 $default-font: "sans-serif";
 $soft-white: #fdfdfd;
 // $background-color: #fdfaf1;
 $background-color: #f9f9f9;
+// $mint-green: #66bbb0;
 // $mint-green: #5affd1;
 // $mint-green: #63ffc8;
 $mint-green: #39E9D2;
@@ -244,6 +245,18 @@ a {
   box-shadow: none !important;
 }
 
+.design-board-add-to-cart-btn {
+  background: $mint-green !important;
+}
+
+.design-board-add-to-cart-btn:hover {
+  background: lighten($mint-green, 10%) !important;
+}
+
+.design-board-copy-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
+
 .design-card-overlay-add-button:hover {
   background: rgba(239, 239, 239, 0.40) !important;
   color: rgba(0, 0, 0, 0.80) !important;
@@ -258,7 +271,7 @@ a {
   // width: 1014px;
   // height: 260px;
   // padding: 0 10px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   // font-size: 0.8em;
   // white-space: nowrap;
   min-width: 520px;
@@ -289,6 +302,10 @@ a {
     // border: 1px solid #999;
     // border-radius: 5px;
   }
+}
+
+.board-card-design-name-wrapper {
+  font-size: 1.15em;
 }
 
 .board-card-design-name-wrapper,
@@ -323,18 +340,24 @@ a {
 }
 
 .board-function-bar-items {
-  margin: 0;
+  // border: 1px dashed red;
+  margin:  10px 174px 0 174px;
+  padding: 5px 0px 5px 0;
   list-style: none;
+  background: $soft-white;
   li {
+    // text-align: left;
+    // border: 1px dashed red;
+    // margin-right: 44px;
     display: inline-block;
   }
 }
 .board-name {
   // border: 1px dashed red;
-  padding: 0  0 0 34px;
+  padding: 0  0 0 44px;
   line-height: 1.4;
   height: 40px;
-  color: $grey;
+  color: $dark-grey;
   font: {
     family: $body-font;
     weight: lighter;
@@ -343,8 +366,12 @@ a {
 }
 
 .board-function-hamburger {
+  // border: 1px dashed red;
+  // position: relative;
   float: right;
   margin: 0 10px;
+  right: 10px;
+  color: $grey;
 }
 
 .board-function-hamburger:hover {
@@ -396,19 +423,23 @@ a {
 }
 
 .login-container{
-  width: 407px;
+  width: 350px;
   height: 407px;
   margin: auto;
 }
 
 .login-title-image {
-  width: 407px;
-  height: 71px;
-  margin: 0 auto;
+  // border: 1px dashed red;
+  width: 350px;
+  height: 111px;
+  margin: -45px auto 20px auto;
 }
 
 .login-form {
-  color: #fff;
+  // border: 1px dashed red;
+  // color: #fff;
+  background: #fff;
+  padding: 10px;
 }
 
 .login-email-wrapper,
@@ -420,95 +451,112 @@ a {
   text-align: center;
 }
 
+.login-btn-wrapper {
+  margin-bottom: 10px;
+}
+
 .login-email-input,
 .login-password-input {
-  width: 240px;
-  height: 30px;
-  border-radius: 8px;
+  // width: 200px !reimportant;
+  // height: 30px;
+  // border-radius: 8px;
   font-size: 1em;
-  border: 1px solid #fff;
-  margin: 0 auto;
+  // border: 1px solid #fff;
+  margin: 0 0 0 13px !important;
 }
 
-.login-email-input {
-  margin: 30px 0 10px 0;
-  padding: 0 6px;
+.login-email-label,
+.login-password-label {
+  margin: 0 0 0 13px !important;
 }
 
-.login-password-input {
-  margin: 0 0 10px 0;
-  padding: 0 6px;
-}
+// .login-email-input {
+//   margin: 30px 0 10px 0;
+//   padding: 0 6px;
+// }
+//
+// .login-password-input {
+//   margin: 0 0 10px 0;
+//   padding: 0 6px;
+// }
 
 .login-facebook-btn,
-.login-pinterest-btn,
-.login-twitter-btn {
-  width: 215px;
-  height: 30px;
-  font-weight: normal;
-  font-size: 0.8em;
-  color: #fff;
-  padding: 5px 0 5px 0;
-  margin-bottom: 10px;
-  background: #666; // default - overidden below
-  border: 1px solid grey; // default - overidden below
+.login-pinterest-btn  {
+  // width: 215px;
+  // height: 30px;
+  // font-weight: normal;
+  // font-size: 0.8em;
+  // color: #fff;
+  // padding: 5px 0 5px 0;
+  // margin-bottom: 10px;
+  // background: #666; // default - overidden below
+  // border: 1px solid grey; // default - overidden below
   // a, a:hover {
   //   text-decoration: none;
   //   color: #fff;
   // }
-  .fa-facebook-square {
-    font-size: 17px !important;
-  }
-  .fa-pinterest-square {
-    font-size: 17px !important;
-  }
+  // .fa-facebook-square {
+  //   font-size: 17px !important;
+  // }
+  // .fa-pinterest-square {
+  //   font-size: 17px !important;
+  // }
+  box-shadow: none !important;
 }
 
-.login-pinterest-btn {
-  background: rgb(149, 25, 23);
-  border: 1px solid rgb(182, 0, 79);
-  margin: 10px 0;
+.login-pinterest-btn:hover,
+.login-facebook-btn:hover {
+  // background: rgb(182, 0, 79);
+  // border: 1px solid rgb(182, 0, 79);
+  // margin: 10px 0;
+  background: darken(rgb(225 ,225 ,225), 3%) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
 }
 
-.login-facebook-btn {
-  background: rgb(14, 59, 119);
-  border: 1px solid rgb(37, 46, 263);
-  margin-bottom: 10px;
-}
+// .login-facebook-btn {
+//   background: rgb(37, 46, 263);
+//   border: 1px solid rgb(37, 46, 263);
+//   margin-bottom: 10px;
+// }
 
-.login-twitter-btn {
-  background: rgb(0, 172, 237);
-  border: 1px solid rgb(37, 46, 263);
-  margin-bottom: 30px;
-}
+// .login-twitter-btn {
+//   background: rgb(0, 172, 237);
+//   border: 1px solid rgb(37, 46, 263);
+//   margin-bottom: 30px;
+// }
 
 // .login-facebook-btn span {
 // }
 
 .login-submit-btn {
-  width: 80px;
-  height: 26px;
-  border-radius: 5px;
-  border: 1px solid #fff;
-  background: #fdfdfd;
-  margin: 0 0 10px 0;
-  font-size: 1em;
-  font-weight: bold;
+  // width: 80px;
+  // height: 26px;
+  border-radius: 0 !important;
+  // border: 1px solid #fff;
+  // background: #fdfdfd;
+  // margin: 0 0 10px 0;
+  // font-size: 1em;
+  // font-weight: bold;
+  box-shadow: none !important;
 }
 
 .login-or-wrapper,
 .login-register-account-wrapper {
   font-size: 1.15em;
   font-weight: bold;
+  color: $dark-grey;
   .login-register-account-link,
   .login-register-account-link:visited {
     text-decoration: none;
-    color: #fff;
+    color: $dark-grey;
     background: none;
+    font-weight: bold;
   }
   .login-register-account-link:hover {
     text-decoration: underline;
     background: none;
+    font-weight: bold;
   }
 }
 
@@ -533,7 +581,7 @@ a {
 
 header {
   width: 100%;
-  // height: 60px;
+  height: 180px;
   margin: 0;
   // border-bottom: 1px solid #bbb;
   .nav-wrapper, div {
@@ -636,15 +684,15 @@ header {
   color: $dark-grey;
 }
 
-.header-images {
-  display: inline-block;
-  border-top: 2px solid #fdfdfd;
-  border-bottom: 2px solid #fdfdfd;
-  border-left: 0px;
-  border-right: 0px;
-  width: 100px;
-  height: 100px;
-}
+// .header-images {
+//   display: inline-block;
+//   border-top: 2px solid #fdfdfd;
+//   border-bottom: 2px solid #fdfdfd;
+//   border-left: 0px;
+//   border-right: 0px;
+//   width: 100px;
+//   height: 100px;
+// }
 
 .header-images-wrapper {
   background: $mint-green;
@@ -746,8 +794,8 @@ footer {
 
 .mdl-logo {   // override MDL class
   font: {
-    family: $body-font;
-    weight: bold;
+    family: $title-font;
+    // weight: bold;
     size: 1.2em;
   }
   color: $dark-grey !important;
@@ -769,11 +817,12 @@ footer {
 
 .boards-index-card {
   display: inline-block;
-  border: 1px solid #999;
-  border-radius: 5px;
+  // border: 1px solid $grey;
+  // border-radius: 5px;
   margin: 10px 10px 0 0;
-  background: $soft-white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  background: #fff;
+  // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   .boards-index-card-image-wrapper {
     display: inline-block;
     float: left;
@@ -789,7 +838,7 @@ footer {
 
 .boards-index-card-name {
   // background: $grey;
-  color: $soft-white;
+  color: $dark-grey;
   text-align: center;
   font: {
     family: $title-font;
@@ -801,8 +850,8 @@ footer {
 .boards-index-card-image {
   width: 125px;
   height: 125px;
-  border: 1px solid #999;
-  border-radius: 5px;
+  border: 1px solid $grey;
+  // border-radius: 5px;
 }
 
 .boards-index-card-btn-wrapper {
@@ -813,7 +862,8 @@ footer {
 .boards-index-edit-btn,
 .boards-index-remove-btn {
     border: 1px solid #999;
-    border-radius: 5px;
+    border-radius: 0px !important;
+    box-shadow: none !important;
     font: {
       family: $body-font;
       size: 1.1em;
@@ -824,15 +874,23 @@ footer {
     background: #eee;
 }
 
+.boards-index-create-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
+
 .board-private-message {
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
+}
+
+.boards-index-card-remove-btn {
+  color: $dark-grey !important;
 }
 
 // cart styles
 
 .cart-container {
   margin: 0 auto;
-  width: 810px;
+  width: 845px;
 }
 
 .cart-item-container {
@@ -884,9 +942,17 @@ footer {
   // background: #eee;
 }
 
-// .cart-checkout-btn {
-//   float: right;
-// }
+.cart-checkout-btn:hover {
+  background: lighten($mint-green, 10%) !important;
+}
+
+.cart-clear-btn:hover {
+  background: darken(rgb(225, 225, 225), 3%) !important;
+}
+
+.cart-checkout-btn {
+  background: $mint-green !important;
+}
 
 .cart-checkout-btn-wrapper {
   // border: 1px dashed red;
@@ -941,7 +1007,7 @@ footer {
 }
 
 .cart-item-label-fabric {
-  width: 165px;
+  width: 200px;
 }
 
 .cart-item-label-quantity {
@@ -965,7 +1031,8 @@ footer {
 }
 
 .cart-item-fabric {
-  width: 165px !important;
+  // position: relative;
+  width: 200px !important;
   font-size: 1.0em !important;
 }
 
@@ -991,3 +1058,62 @@ footer {
 .cart-show-da-money {
   text-align: right;
 }
+
+#board_name {
+  border: 0;
+  border-bottom: 2px solid $grey;
+  font-size: 1.0em !important;
+  line-height: normal;
+  background: rgba(0 , 0, 0, 0);
+}
+
+#design_board_id {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $grey;
+  background: rgba(0 , 0, 0, 0);
+  width: 150px;
+  padding: 5px 10px 5px 5px;
+  font-size: 1.1em !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(arrow-down-black.png) 101% / 16% no-repeat;
+}
+
+#board_fabric_type,
+#cart_item_fabric_type {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $grey;
+  background: rgba(0 , 0, 0, 0);
+  width: 195px;
+  padding: 5px 10px 5px 5px;
+  font-size: 0.9em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(arrow-down-grey.png) 101% / 13% no-repeat;
+}
+
+#board_fabric_type {
+  font-size: 1.0em !important;
+  line-height: normal;
+}
+
+#cart_item_quantity {
+  border: 0;
+  border-bottom: 2px solid $grey;
+  padding: 5px 0px 5px 5px;
+  font-size: 0.9em;
+  background: rgba(0 , 0, 0, 0);
+
+}
+
+// #cart_item_fabric_type:before {
+//   content: "\25AE";  this is your text. You can also use UTF-8 character codes as I do here
+//   font-family: FontAwesome;
+//   color: red;
+//   left:-5px;
+//   position:absolute;
+//   top:0;}

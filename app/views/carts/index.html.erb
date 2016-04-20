@@ -36,16 +36,16 @@
         <%= f.text_field :design_name, disabled: true, class: "cart-item-name" %>
       </li>
       <li>
-        <div class="cart-item-fabric"><%= f.select :fabric_type, @fabric_type_options %></div>
+        <div class="cart-item-fabric"><%= f.select :fabric_type, @fabric_type_options, class: "test-select" %></div>
       </li>
       <li>
-        <%= f.number_field :quantity, class: "cart-item-quantity" %>
+        <%= f.number_field :quantity, class: "cart-item-quantity", min: "1", step: "1" %>
       </li>
       <li>
         <div class="cart-item-price"><%= number_to_currency(cart_item.price)%></div>
       </li>
       <li>
-        <%= button_to cart_item, type: 'submit', method: :get, class: "cart-update-btn mdl-button mdl-js-button mdl-button--icon" do %>
+        <%= button_to cart_item, type: 'submit', method: :get, class: "cart-update-btn mdl-button mdl-js-button mdl-button--icon", onclick: "notify('You have updated the cart.');" do %>
           <i class="fa fa-refresh" aria-hidden="true"></i>
         <% end %>
       </li>
@@ -66,10 +66,19 @@
     <div class="cart-item-totals-label">Shipping:</div><div class="cart-show-da-money">$0.00</div><br>
     <div class="cart-item-totals-label"><strong>Total:</strong></div><div class="cart-show-da-money"><%= number_to_currency(@amount) %></div><br>
   </div>
-  <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn cart-checkout-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %></div>
-  <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, class: "cart-item-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get %></div>
+  <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn cart-checkout-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %></div>
+  <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, class: "cart-item-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get, onclick: "notify('You have cleared the cart.')" %></div>
 </div>
 
 <script>
   // hideElement(".header-search-container");
+
+// format design name string
+$(".cart-item-name").each(function(){
+  $(this).val(truncate($(this).val(), 35));
+});
+
+
+// $(".cart-item-name").val("KOOOOOL!")
+
 </script>
