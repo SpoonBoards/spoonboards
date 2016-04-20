@@ -9,21 +9,25 @@
 
 Let’s say you’re working on decorating your kid’s room using a dinosaur theme. Our app makes it easy to search for designs using Spoonflower’s API. Infinite scroll pulls up dozens of designs, and the user can quickly create a board and add designs to it. If you hover over the design, you'll get more detailed information.
 
-`screenshot goes here`
+![Screenshot 1](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+1.jpg)
 
 After creating the dinosaur board, you might want to share it with friends or family. We use OmniAuth to communicate with <a href="https://github.com/jot/omniauth-pinterest">Pinterest’s API.</a> You can create pins, new Pinterest boards and even use its service to log into **SpoonBoards**.  
 
-`screenshot goes here`
+![Screenshot 2](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+2.jpg)
 
 The board has several features in the hamburger drawer menu, including the ability to duplicate a board, update the name and adjusting privacy settings. Users can toggle the public/private checkbox so boards can be hidden from others or shared with people who don't have a **SpoonBoards** account. It's all about the user's preference.
 
-`screenshot goes here`
+![Screenshot 3](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+3.jpg)
 
-Now you’re ready to move on with your dino decorating, but you need to see your board in person first. **SpoonBoards** allows you to add a board sampler to your cart on one of <a href="http://www.spoonflower.com/spoonflower_fabrics">Spoonflower’s base fabrics</a>, so you can have it printed on the material that best suits your needs. From the board page, you can also add individual swatches to your cart.
+**SpoonBoards** allows you to add a board sampler to your cart on one of <a href="http://www.spoonflower.com/spoonflower_fabrics">Spoonflower’s base fabrics</a>, so you can have it printed on the material that best suits your needs. From the board page, you can also add individual swatches to your cart. The shopping cart also allows you to change the quantity.
 
-`screenshot goes here`
+![Screenshot 4](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+4.jpg)
 
 <a href="https://stripe.com/docs/api">Stripe’s API</a> keeps the checkout process easy. Once the transaction is complete, SpoonBoards communicates with Spoonflower’s API to generate an order, and soon you would receive your dinosaur collection printed onto fabric.
+
+![Screenshot 5](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+5.jpg)
+
+![Screenshot 6](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+6.jpg)
 
 ## Future Targets
 
