@@ -18,8 +18,7 @@
             <div class="design-board-dropdown-wrapper"><%= select_tag "design[board_id]", options_for_select(@boards.collect{ |u| [u.name, u.id] }), class: "design-board-dropdown" %></div>
             &nbsp;
             <div class="design-board-btn-wrapper">
-
-              <%= button_tag(type: "submit", class: "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect design-card-overlay-add-button", onclick: "notify('You added a design to a board.');") do %>
+              <%= button_tag(type: "submit", class: "design-board-overlay-add-btn mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect design-card-overlay-add-button", onclick: "notify('You added a design to a board.');") do %>
                 <i class="material-icons">add</i>
               <% end %>
             </div>
