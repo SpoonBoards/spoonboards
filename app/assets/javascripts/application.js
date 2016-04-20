@@ -36,10 +36,10 @@ $(function () {  // short hand for $(document).ready(function() {})
   */
   $(".design-card-overlay-add-button").on("click", function() {
     console.log("** click search result hover add design button **");
-    // console.log( $(this).parent().next() );
+    console.log( $(this).parent().next() );
     // $(this).parent().next().css("opacity", "1.0");
     // $(this).parent().next().show().delay(1000).hide();
-    $(this).parent().next().fadeIn(400, "swing").delay(1500).fadeOut(400, "swing");
+    $(this).parent().next().fadeIn(400, "swing").delay(1000).fadeOut(400, "swing");
   });
 
   /*
@@ -235,15 +235,15 @@ function getResults(searchStr, offset, limit) {
       htmlStr += "<form class='design-form' action='/designs' accept-charset='UTF-8' data-remote='true' method='post'>\n";
 
       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-                 $(".design-board-dropdown-label-wrapper:first").html() +
+                 $(".design-board-dropdown-label-wrapper:last").html() +
                  "\n</div>\n";
 
       htmlStr += "<div class='design-board-dropdown-wrapper'>\n  " +
-                 $(".design-board-dropdown-wrapper:first").html() +
+                 $(".design-board-dropdown-wrapper:last").html() +
                  "\n</div>\n &nbsp; \n";
 
       htmlStr += "<div class='design-board-btn-wrapper'>\n  " +
-                 $(".design-board-btn-wrapper:first").html() +
+                 $(".design-board-btn-wrapper:last").html() +
                  "\n</div>\n";
 
 htmlStr += "<div class='design-card-add-board-msg'>Added</div>";
