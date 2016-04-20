@@ -9,11 +9,11 @@
 
 Let’s say you’re working on decorating your kid’s room using a dinosaur theme. Our app makes it easy to search for designs using Spoonflower’s API. Infinite scroll pulls up dozens of designs, and the user can quickly create a board and add designs to it. If you hover over the design, you'll get more detailed information.
 
-<a href="https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+1.jpg"></a>
+![Screenshot 1](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+1.jpg)
 
 After creating the dinosaur board, you might want to share it with friends or family. We use OmniAuth to communicate with <a href="https://github.com/jot/omniauth-pinterest">Pinterest’s API.</a> You can create pins, new Pinterest boards and even use its service to log into **SpoonBoards**.  
 
-`screenshot goes here`
+![Screenshot 2](https://s3-us-west-2.amazonaws.com/codepen-assets-cs-training/Screenshot+2.jpg)
 
 The board has several features in the hamburger drawer menu, including the ability to duplicate a board, update the name and adjusting privacy settings. Users can toggle the public/private checkbox so boards can be hidden from others or shared with people who don't have a **SpoonBoards** account. It's all about the user's preference.
 
