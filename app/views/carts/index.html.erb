@@ -52,20 +52,20 @@
     <% end %>
 
       <li>
-        <%= button_to cart_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "cart-remove-btn mdl-button mdl-js-button mdl-button--icon" do %>
+        <%= button_to cart_item, method: :delete, class: "cart-remove-btn mdl-button mdl-js-button mdl-button--icon" do %>
           <i class="fa fa-times" aria-hidden="true"></i>
         <% end %>
       </li>
     </ul>
     <br>
   <% end %>
-
+  <!-- <div class="cart-calculations"> -->
   <div class="cart-item-totals-wrapper">
-    <div class="cart-item-totals-label">Subtotal:</div><div class="cart-show-da-money"><%= number_to_currency(@amount) %></div><br>
     <div class="cart-item-totals-label">Tax:</div><div class="cart-show-da-money">$0.00</div><br>
     <div class="cart-item-totals-label">Shipping:</div><div class="cart-show-da-money">$0.00</div><br>
-    <div class="cart-item-totals-label"><strong>Total:</strong></div><div class="cart-show-da-money"><%= number_to_currency(@amount) %></div><br>
+    <div class="cart-item-totals-label"><strong>Total:</strong></div><div class="cart-show-da-money"><span class="money-stuff"><%= number_to_currency(@amount) %></span></div><br>
   </div>
+  <!-- </div> -->
   <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn cart-checkout-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %></div>
   <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, class: "cart-item-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get, onclick: "notify('You have cleared the cart.')" %></div>
 </div>
