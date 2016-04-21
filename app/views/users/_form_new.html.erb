@@ -11,21 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+<div class="new-user-container">
+  <div class="">
+    <%= f.label :name %> <br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
+  <br>
+  <div class="">
+    <%= f.label :email %> <br>
     <%= f.email_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <!-- <%= f.text_field :password %> -->
-    <%= f.password_field :password, class: "login-password-input", placeholder: "                 password" %>
-
+  <br>
+  <div class="">
+    <%= f.label :password %> <br>
+    <%= f.text_field :password %>
+    <!-- <%= f.password_field :password, class: "login-password-input", placeholder: "password" %> -->
+    <br>
   </div>
-  <div class="actions button">
-    <%= f.submit("Submit") %>
+  <br>
+  <br>
+  <div class="">
+    <%= f.submit "CREATE", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You created a new account.');" %>
+    <br>
+    <br>
+    <%= link_to users_path, class: "new-board-back-btn"  do  %><i class="fa fa-arrow-left" aria-hidden="true"></i><% end %>
   </div>
+</div>
 <% end %>

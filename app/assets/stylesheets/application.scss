@@ -1160,3 +1160,26 @@ footer {
   text-decoration: none;
   font-size: 2em;
 }
+
+// new user style
+
+.new-user-title-container {
+    // border: 1px dashed red;
+    width: 250px;
+    margin: 20px auto 0 auto;
+    padding: 0 20px;
+  }
+
+.new-user-container {
+  // border: 1px dashed red;
+  width: 250px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.new-user-container input {
+  border: 0;
+  border-bottom: 2px solid $grey;
+  background: $background-color;
+  font-size: 1em;
+}
