@@ -11,21 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <!-- <%= f.text_field :password %> -->
-    <%= f.password_field :password, class: "login-password-input", placeholder: "                 password" %>
+  <div class="login-form" >
+    <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+        <%= f.label :name, class: "login-email-label mdl-textfield__label" %><br>
+        <%= f.text_field :name,  class: "login-email-input  mdl-textfield__input" %>
+      </div>
+      <br>
+      <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+        <%= f.label :email, class: "login-email-label mdl-textfield__label"  %><br>
+        <%= f.email_field :email, class: "login-email-input  mdl-textfield__input"%>
+      </div>
+      <br>
+      <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :password, class: "login-password-label mdl-textfield__label" %><br>
+        <!-- <%= f.text_field :password %> -->
+        <%= f.password_field :password, class: "login-password-input mdl-textfield__input" , placeholder: "password" %>
+      </div>
+      <br>
 
-  </div>
-  <div class="actions button">
-    <%= f.submit("Submit") %>
-  </div>
+      <div class="actions button">
+        <%= f.submit "Submit", class: "login-submit-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"%>
+      </div>
+
+    </div>
 <% end %>

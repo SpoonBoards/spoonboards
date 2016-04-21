@@ -1,5 +1,49 @@
-<h1>New User</h1>
+<div class="overlord-container" data-no-turbolink>
 
-<%= render 'form_new' %>
 
-<%= link_to 'Back', users_path %>
+  <h3>Join us!</h3>
+
+  <div id="refresh">
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+  <div class="login-form" >
+    <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+        <%= f.label :name, class: "login-email-label mdl-textfield__label" %><br>
+        <%= f.text_field :name,  class: "login-email-input  mdl-textfield__input" %>
+      </div>
+      <br>
+      <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+        <%= f.label :email, class: "login-email-label mdl-textfield__label"  %><br>
+        <%= f.email_field :email, class: "login-email-input  mdl-textfield__input"%>
+      </div>
+      <br>
+      <div class="classlogin-email-wrapper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :password, class: "login-password-label mdl-textfield__label" %><br>
+        <!-- <%= f.text_field :password %> -->
+        <%= f.password_field :password, class: "login-password-input mdl-textfield__input" , placeholder: "password" %>
+      </div>
+      <br>
+
+      <div class="actions button">
+        <%= f.submit "Submit", class: "login-submit-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"%>
+      </div>
+
+    </div>
+  <% end %>
+
+
+    <%= link_to 'Back', users_path, class: "login-submit-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", style: "text-decoration: none;" %>
+
+  </div>
+</div>
