@@ -1,27 +1,30 @@
 <body>
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
+  <div class="checkout-amount">
+    <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+
+          Total: &nbsp; <%= number_to_currency(@amount, :unit => "$")  %>
+
+        </label>
+
+      </article>
+      <br>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="SpoonBoards Order Total"
+              data-amount="<%= @amount * 100 %>"
+              data-locale="auto"
+              data-billingAddress="true"
+              data-shippingAddress="true">
+
+      </script>
     <% end %>
-    <label class="amount">
-
-  <%= number_to_currency(@amount, :unit => "$")  %>
-
-    </label>
-
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="SpoonBoards Order Total"
-          data-amount="<%= @amount * 100 %>"
-          data-locale="auto"
-          data-billingAddress="true"
-          data-shippingAddress="true">
-
-  </script>
-<% end %>
+  </div>
 </body>

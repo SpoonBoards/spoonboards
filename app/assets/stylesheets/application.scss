@@ -1183,3 +1183,19 @@ footer {
   background: $background-color;
   font-size: 1em;
 }
+
+.checkout-amount {
+  // border: 1px dashed red;
+  width: 150px;
+  margin: 0 auto;
+  font: {
+    family: 'Lato';
+    size: 1.5em;
+  }
+}
+
+.order-receipt {
+  // border: 1px dashed red;
+  width: 350px;
+  margin: 0 auto;
+}
