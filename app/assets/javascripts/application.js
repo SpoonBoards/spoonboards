@@ -82,7 +82,7 @@ $(function () {  // short hand for $(document).ready(function() {})
 var currentOffset = 51,
     limit = "50",
     pageNum = 2,
-    maxScrollLoads = 10;
+    maxScrollLoads = 10;   // 500 total results
 
 /*
 * event handler for page scroll
