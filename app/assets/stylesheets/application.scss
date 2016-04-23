@@ -44,6 +44,7 @@ $grey: #888;
 // $grey: #aaaaaa;
 $dark-grey: #626262;
 // $dark-grey: #595B5A;
+$border-radius: 3px;
 
 body {
   margin: 0;
@@ -108,8 +109,8 @@ a {
 .design-card {
   display: inline-block;
   position: relative;
-  border: 1px solid $grey;
-  // border-radius: 3px;
+  // border: 1px solid $grey;
+  border-radius: $border-radius;
   width: 200px;
   height: 200px;
   // padding: 5px;
@@ -122,7 +123,7 @@ a {
     width: 200px;
     height: 200px;
     // border: 1px solid $dark-grey;
-    // border-radius: 3px;
+    border-radius: $border-radius;
   }
 }
 
@@ -186,7 +187,7 @@ a {
 
 .design-card-image-overlay {
   // display: none;
-  // border-radius: 3px;
+  border-radius: $border-radius;
   position: relative;
   margin-top: -190px;
   margin-left: 10px;
@@ -245,19 +246,20 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(arrow-down-grey.png) 101% / 15% no-repeat !important;
+    background: url(arrow-down-black.png) 101% / 15% no-repeat !important;
 }
 
 .design-board-overlay-add-btn {
   // border: 1px dashed red !important;
   margin-right: -10px !important;
+  border-radius: $border-radius !important;
 }
 
 .design-board-btn {
   // border: 1px solid #888;
-  // border-radius: 3px;
+  border-radius: $border-radius !important;
   // background: #ddd;
-  box-shadow: none !important;
+  // box-shadow: none !important;
 }
 
 .design-board-add-to-cart-btn {
@@ -281,7 +283,7 @@ a {
 
 .board-container {
   // border: 1px dashed red;
-  // border-radius: 5px;
+  border-radius: $border-radius;
   // width: auto;
   // width: 1014px;
   // height: 260px;
@@ -298,24 +300,25 @@ a {
 
 .board-card {
   display: inline-block;
-  border: 1px solid $grey;
+  // border: 1px solid $grey;
   // border-top: 3px solid $background-color;
   // border-bottom: 3px solid $background-color;
-  // border-radius: 5px;
+  border-radius: $border-radius;
   width: 200px;
   height: 290px;
   // padding: 1px;
   // margin: 0 0 15px 15px;
   font-size: 0.8em;
   white-space: nowrap;
-  background: #fdfdfd;
+  background: #fff;
   margin: 10px 3px 0 2px;
   // box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   img {
     width: 200px;
     height: 200px;
     // border: 1px solid #999;
-    // border-radius: 5px;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
   }
 }
 
@@ -335,17 +338,17 @@ a {
 }
 
 .board-name-wrapper {
-  // border-top-left-radius: 5px;
-  // border-top-right-radius: 5px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
   // border: 1px solid $grey;
-  background: #eee;
+  background: #fff;
   text-align: center;
   margin: 0 6px;
   padding: 0 0 10px 0;
 }
 
 .board-function-bar {
-  background: #eee;
+  background: #fff;
   color: $grey;
   .board-function-bar-item {
     display: inline-block;
@@ -356,10 +359,11 @@ a {
 
 .board-function-bar-items {
   // border: 1px dashed red;
+  border-radius: $border-radius;
   margin:  10px 174px 0 174px;
   padding: 5px 0px 5px 0;
   list-style: none;
-  background: $soft-white;
+  background: $background-color;
   li {
     // text-align: left;
     // border: 1px dashed red;
@@ -369,6 +373,8 @@ a {
 }
 .board-name {
   // border: 1px dashed red;
+  // border-top-right-radius: 3px;
+  // border-top-left-radius: 3px;
   padding: 0  0 0 44px;
   line-height: 1.4;
   height: 40px;
@@ -387,6 +393,7 @@ a {
   margin: 0 10px;
   right: 10px;
   color: $grey;
+  font-size: 1em !important;
 }
 
 .board-function-hamburger:hover {
@@ -403,6 +410,7 @@ a {
 
 .board-show-update-btn {
   color: $dark-grey !important;
+  border-radius: $border-radius !important;
 }
 
 // gridster style
@@ -516,7 +524,7 @@ a {
   // .fa-pinterest-square {
   //   font-size: 17px !important;
   // }
-  box-shadow: none !important;
+  // box-shadow: none !important;
 }
 
 .login-pinterest-btn:hover,
@@ -526,7 +534,7 @@ a {
   // margin: 10px 0;
   background: darken(rgb(225 ,225 ,225), 3%) !important;
   text-decoration: none !important;
-  box-shadow: none !important;
+  // box-shadow: none !important;
 }
 
 // .login-facebook-btn {
@@ -547,13 +555,13 @@ a {
 .login-submit-btn {
   // width: 80px;
   // height: 26px;
-  border-radius: 0 !important;
+  border-radius: $border-radius !important;
   // border: 1px solid #fff;
   // background: #fdfdfd;
   // margin: 0 0 10px 0;
   // font-size: 1em;
   // font-weight: bold;
-  box-shadow: none !important;
+  // box-shadow: none !important;
 }
 
 .login-or-wrapper,
@@ -598,6 +606,7 @@ header {
   width: 100%;
   height: 180px;
   margin: 0;
+  background: #fff;
   // border-bottom: 1px solid #bbb;
   .nav-wrapper, div {
     // border: 1px dashed red;
@@ -611,6 +620,7 @@ header {
     height: 52px;
     margin: 0;
     padding: 0;
+    background: #fff;
     li {
       // border: 1px dashed red;
       display: inline-block;
@@ -731,7 +741,7 @@ header {
   margin: -90px auto 0 auto;
   padding: 0 10px 0 10px;
   // border: 1px solid $grey;
-  // border-radius: 3px;
+  border-radius: $border-radius;
   background: $soft-white;
 }
 
@@ -754,8 +764,8 @@ header {
 }
 
 .header-search-input {
-  border: 1px solid #999;
-  border-radius: 5px;
+  // border: 1px solid #999;
+  border-radius: $border-radius;
   font-size: 1.1em;
   line-height: 1.5;
   padding: 0 6px;
@@ -764,8 +774,8 @@ header {
 
 // .header-search-btn-wrapper input {
 .header-search-btn {
-  border: 1px solid #999;
-  border-radius: 5px;
+  // border: 1px solid #999;
+  border-radius: $border-radius;
   font: {
     family: $body-font;
     size: 1.1em;
@@ -837,7 +847,7 @@ footer {
 .boards-index-card {
   display: inline-block;
   // border: 1px solid $grey;
-  // border-radius: 5px;
+  border-radius: $border-radius;
   margin: 10px 10px 0 0;
   padding: 5px;
   background: #fff;
@@ -869,8 +879,8 @@ footer {
 .boards-index-card-image {
   width: 125px;
   height: 125px;
-  border: 1px solid $grey;
-  // border-radius: 5px;
+  // border: 1px solid $grey;
+  border-radius: $border-radius;
 }
 
 .boards-index-card-btn-wrapper {
@@ -880,9 +890,9 @@ footer {
 .boards-index-show-btn,
 .boards-index-edit-btn,
 .boards-index-remove-btn {
-    border: 1px solid #999;
-    border-radius: 0px !important;
-    box-shadow: none !important;
+    // border: 1px solid #999;
+    border-radius: $border-radius !important;
+    // box-shadow: none !important;
     font: {
       family: $body-font;
       size: 1.1em;
@@ -903,6 +913,7 @@ footer {
 
 .boards-index-card-remove-btn {
   color: $dark-grey !important;
+  border-radius: $border-radius !important;
 }
 
 // cart styles
@@ -916,7 +927,7 @@ footer {
   display: inline-block;
   // border-bottom: 1px solid $grey;
   // border: 2px solid #aaa;
-  // border-radius: 5px;
+  border-radius: $border-radius;
   margin: 0;
   padding: 10px;
   width:90%;
@@ -943,6 +954,7 @@ footer {
 .cart-item-thumbnail {
   width: 50px;
   height: 50px;
+  border-radius: $border-radius;
 }
 
 // refactor !!!
@@ -954,7 +966,7 @@ footer {
     size: 0.8em;
     weight: bold;
   }
-  box-shadow: none !important;
+  // box-shadow: none !important;
   // color: $soft-white !important;
   // line-height: 1;
   // padding: 4px 10px;
@@ -1072,6 +1084,7 @@ footer {
 .cart-update-btn,
 .cart-remove-btn {
   margin: 0 10px !important;
+  border-radius: $border-radius !important;
 }
 
 .cart-show-da-money {
@@ -1080,7 +1093,7 @@ footer {
 
 #board_name {
   border: 0;
-  border-bottom: 2px solid $grey;
+  border-bottom: 1px solid $grey;
   font-size: 1.0em !important;
   line-height: normal;
   background: rgba(0 , 0, 0, 0);
@@ -1089,7 +1102,7 @@ footer {
 #design_board_id {
   border-radius: 0;
   border: 0;
-  border-bottom: 2px solid $grey;
+  border-bottom: 1px solid $grey;
   background: rgba(0 , 0, 0, 0);
   width: 150px;
   padding: 5px 10px 5px 5px;
@@ -1097,14 +1110,14 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(arrow-down-grey.png) 101% / 16% no-repeat;
+  background: url(arrow-down-grey.png) 101% / 16% no-repeat !important;
 }
 
 #board_fabric_type,
 #cart_item_fabric_type {
   border-radius: 0;
   border: 0;
-  border-bottom: 2px solid $grey;
+  border-bottom: 1px solid $grey;
   background: rgba(0 , 0, 0, 0);
   width: 195px;
   padding: 5px 10px 5px 5px;
@@ -1112,7 +1125,7 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(arrow-down-grey.png) 101% / 13% no-repeat;
+  background: url(arrow-down-black.png) 101% / 13% no-repeat;
 }
 
 #board_fabric_type {
@@ -1122,7 +1135,7 @@ footer {
 
 #cart_item_quantity {
   border: 0;
-  border-bottom: 2px solid $grey;
+  border-bottom: 1px solid $grey;
   padding: 5px 0px 5px 5px;
   font-size: 0.9em;
   background: rgba(0 , 0, 0, 0);
