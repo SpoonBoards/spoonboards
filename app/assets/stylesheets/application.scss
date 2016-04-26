@@ -246,7 +246,7 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: image-url(arrow-down-black.png) 101% / 15% no-repeat !important;
+    background: url(asset_path('arrow-down-black.png')) 101% / 15% no-repeat !important;
 }
 
 .design-board-overlay-add-btn {
@@ -1110,7 +1110,7 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: image-url(arrow-down-grey.png) 101% / 16% no-repeat !important;
+  background: url(asset_path('arrow-down-grey.png')) 101% / 16% no-repeat !important;
 }
 
 #board_fabric_type,
@@ -1125,7 +1125,7 @@ footer {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: image-url(arrow-down-black.png) 101% / 13% no-repeat;
+  background: url(asset_path('arrow-down-black.png')) 101% / 13% no-repeat;
 }
 
 #board_fabric_type {
