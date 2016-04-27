@@ -29,6 +29,6 @@
   <div class="">
     <%= f.submit "UPDATE", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", onclick: "notify('You updated your account.');" %>
     &nbsp; &nbsp; &nbsp;
-    <%= link_to @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "new-board-back-btn", style: "vertical-align:middle;" do %><i class="fa fa-times" aria-hidden="true"></i><% end %>
+    <%= link_to @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "new-board-back-btn mdl-button mdl-js-button mdl-button--icon" do %><i class="fa fa-times" aria-hidden="true"></i><% end %>
   </div>
 <% end %>
