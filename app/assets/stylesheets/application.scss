@@ -252,12 +252,12 @@ a {
 .design-board-overlay-add-btn {
   // border: 1px dashed red !important;
   margin-right: -10px !important;
-  border-radius: $border-radius !important;
+  // border-radius: $border-radius !important;
 }
 
 .design-board-btn {
   // border: 1px solid #888;
-  border-radius: $border-radius !important;
+  // border-radius: $border-radius !important;
   // background: #ddd;
   box-shadow: none !important;
 }
@@ -410,7 +410,7 @@ a {
 
 .board-show-update-btn {
   color: $dark-grey !important;
-  border-radius: $border-radius !important;
+  // border-radius: $border-radius !important;
 }
 
 // gridster style
@@ -775,7 +775,7 @@ header {
 // .header-search-btn-wrapper input {
 .header-search-btn {
   // border: 1px solid #999;
-  border-radius: $border-radius;
+  // border-radius: $border-radius;
   font: {
     family: $body-font;
     size: 1.1em;
@@ -891,7 +891,7 @@ footer {
 .boards-index-edit-btn,
 .boards-index-remove-btn {
     // border: 1px solid #999;
-    border-radius: $border-radius !important;
+    // border-radius: $border-radius !important;
     box-shadow: none !important;
     font: {
       family: $body-font;
@@ -913,7 +913,7 @@ footer {
 
 .boards-index-card-remove-btn {
   color: $dark-grey !important;
-  border-radius: $border-radius !important;
+  // border-radius: $border-radius !important;
 }
 
 // cart styles
@@ -1085,7 +1085,7 @@ footer {
 .cart-update-btn,
 .cart-remove-btn {
   margin: 0 10px !important;
-  border-radius: $border-radius !important;
+  // border-radius: $border-radius !important;
 }
 
 .cart-show-da-money {
