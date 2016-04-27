@@ -67,7 +67,7 @@
   </div>
   <!-- </div> -->
   <div class="cart-checkout-btn-wrapper"><%= button_to 'Checkout', new_charge_path, class: "cart-item-btn cart-checkout-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %></div>
-  <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, class: "cart-item-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get, onclick: "notify('You have cleared the cart.')" %></div>
+  <div class="cart-checkout-btn-wrapper"><%= button_to 'Clear', @cart, type: "submit", class: "cart-item-btn cart-clear-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", :remote => true, :method => :get, onclick: "notify('You have cleared the cart.')" %></div>
 </div>
 
 <script>

@@ -259,7 +259,7 @@ a {
   // border: 1px solid #888;
   border-radius: $border-radius !important;
   // background: #ddd;
-  // box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .design-board-add-to-cart-btn {
@@ -524,7 +524,7 @@ a {
   // .fa-pinterest-square {
   //   font-size: 17px !important;
   // }
-  // box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .login-pinterest-btn:hover,
@@ -534,7 +534,7 @@ a {
   // margin: 10px 0;
   background: darken(rgb(225 ,225 ,225), 3%) !important;
   text-decoration: none !important;
-  // box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 // .login-facebook-btn {
@@ -561,7 +561,7 @@ a {
   // margin: 0 0 10px 0;
   // font-size: 1em;
   // font-weight: bold;
-  // box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .login-or-wrapper,
@@ -604,7 +604,7 @@ a {
 
 header {
   width: 100%;
-  height: 180px;
+  height: 176px;
   margin: 0;
   background: #fff;
   // border-bottom: 1px solid #bbb;
@@ -892,7 +892,7 @@ footer {
 .boards-index-remove-btn {
     // border: 1px solid #999;
     border-radius: $border-radius !important;
-    // box-shadow: none !important;
+    box-shadow: none !important;
     font: {
       family: $body-font;
       size: 1.1em;
@@ -947,6 +947,7 @@ footer {
 }
 
 .cart-item-labels-container {
+  border-radius: 0;
   border-bottom: 1px solid $grey;
   height: 20px;
 }
@@ -966,7 +967,7 @@ footer {
     size: 0.8em;
     weight: bold;
   }
-  // box-shadow: none !important;
+  box-shadow: none !important;
   // color: $soft-white !important;
   // line-height: 1;
   // padding: 4px 10px;
@@ -1038,7 +1039,7 @@ footer {
 }
 
 .cart-item-label-fabric {
-  width: 200px;
+  width: 195px;
 }
 
 .cart-item-label-quantity {
